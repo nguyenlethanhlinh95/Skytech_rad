@@ -106,9 +106,7 @@ namespace TestRada1
 
            
             for (int i = 0; i < number; i++)
-            {
-                
-               
+            {              
                 string time = rd.Next(2,3).ToString();
                 int numberPhuongTien = rd.Next(1, 4);
                 string phuongTien = "";

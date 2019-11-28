@@ -40,6 +40,8 @@ namespace TestRada1
         Bitmap bmp;
         Pen p;
         Graphics g;
+        string[] phuongTienTim;
+        MenuStrip MnuStrip;
         /**
          * Khai bao truc toa do O, va toa do con chuot, dung de tinh khoang cach khi hover
          * 
@@ -57,9 +59,10 @@ namespace TestRada1
         int xKimQuay = 0;
         int yKimQuay = 360;
 
-        bool isHienThiThanhDoKhoangCach = false;
-        int numKiemTraSoLanClickDiemSoVoiTrucO = 0;
+        bool isDoKhoanCachSoO = false;
+        int numKiemTraSoLanClickSoO = 0;
         bool isVeToaDoTrungTam = false; // check toa do ve diem 
+        int xToaDoDiemSoSoVoiO = 0, yToaDoDiemSoVoiO = 0;
 
         bool isDoKhoanCachGiuaHaiDiem = false;
         int numKiemTraSoLanClickHaiDiem = 0; // so luong lan click va hai diem
@@ -73,6 +76,9 @@ namespace TestRada1
         double thamSoY;
         private void frm_rada5_Load(object sender, EventArgs e)
         {
+            // context menu
+            MnuStrip = new MenuStrip( );
+            MnuStrip.Dock = DockStyle.None;
             // set truc toa do so voi man hinh
             xO = (int)this.Width/2;
             yO = (int) this.Height / 2;
@@ -221,14 +227,17 @@ namespace TestRada1
      
         private void RadarLineChart_Paint(object sender, PaintEventArgs e)
         {
-            if (isHienThiThanhDoKhoangCach)
+            if ( isVeToaDoTrungTam )
             {
-                e.Graphics.DrawLine(Pens.Red, xO-2, yO-2, xChuot, yChuot);
+                int x = RadarLineChart.Width / 2;
+                int y = RadarLineChart.Height / 2 + 20;
+                e.Graphics.DrawLine(Pens.Red, x, y, xToaDoDiemSoSoVoiO, yToaDoDiemSoVoiO);
 
-                int khoangCachOM = (xChuot - RadarLineChart.Width / 2) * (xChuot - RadarLineChart.Width / 2) +
-            (yChuot - RadarLineChart.Height / 2) * (yChuot - RadarLineChart.Height / 2);
+                int khoangCachOM = (xToaDoDiemSoSoVoiO - x) * (xToaDoDiemSoSoVoiO - x) +
+            (yToaDoDiemSoVoiO - y) * (yToaDoDiemSoVoiO - y);
+                var doDai = Math.Sqrt(Double.Parse(khoangCachOM.ToString()));
                 tt.RemoveAll( );
-                tt.Show("Khoảng cách đến trục O: " + khoangCachOM, this, xChuot + 25, yChuot + 25);
+                tt.Show("Khoảng cách đến trục O: " + doDai, this, xToaDoDiemSoSoVoiO + 25, yChuot + 25);
             }      
             else
             {
@@ -239,7 +248,14 @@ namespace TestRada1
             {
                 if ( isVeToaDoHaiDiem )
                 {
+                    
                     e.Graphics.DrawLine(Pens.Red, toaDo1, toaDo2);
+
+                    int khoangCachOM = (toaDo1.X - toaDo2.X) * (toaDo1.X - toaDo2.X) +
+            (toaDo1.Y - toaDo2.Y) * (toaDo1.Y - toaDo2.Y);
+                    var doDai = Math.Sqrt(Double.Parse(khoangCachOM.ToString()));
+                    tt.RemoveAll( );
+                    tt.Show("Khoảng cách đến trục O: " + doDai, this, toaDo1.X + 25, toaDo1.Y + 25);
                 }
                 else
                 {
@@ -264,22 +280,7 @@ namespace TestRada1
             textEdit1.Text = "x: " + Cursor.Position.X + " y: " + Cursor.Position.Y;
 
             xChuot = e.X;
-            yChuot = e.Y;
-
-
-            // vat the
-            int i = 0;
-            foreach ( DataRow dtRow in dt.Rows )
-            {
-                if ( (pointt[i].X < Cursor.Position.X && pointt[i].X > Cursor.Position.X - 50) && (pointt[i].Y + 10 < Cursor.Position.Y && pointt[i].Y + 70 > Cursor.Position.Y) )
-                {
-                    tt_vatthe.RemoveAll( );
-                    //IWin32Window win = this;
-
-                    tt_vatthe.Show("Phương Tiện: " + dtRow["phuongTien"].ToString( ) + ", Tọa Độ X: " + Cursor.Position.X + ", Tọa Độ Y: " + Cursor.Position.Y, this, Cursor.Position.X + 25, Cursor.Position.Y + 25);
-                }
-                i++;
-            }               
+            yChuot = e.Y;           
         }
 
 
@@ -288,17 +289,20 @@ namespace TestRada1
         {           
             if ( Messeage.info("Bạn muốn mở ứng dụng đo khoảng cách so với vị trí trung tâm?", "") )
             {
-                isHienThiThanhDoKhoangCach = true;
-                numKiemTraSoLanClickDiemSoVoiTrucO = 0;
-                isVeToaDoTrungTam = true;
+                isDoKhoanCachSoO = true;
+                numKiemTraSoLanClickSoO = 0;
+                isVeToaDoTrungTam = false;
             }
             else
             {
-                isHienThiThanhDoKhoangCach = false;
-                numKiemTraSoLanClickDiemSoVoiTrucO = 0;
+                xToaDoDiemSoSoVoiO = 0;
+                yToaDoDiemSoVoiO = 0;
                 isVeToaDoTrungTam = false;
+                numKiemTraSoLanClickSoO = 0;
+                isDoKhoanCachSoO = false;
             }
 
+            RadarLineChart.Paint += new System.Windows.Forms.PaintEventHandler(this.RadarLineChart_Paint);     
             
         }
 
@@ -329,21 +333,21 @@ namespace TestRada1
 
 
             // lay toa do diem so voi vi tri trung tam de ve khoang cach
-            //if (isVeToaDoTrungTam)
-            //{
-            //    numKiemTraSoLanClickDiemSoVoiTrucO += 1;
-            //    if (numKiemTraSoLanClickHaiDiem == 1)
-            //    {
-            //        int x = Cursor.Position.X;
-            //        int y = Cursor.Position.Y;
-            //        xChuot = x;
-            //        yChuot = y;
+            if ( isDoKhoanCachSoO )
+            {
+                numKiemTraSoLanClickSoO += 1;
+                if ( numKiemTraSoLanClickSoO == 1 )
+                {
+                    int x = Cursor.Position.X;
+                    int y = Cursor.Position.Y;
+                    xToaDoDiemSoSoVoiO = x;
+                    yToaDoDiemSoVoiO = y;
 
-            //        isHienThiThanhDoKhoangCach = true;
-            //    }
-            //}
+                    isVeToaDoTrungTam = true;
+                }
+            }
 
-            //RadarLineChart.Paint += new System.Windows.Forms.PaintEventHandler(this.RadarLineChart_Paint);
+            RadarLineChart.Paint += new System.Windows.Forms.PaintEventHandler(this.RadarLineChart_Paint);
         }
 
         private void btn_DoKhoanCachGiuaHaiDiem_Click(object sender, EventArgs e)
@@ -352,7 +356,7 @@ namespace TestRada1
         }
         private void veHinhDoKhoangCachHaiDiem()
         {
-            if ( Messeage.info("Bạn muốn mở ứng dụng đo khoảng cách so với vị trí trung tâm?", "") )
+            if ( Messeage.info("Bạn muốn mở ứng dụng đo khoảng cách giữa hai điểm?", "") )
             {
                 isDoKhoanCachGiuaHaiDiem = true;
                 numKiemTraSoLanClickHaiDiem = 0;
@@ -379,6 +383,56 @@ namespace TestRada1
             string text = "Range = " + xChuot + "/n" + "Azimuth = " + yChuot;
             tt.RemoveAll( );
             tt.Show(text, this, xChuot + 25, yChuot + 25);
+
+
+
+            if ( e.Button == System.Windows.Forms.MouseButtons.Right )
+            {
+                int i = 0;
+                int soLuongVatThe = 0;
+                int j = 0;
+                phuongTienTim = new string[dt.Rows.Count];
+                foreach ( DataRow dtRow in dt.Rows )
+                {
+
+                    if ( (pointt[i].X - 30 < Cursor.Position.X && pointt[i].X > Cursor.Position.X - 30) && (pointt[i].Y - 6 < Cursor.Position.Y && pointt[i].Y + 56 > Cursor.Position.Y) )
+                    {
+                        soLuongVatThe++;
+                        phuongTienTim[j] = dtRow["phuongTien"].ToString( );
+                        j++;
+                    }
+
+                    i++;
+                }
+                if ( soLuongVatThe == 1 )
+                {
+                    tt.RemoveAll( );
+                    IWin32Window win = this;
+                    tt.Show("Phương Tiện: " + phuongTienTim[0] + ", Tọa Độ X: " + Cursor.Position.X + ", Tọa Độ Y: " + Cursor.Position.Y, win, Cursor.Position);
+                }
+                else if ( soLuongVatThe > 1 )
+                {
+                    tt.RemoveAll( );
+
+
+                    //Control is added to the Form using the Add property
+                    MnuStrip.Items.Clear( );
+                    MnuStrip.Visible = true;
+                    MnuStrip.Location = new Point(Cursor.Position.X, Cursor.Position.Y);
+                    this.Controls.Add(MnuStrip);
+                    MnuStrip.BringToFront( );
+                    ToolStripMenuItem MnuStripItem = new ToolStripMenuItem("Danh Sách");
+                    MnuStrip.Items.Add(MnuStripItem);
+                    ToolStripMenuItem MnuStripItem1 = new ToolStripMenuItem("Xóa", null, delte_Menu);
+                    MnuStrip.Items.Add(MnuStripItem1);
+                    foreach ( string rw in phuongTienTim )
+                    {
+                        ToolStripMenuItem SSMenu = new ToolStripMenuItem(rw, null, ChildClick);
+                        // SubMenu(SSMenu,rw);  I have included this piece of code to add a Sub-Menu to the New Menu
+                        MnuStripItem.DropDownItems.Add(SSMenu);
+                    }
+                }
+            }
         }
         /**
          * Su kien re chuot
@@ -463,48 +517,60 @@ namespace TestRada1
         // ve doi tuong
          private Bitmap paint(Image img, Color newColor, int x1, int y1)
         {
-            Bitmap bmp1 = new Bitmap(img, 16, 16);
+            Bitmap bmp1 = new Bitmap(24, 24);
             Graphics g1 = Graphics.FromImage(bmp1);
-            
+
             Color color1 = System.Drawing.ColorTranslator.FromHtml("#000000"); ;
             ColorMap[] colorMap = new ColorMap[1];
-            colorMap[0] = new ColorMap();
+            colorMap[0] = new ColorMap( );
             colorMap[0].OldColor = color1;
             colorMap[0].NewColor = newColor;
-            ImageAttributes attr = new ImageAttributes();
+            ImageAttributes attr = new ImageAttributes( );
             attr.SetRemapTable(colorMap);
-            Rectangle rect = new Rectangle(0, 0, 16, 16);
+            Rectangle rect = new Rectangle(0, 0, bmp1.Width, bmp1.Height);
+            g1.DrawImage(img, 4, 4, 16, 16);
             g1.DrawImage(bmp1, rect, 0, 0, rect.Width, rect.Height, GraphicsUnit.Pixel, attr);
-            int khoangCachOM = (x1 + 10 - RadarLineChart.Width / 2) * (x1 + 10 - RadarLineChart.Width / 2) +
-            (y1 + 36 - RadarLineChart.Height / 2) * (y1 + 36 - RadarLineChart.Height / 2);
+            int khoangCachOM = (x1 - RadarLineChart.Width / 2) * (x1 - RadarLineChart.Width / 2) +
+            (y1 - RadarLineChart.Height / 2) * (y1 - RadarLineChart.Height / 2);
             // tính bình phương bán kính
             int banKinh = 320 * 320;
             int banKinh1 = 240 * 240;
-            int bankinh2 = 160 * 160;
-            int bankinh3 = 80 * 80;
-            if (khoangCachOM > banKinh)
+            int banKinh2 = 160 * 160;
+            int banKinh3 = 80 * 80;
+            if ( khoangCachOM > banKinh )
             {
                 g1.DrawEllipse(new Pen(Color.Transparent, 2), rect);
             }
-            else if (khoangCachOM >= banKinh && khoangCachOM < banKinh1)
+            else if ( khoangCachOM >= banKinh1 && khoangCachOM <= banKinh )
             {
                 g1.DrawEllipse(new Pen(Color.Green, 2), rect);
             }
-            else if (khoangCachOM >= banKinh1 && khoangCachOM < bankinh2)
+            else if ( khoangCachOM >= banKinh2 && khoangCachOM < banKinh1 )
             {
                 g1.DrawEllipse(new Pen(Color.Blue, 2), rect);
             }
-            else if (khoangCachOM >= bankinh2 && khoangCachOM < bankinh3)
+            else if ( khoangCachOM >= banKinh3 && khoangCachOM < banKinh2 )
             {
                 g1.DrawEllipse(new Pen(Color.Orange, 2), rect);
             }
             else
                 g1.DrawEllipse(new Pen(Color.Red, 2), rect);
-           
-            
-            
+
+
+
             return bmp1;
         }
+
+
+         public void ChildClick(object sender, System.EventArgs e)
+         {
+             MessageBox.Show(string.Concat("You have Clicked '", sender.ToString( ), "' Menu"), "Menu Items Event",
+                                                                          MessageBoxButtons.OK, MessageBoxIcon.Information);
+         }
+         public void delte_Menu(object sender, System.EventArgs e)
+         {
+             MnuStrip.Visible = false;
+         }
      
     }
 }
