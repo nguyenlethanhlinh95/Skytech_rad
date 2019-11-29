@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Charts.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Map.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -53,6 +54,7 @@
     <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,73 +65,122 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="BUS\DeparmentBus.cs" />
+    <Compile Include="BUS\UserBus.cs" />
+    <Compile Include="DAO\DepartmentDao.cs" />
+    <Compile Include="DAO\UserDao.cs" />
+    <Compile Include="frm_ChucVu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frm_ChucVu.Designer.cs">
+      <DependentUpon>frm_ChucVu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="frm_DangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.designer.cs">
+    <Compile Include="frm_DangNhap.Designer.cs">
+      <DependentUpon>frm_DangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Main.Designer.cs">
+      <DependentUpon>frm_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_User.Designer.cs">
+      <DependentUpon>frm_User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HeThong\ChucVu\frm_NewDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\HeThong\ChucVu\frm_NewDepartment.Designer.cs">
+      <DependentUpon>frm_NewDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HeThong\User\frm_RePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\HeThong\User\frm_RePassword.Designer.cs">
+      <DependentUpon>frm_RePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HeThong\User\frm_UserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\HeThong\User\frm_UserInfo.Designer.cs">
+      <DependentUpon>frm_UserInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StyleDevxpressGridControl.cs" />
+    <Compile Include="BUS\VatTheBus.cs" />
+    <Compile Include="DAO\VatTheDao.cs" />
+    <Compile Include="DTO\DataClasses1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\VatThe\frm_VatThes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\VatThe\frm_VatThes.Designer.cs">
+      <DependentUpon>frm_VatThes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\VatThe\frm_AddNewVatThe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\VatThe\frm_AddNewVatThe.Designer.cs">
+      <DependentUpon>frm_AddNewVatThe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form2.designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="GUI\frm_rada5.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_map.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_map.Designer.cs">
-      <DependentUpon>frm_map.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_rada.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_rada.Designer.cs">
-      <DependentUpon>frm_rada.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_rada5.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_rada5.Designer.cs">
+    <Compile Include="GUI\frm_rada5.Designer.cs">
       <DependentUpon>frm_rada5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_rada_test.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_rada_test.Designer.cs">
-      <DependentUpon>frm_rada_test.cs</DependentUpon>
     </Compile>
     <Compile Include="Messeage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RadarDraw.cs" />
-    <Compile Include="radarDrawsLibrary.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <None Include="DTO\DataClasses1.dbml.layout">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="frm_ChucVu.resx">
+      <DependentUpon>frm_ChucVu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
+    <EmbeddedResource Include="frm_DangNhap.resx">
+      <DependentUpon>frm_DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Main.resx">
+      <DependentUpon>frm_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_User.resx">
+      <DependentUpon>frm_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HeThong\ChucVu\frm_NewDepartment.resx">
+      <DependentUpon>frm_NewDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HeThong\User\frm_RePassword.resx">
+      <DependentUpon>frm_RePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HeThong\User\frm_UserInfo.resx">
+      <DependentUpon>frm_UserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\VatThe\frm_VatThes.resx">
+      <DependentUpon>frm_VatThes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\VatThe\frm_AddNewVatThe.resx">
+      <DependentUpon>frm_AddNewVatThe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_map.resx">
-      <DependentUpon>frm_map.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_rada.resx">
-      <DependentUpon>frm_rada.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_rada5.resx">
+    <EmbeddedResource Include="GUI\frm_rada5.resx">
       <DependentUpon>frm_rada5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_rada_test.resx">
-      <DependentUpon>frm_rada_test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -143,6 +194,11 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="DTO\DataClasses1.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -152,6 +208,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

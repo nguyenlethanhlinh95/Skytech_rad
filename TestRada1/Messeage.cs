@@ -14,9 +14,7 @@ namespace TestRada1
         {
             XtraMessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-        
-
+       
         public static void error(string mess)
         {
             XtraMessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -46,6 +44,28 @@ namespace TestRada1
         {
             XtraMessageBox.Show("Chương trình bị lỗi, hãy kiểm tra lại", "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        public static void capNhatThanhCong()
+        {
+            XtraMessageBox.Show("Cập Nhật Thành Công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public static void khongTheCapNhat( )
+        {
+            XtraMessageBox.Show("Không Thể Cập Nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public static void themMoiThanhCong( )
+        {
+            XtraMessageBox.Show("Thêm Mới Thành Công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public static void khongTheThemMoi( )
+        {
+            XtraMessageBox.Show("Không Thể Thêm Mới !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+       
 
 
         //public static thongBaoHangMuc()

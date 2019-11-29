@@ -22,5 +22,16 @@ namespace TestRada1.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-3LCHSSQ\\SQLEXPRESS;Initial Catalog=DB_Radar;User ID=sa;Passwo" +
+            "rd=Abc@123")]
+        public string DB_RadarConnectionString {
+            get {
+                return ((string)(this["DB_RadarConnectionString"]));
+            }
+        }
     }
 }
