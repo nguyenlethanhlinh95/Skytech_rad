@@ -50,3 +50,5 @@ D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\D
 D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.frm_ChucVu.resources
 D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.frm_User.resources
 D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.frm_RePassword.resources
+D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.frm_NewUser.resources
+D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.frm_UpdateUser.resources

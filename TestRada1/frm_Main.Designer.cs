@@ -115,12 +115,14 @@
             this.btnBar_ChucVu = new DevExpress.XtraBars.BarButtonItem();
             this.barBtn_rada = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnCaiDat = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtn_VatThe = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup25 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage9 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup24 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -225,9 +227,10 @@
             this.barButtonItem3,
             this.btnBar_ChucVu,
             this.barBtn_rada,
-            this.barBtnCaiDat});
+            this.barBtnCaiDat,
+            this.barBtn_VatThe});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 90;
+            this.ribbon.MaxItemId = 91;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage4,
@@ -979,6 +982,16 @@
             this.barBtnCaiDat.Name = "barBtnCaiDat";
             this.barBtnCaiDat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnCaiDat_ItemClick);
             // 
+            // barBtn_VatThe
+            // 
+            this.barBtn_VatThe.Caption = "Vật thể";
+            this.barBtn_VatThe.Id = 90;
+            this.barBtn_VatThe.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barBtn_VatThe.ImageOptions.Image")));
+            this.barBtn_VatThe.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barBtn_VatThe.ImageOptions.LargeImage")));
+            this.barBtn_VatThe.LargeWidth = 100;
+            this.barBtn_VatThe.Name = "barBtn_VatThe";
+            this.barBtn_VatThe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtn_VatThe_ItemClick);
+            // 
             // ribbonPage4
             // 
             this.ribbonPage4.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
@@ -1022,17 +1035,24 @@
             this.ribbonPage1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.ribbonPage1.Appearance.Options.UseFont = true;
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup2});
+            this.ribbonPageGroup2,
+            this.ribbonPageGroup4});
             this.ribbonPage1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage1.ImageOptions.Image")));
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Thiết Lập Ban Đầu";
             // 
             // ribbonPageGroup2
             // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnUser);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnBar_ChucVu);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnUser);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Người Dùng";
+            // 
+            // ribbonPageGroup4
+            // 
+            this.ribbonPageGroup4.ItemLinks.Add(this.barBtn_VatThe);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.Text = "Radar Score";
             // 
             // ribbonPage9
             // 
@@ -1244,5 +1264,7 @@
         private DevExpress.XtraBars.BarButtonItem barBtnCaiDat;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraBars.BarButtonItem barBtn_VatThe;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
     }
 }

@@ -59,11 +59,25 @@ namespace TestRada1
         #region Load
         private void loadDeparment( )
         {
-            var data = _dep.listAll( );
 
-            lue_deparment.Properties.DataSource = data;
-            lue_deparment.Properties.ValueMember = "department_id";
-            lue_deparment.Properties.DisplayMember = "department_name";
+            try
+            {
+                var datasource = _dep.listAll( );
+                if ( datasource != null )
+                {
+                    lue_deparment.Properties.DataSource = datasource;
+                    lue_deparment.Properties.ValueMember = "department_id";
+                    lue_deparment.Properties.DisplayMember = "department_name";
+                }
+                else
+                {
+                    Messeage.error("Không thể tải dữ liệu !");
+                }
+            }
+            catch(Exception)
+            {
+                
+            }
         }
 
         public void LoadData( )

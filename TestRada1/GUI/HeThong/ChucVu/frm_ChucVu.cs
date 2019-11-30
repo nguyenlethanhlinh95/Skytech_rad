@@ -96,5 +96,43 @@ namespace TestRada1
         {
             index = e.FocusedRowHandle;
         }
+
+        private void btn_Delete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if ( grdv_ChucVu.RowCount > 0 )
+            {
+                if ( index >= 0 )
+                {
+                    Int64 id = Convert.ToInt64(grdv_ChucVu.GetRowCellValue(index, "department_id").ToString( ));
+                    string Name = grdv_ChucVu.GetRowCellValue(index, "department_name").ToString( );
+
+                    bool boolCheckDelete = Messeage.info("Bạn Có Muốn Xóa Vật Thể Này '", Name);
+
+                    if ( boolCheckDelete == true )
+                    {
+                        bool boolDelete = _dep.deleteDepartment(id);
+                        if ( boolDelete == true )
+                        {
+                            Messeage.xoaThanhCong( );
+
+                            LoadDepartment( );
+                        }
+                        else
+                        {
+                            Messeage.khongTheXoa( );
+
+                        }
+                    }
+                }
+                else
+                {
+                    Messeage.error("Bạn Hãy Chọn Đơn Vật Thể");
+                }
+            }
+            else
+            {
+                Messeage.err( );
+            }
+        }
     }
 }

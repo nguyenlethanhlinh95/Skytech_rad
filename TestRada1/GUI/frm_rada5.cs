@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraCharts;
 using System.Drawing.Imaging;
+using TestRada1.BUS;
+using System.IO;
 
 namespace TestRada1
 {
@@ -30,19 +32,25 @@ namespace TestRada1
         public int yEnd;
         public int buocNhay;
         int start = 0;
-        public DataTable dt;
+        IEnumerable<object> dt;
         public Color cl_mayBay;
         public Color cl_xe;
         public Color cl_thuyen;
-        int[] numberRun;
+        //int[] numberRun;
         Image img;
-        Point[] pointt;
+        //Point[] pointt;
         Bitmap bmp;
         Pen p;
         Graphics g;
         string[] phuongTienTim;
         MenuStrip MnuStrip;
         bool keVuong = false;
+
+        List<int> numberRun;
+        List<Point> pointt;
+        int count;
+
+        DateTime TimeStart;
         /**
          * Khai bao truc toa do O, va toa do con chuot, dung de tinh khoang cach khi hover
          * 
@@ -78,8 +86,14 @@ namespace TestRada1
          * */
         double thamSoX;
         double thamSoY;
+
+        HoatDongBus hoatDongBus = new HoatDongBus();
+
         private void frm_rada5_Load(object sender, EventArgs e)
         {
+            TimeStart = DateTime.Now;
+            dt = hoatDongBus.getAll(TimeStart);
+            
             // context menu
             MnuStrip = new MenuStrip( );
             MnuStrip.Dock = DockStyle.None;
@@ -93,19 +107,21 @@ namespace TestRada1
             thamSoX=(RadarLineChart.Width / 2) / (350 * 1.0);
             thamSoY = (RadarLineChart.Height / 2) / (350 * 1.0);
             bmp = new Bitmap(RadarLineChart.Width, RadarLineChart.Height);
-            numberRun = new int[dt.Rows.Count];
 
-
-
-            pointt = new Point[dt.Rows.Count];
-            int b = 0;
-            foreach (DataRow dtRow in dt.Rows)
+            count = 0;
+            foreach ( var dtRow in dt )
             {
-                pointt[b].X = 0;
-                pointt[b].Y = 0;
-                numberRun[b] = 0;
+                count++;
+            }
+            numberRun = new List<int>( );
+            pointt = new List<Point>( );
+            int b = 0;
+            pointt.Add(new Point(0, 0));
+            foreach ( var dtRow in dt )
+            {
+                pointt.Add(new Point(0, 0));
+                numberRun.Add(0);
                 b = b + 1;
-
             }
             //RadarLineChart.BackColor = Color.;
             RadarLineChart.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -436,58 +452,58 @@ namespace TestRada1
 
         private void RadarLineChart_MouseClick(object sender, MouseEventArgs e)
         {
-            string text = "Range = " + xChuot + "/n" + "Azimuth = " + yChuot;
-            tt.RemoveAll( );
-            tt.Show(text, this, xChuot + 25, yChuot + 25);
-
-
-
-            if ( e.Button == System.Windows.Forms.MouseButtons.Right )
+            try
             {
-                int i = 0;
-                int soLuongVatThe = 0;
-                int j = 0;
-                phuongTienTim = new string[dt.Rows.Count];
-                foreach ( DataRow dtRow in dt.Rows )
+                string text = "Range = " + xChuot + "/n" + "Azimuth = " + yChuot;
+                tt.RemoveAll( );
+                tt.Show(text, this, xChuot + 25, yChuot + 25);
+                if ( e.Button == System.Windows.Forms.MouseButtons.Right )
                 {
-
-                    if ( (pointt[i].X - 30 < Cursor.Position.X && pointt[i].X > Cursor.Position.X - 30) && (pointt[i].Y - 6 < Cursor.Position.Y && pointt[i].Y + 56 > Cursor.Position.Y) )
+                    int i = 0;
+                    int soLuongVatThe = 0;
+                    int j = 0;
+                    phuongTienTim = new string[count];
+                    foreach ( var item in dt )
                     {
-                        soLuongVatThe++;
-                        phuongTienTim[j] = dtRow["phuongTien"].ToString( );
-                        j++;
+                        if ( (pointt[i].X - 30 < Cursor.Position.X && pointt[i].X > Cursor.Position.X - 30) && (pointt[i].Y - 6 < Cursor.Position.Y && pointt[i].Y + 56 > Cursor.Position.Y) )
+                        {
+                            soLuongVatThe++;
+                            phuongTienTim[j] = item.GetType( ).GetProperty("vatThe_name").GetValue(item, null).ToString( );
+                            j++;
+                        }
+                        i++;
                     }
-
-                    i++;
-                }
-                if ( soLuongVatThe == 1 )
-                {
-                    tt.RemoveAll( );
-                    IWin32Window win = this;
-                    tt.Show("Phương Tiện: " + phuongTienTim[0] + ", Tọa Độ X: " + Cursor.Position.X + ", Tọa Độ Y: " + Cursor.Position.Y, win, Cursor.Position);
-                }
-                else if ( soLuongVatThe > 1 )
-                {
-                    tt.RemoveAll( );
-
-
-                    //Control is added to the Form using the Add property
-                    MnuStrip.Items.Clear( );
-                    MnuStrip.Visible = true;
-                    MnuStrip.Location = new Point(Cursor.Position.X, Cursor.Position.Y);
-                    this.Controls.Add(MnuStrip);
-                    MnuStrip.BringToFront( );
-                    ToolStripMenuItem MnuStripItem = new ToolStripMenuItem("Danh Sách");
-                    MnuStrip.Items.Add(MnuStripItem);
-                    ToolStripMenuItem MnuStripItem1 = new ToolStripMenuItem("Xóa", null, delte_Menu);
-                    MnuStrip.Items.Add(MnuStripItem1);
-                    foreach ( string rw in phuongTienTim )
+                    if ( soLuongVatThe == 1 )
                     {
-                        ToolStripMenuItem SSMenu = new ToolStripMenuItem(rw, null, ChildClick);
-                        // SubMenu(SSMenu,rw);  I have included this piece of code to add a Sub-Menu to the New Menu
-                        MnuStripItem.DropDownItems.Add(SSMenu);
+                        tt.RemoveAll( );
+                        IWin32Window win = this;
+                        tt.Show("Phương Tiện: " + phuongTienTim[0] + ", Tọa Độ X: " + Cursor.Position.X + ", Tọa Độ Y: " + Cursor.Position.Y, win, Cursor.Position);
+                    }
+                    else if ( soLuongVatThe > 1 )
+                    {
+                        tt.RemoveAll( );
+                        //Control is added to the Form using the Add property
+                        MnuStrip.Items.Clear( );
+                        MnuStrip.Visible = true;
+                        MnuStrip.Location = new Point(Cursor.Position.X, Cursor.Position.Y);
+                        this.Controls.Add(MnuStrip);
+                        MnuStrip.BringToFront( );
+                        ToolStripMenuItem MnuStripItem = new ToolStripMenuItem("Danh Sách");
+                        MnuStrip.Items.Add(MnuStripItem);
+                        ToolStripMenuItem MnuStripItem1 = new ToolStripMenuItem("Xóa", null, delte_Menu);
+                        MnuStrip.Items.Add(MnuStripItem1);
+                        foreach ( string rw in phuongTienTim )
+                        {
+                            ToolStripMenuItem SSMenu = new ToolStripMenuItem(rw, null, ChildClick);
+                            // SubMenu(SSMenu,rw);  I have included this piece of code to add a Sub-Menu to the New Menu
+                            MnuStripItem.DropDownItems.Add(SSMenu);
+                        }
                     }
                 }
+            }
+            catch ( Exception )
+            {
+                Messeage.err( );
             }
         }
         /**
@@ -499,89 +515,74 @@ namespace TestRada1
           * */
         public Bitmap checkImage( )
         {
-            imgs = Image.FromFile(Application.StartupPath + "/img/map.png");
-            g = Graphics.FromImage(bmp);
-            g.Clear(Color.Transparent);
-            g.DrawImage(imgs, 0, 0, bmp.Width, bmp.Height);
-            int j = 0;
-            foreach ( DataRow dtRow in dt.Rows )
+            try
             {
-                DateTime time = Convert.ToDateTime(dtRow["time"]);
-                DateTime now = DateTime.Now;
-                if ( time <= now )
+                imgs = Image.FromFile(Application.StartupPath + "/img/map.png");
+                g = Graphics.FromImage(bmp);
+                g.Clear(Color.Transparent);
+                g.DrawImage(imgs, 0, 0, bmp.Width, bmp.Height);
+                int j = 0;
+                if (dt != null)
+                    foreach (var item in dt)
+                    {
+                        DateTime time = Convert.ToDateTime(item.GetType().GetProperty("HoatDong_thoiGianBatDauChay").GetValue(item, null));
+                        DateTime now = DateTime.Now;
+                        if (time <= now)
+                        {
+                            Color newColor;
+                            int buocNhay1 = Convert.ToInt16(item.GetType().GetProperty("HoatDong_soBuocNhay").GetValue(item, null));
+                            xStart = Convert.ToInt16(item.GetType().GetProperty("HoatDong_xBatDau").GetValue(item, null));
+                            yStart = Convert.ToInt16(item.GetType().GetProperty("HoatDong_yBatDau").GetValue(item, null));
+                            xEnd = Convert.ToInt16(item.GetType().GetProperty("HoatDong_xKetThuc").GetValue(item, null));
+                            yEnd = Convert.ToInt16(item.GetType().GetProperty("HoatDong_yKetThuc").GetValue(item, null));
+                            int khoangCachX = (xEnd - xStart) / buocNhay1;
+                            int khoangCachY = (yEnd - yStart) / buocNhay1;
+                            int locationX = xStart + khoangCachX * (numberRun[j] + 1);
+                            int locationY = yStart + khoangCachY * (numberRun[j] + 1);
+                            phuongTien = item.GetType().GetProperty("vatThe_name").GetValue(item, null).ToString();
+                            var brimary = item.GetType().GetProperty("vatThe_hinhAnh").GetValue(item, null);
+                            byte[] array = (brimary as System.Data.Linq.Binary).ToArray();
+                            MemoryStream ms = new MemoryStream(array);
+                            img = Image.FromStream(ms);
+                            //newColor = Color.FromArgb(Convert.ToInt32(dtRow["vatThe_mau"].ToString()));
+                            newColor = System.Drawing.ColorTranslator.FromHtml(item.GetType().GetProperty("vatThe_mau").GetValue(item, null).ToString());
+                            if (numberRun[j] < buocNhay1 - 1)
+                            {
+                                g.DrawImage(paint(img, newColor, locationX, locationY), locationX, locationY);
+                                numberRun[j] = numberRun[j] + 1;
+                                pointt[j] = new Point((xStart + khoangCachX * (numberRun[j] + 1)), (yStart + khoangCachY * (numberRun[j] + 1)));
+                            }
+                            else
+                            {
+                                g.DrawImage(paint(img, newColor, xEnd, yEnd), xEnd, yEnd);
+                                pointt[j] = new Point(xEnd, yEnd);
+                            }
+                        }
+                        j = j + 1;
+                    }
+                if (keVuong == true)
                 {
-                    Color newColor;
-                    int buocNhay1 = Convert.ToInt16(dtRow["buocNhay"]);
-                    xStart = Convert.ToInt16(dtRow["xStart"]);
-                    yStart = Convert.ToInt16(dtRow["yStart"]);
-                    xEnd = Convert.ToInt16(dtRow["xEnd"]);
-                    yEnd = Convert.ToInt16(dtRow["yEnd"]);
-                    int khoangCachX = (xEnd - xStart) / buocNhay1;
-                    int khoangCachY = (yEnd - yStart) / buocNhay1;
-                    int locationX = xStart + khoangCachX * (numberRun[j] + 1);
-                    int locationY = yStart + khoangCachY * (numberRun[j] + 1);
-                    phuongTien = dtRow["phuongTien"].ToString( );
-                    if ( numberRun[j] < buocNhay1 - 1 )
+                    for (int i = 0; i < 3; i++)
                     {
-                        if ( phuongTien == "Xe" )
-                        {
-                            img = Image.FromFile(Application.StartupPath + "/img/car2.png");
-                            newColor = cl_xe;
-                        }
-                        else if ( phuongTien == "Thuyền" )
-                        {
-                            img = Image.FromFile(Application.StartupPath + "/img/boat.png");
-                            newColor = cl_thuyen;
-                        }
-                        else
-                        {
-                            img = Image.FromFile(Application.StartupPath + "/img/plane.png");
-                            newColor = cl_mayBay;
-                        }
-
-                        g.DrawImage(paint(img, newColor, locationX, locationY), locationX, locationY);
-                        numberRun[j] = numberRun[j] + 1;
-                        pointt[j] = new Point((xStart + khoangCachX * (numberRun[j] + 1)), (yStart + khoangCachY * (numberRun[j] + 1)));
+                        g.DrawLine(new Pen(Color.WhiteSmoke, 2), 0, (RadarLineChart.Height / 4) * (i + 1), RadarLineChart.Width, (RadarLineChart.Height / 4) * (i + 1));
                     }
-                    else
+                    for (int i = 0; i < RadarLineChart.Width / 300; i++)
                     {
-                        if ( phuongTien == "Xe" )
-                        {
-                            img = Image.FromFile(Application.StartupPath + "/img/car2.png");
-                            newColor = cl_xe;
-                        }
-                        else if ( phuongTien == "Thuyền" )
-                        {
-                            img = Image.FromFile(Application.StartupPath + "/img/boat.png");
-                            newColor = cl_thuyen;
-                        }
-                        else
-                        {
-                            img = Image.FromFile(Application.StartupPath + "/img/plane.png");
-                            newColor = cl_mayBay;
-                        }
-                        g.DrawImage(paint(img, newColor, locationX, locationY), locationX, locationY);
-                        pointt[j] = new Point((xStart + khoangCachX * (numberRun[j] + 1)), (yStart + khoangCachY * (numberRun[j] + 1)));
+                        g.DrawLine(new Pen(Color.WhiteSmoke, 2), 300 * (i + 1), 0, 300 * (i + 1), RadarLineChart.Height);
                     }
-
-                    //
-                    if ( keVuong == true )
-                    {
-                        for ( int i = 0; i < 3; i++ )
-                        {
-                            g.DrawLine(new Pen(Color.WhiteSmoke, 2), 0, (RadarLineChart.Height / 4) * (i + 1), RadarLineChart.Width, (RadarLineChart.Height / 4) * (i + 1));
-                        }
-                        for ( int i = 0; i < RadarLineChart.Width / 300; i++ )
-                        {
-                            g.DrawLine(new Pen(Color.WhiteSmoke, 2), 300 * (i + 1), 0, 300 * (i + 1), RadarLineChart.Height);
-                        }
-                    }
-
                 }
-                j = j + 1;
+                return bmp;
             }
-            return bmp;
+            catch (Exception)
+            {
+                return null;
+            }
+           
         }
+
+
+
+
 
         // ve doi tuong
          private Bitmap paint(Image img, Color newColor, int x1, int y1)
@@ -646,6 +647,26 @@ namespace TestRada1
              else
              {
                  keVuong = false;
+             }
+         }
+
+         private void timer2_Tick(object sender, EventArgs e)
+         {
+             dt = hoatDongBus.getAll(TimeStart);
+             int countNow = 0;
+             foreach ( var item in dt )
+             {
+                 countNow++;
+             }
+             if ( countNow > count )
+             {
+                 for ( int soGiong = 0; soGiong <= countNow - count + 1; soGiong++ )
+                 {
+                     numberRun.Add(0);
+                     pointt.Add(new Point(0, 0));
+                     soGiong++;
+                 }
+                 count = countNow;
              }
          }
 

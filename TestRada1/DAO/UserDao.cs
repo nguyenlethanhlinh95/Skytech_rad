@@ -55,7 +55,7 @@ namespace TestRada1.DAO
             {
                 var users = from u in db.ST_Users
                             join dep in db.ST_Departments on u.department_id equals dep.department_id
-                            select new { u.user_name, u.user_username, u.user_password, u.user_address, u.user_email, u.user_phone, u.user_date_of_birth, u.user_gender, u.role_id, u.user_image, dep.department_name, u.user_status, u.user_created_date,  u.user_created };
+                            select new { u.user_id, u.user_name, u.user_username, u.user_password, u.user_address, u.user_email, u.user_phone, u.user_date_of_birth, u.user_gender, u.role_id, u.user_image, dep.department_name, u.user_status, u.user_created_date,  u.user_created };
 
                 return users;
             }
@@ -95,6 +95,22 @@ namespace TestRada1.DAO
 
         }
 
+        //public bool insertUser(DTO.ST_User user)
+        //{
+        //    try
+        //    {
+        //        db.ST_Users.InsertOnSubmit(user);
+        //        db.SubmitChanges( );
+        //        return true;
+        //    }
+        //    catch ( Exception )
+        //    {
+        //        return false;
+        //    }
+        //}
+
+
+
         public bool updatePassword(string pass, Int64 id)
         {
             try
@@ -112,6 +128,51 @@ namespace TestRada1.DAO
                 return false;
             }
 
+        }
+
+        public bool updateUser(DTO.ST_User user)
+        {
+            try
+            {
+                var updateUser = db.ST_Users.Where(p => p.user_id.Equals(user.user_id)).SingleOrDefault( );
+
+
+                updateUser.user_name = user.user_name;
+                updateUser.user_username = user.user_username;
+
+                updateUser.user_date_of_birth = user.user_date_of_birth;
+                updateUser.user_gender = user.user_gender;
+                updateUser.user_phone = user.user_phone;
+                updateUser.user_address = user.user_address;
+                updateUser.user_created_date = user.user_created_date;
+                updateUser.user_email = user.user_email;
+                updateUser.user_created = user.user_created;
+                updateUser.user_status = user.user_status;
+                updateUser.department_id = user.department_id;
+                updateUser.user_image = user.user_image;
+                db.SubmitChanges( );
+                return true;
+            }
+            catch ( Exception )
+            {
+                return false;
+            }
+        }
+
+        public bool delete(Int64 id)
+        {
+            try
+            {
+                var delete = db.ST_Users.Where(p => p.user_id.Equals(id)).SingleOrDefault( );
+
+                db.ST_Users.DeleteOnSubmit(delete);
+                db.SubmitChanges( );
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

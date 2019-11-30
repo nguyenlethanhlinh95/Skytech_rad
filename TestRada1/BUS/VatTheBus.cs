@@ -30,5 +30,10 @@ namespace TestRada1.BUS
             return _vt.getDetail(id);
         }
 
+        public bool delete(Int64 id)
+        {
+            return _vt.delete(id);
+        }
+
     }
 }

@@ -235,6 +235,7 @@
             this.Font = new System.Drawing.Font("Tahoma", 9F);
             this.Name = "frm_AddNewVatThe";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "THÊM MỚI VẬT THỂ";
             this.Load += new System.EventHandler(this.frm_AddNewVatThe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txt_name.Properties)).EndInit();

@@ -65,6 +65,15 @@ namespace TestRada1
             XtraMessageBox.Show("Không Thể Thêm Mới !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        public static void xoaThanhCong( )
+        {
+            XtraMessageBox.Show("Xóa Thành Công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public static void khongTheXoa( )
+        {
+            XtraMessageBox.Show("Không Thể Xóa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
        
 
 

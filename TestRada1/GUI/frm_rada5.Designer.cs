@@ -35,6 +35,9 @@
             this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
             this.btn_xemViTriSoTrungTam = new System.Windows.Forms.PictureBox();
             this.btn_DoKhoanCachGiuaHaiDiem = new System.Windows.Forms.PictureBox();
+            this.btn_ChiaOBanDo = new System.Windows.Forms.PictureBox();
+            this.btn_KeVach = new System.Windows.Forms.PictureBox();
+            this.btn_NhieuVong = new System.Windows.Forms.PictureBox();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -97,9 +100,7 @@
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.btn_ChiaOBanDo = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.btn_KeVach = new System.Windows.Forms.PictureBox();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -108,19 +109,20 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.btn_NhieuVong = new System.Windows.Forms.PictureBox();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.RadarLineChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_xemViTriSoTrungTam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_DoKhoanCachGiuaHaiDiem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_ChiaOBanDo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_KeVach)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_NhieuVong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_ChiaOBanDo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_KeVach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -130,7 +132,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_NhieuVong)).BeginInit();
             this.SuspendLayout();
             // 
             // RadarLineChart
@@ -191,6 +192,48 @@
             this.btn_DoKhoanCachGiuaHaiDiem.TabStop = false;
             this.toolTipController1.SetTitle(this.btn_DoKhoanCachGiuaHaiDiem, "Đo khoảng cách giữa hai điểm bất kì");
             this.btn_DoKhoanCachGiuaHaiDiem.Click += new System.EventHandler(this.btn_DoKhoanCachGiuaHaiDiem_Click);
+            // 
+            // btn_ChiaOBanDo
+            // 
+            this.btn_ChiaOBanDo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btn_ChiaOBanDo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ChiaOBanDo.Image = ((System.Drawing.Image)(resources.GetObject("btn_ChiaOBanDo.Image")));
+            this.btn_ChiaOBanDo.Location = new System.Drawing.Point(258, 3);
+            this.btn_ChiaOBanDo.Name = "btn_ChiaOBanDo";
+            this.btn_ChiaOBanDo.Size = new System.Drawing.Size(18, 18);
+            this.btn_ChiaOBanDo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btn_ChiaOBanDo.TabIndex = 40;
+            this.btn_ChiaOBanDo.TabStop = false;
+            this.toolTipController1.SetTitle(this.btn_ChiaOBanDo, "Chia ô bản đồ");
+            this.btn_ChiaOBanDo.Click += new System.EventHandler(this.btn_ChiaOBanDo_Click);
+            // 
+            // btn_KeVach
+            // 
+            this.btn_KeVach.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btn_KeVach.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_KeVach.Image = ((System.Drawing.Image)(resources.GetObject("btn_KeVach.Image")));
+            this.btn_KeVach.Location = new System.Drawing.Point(210, 3);
+            this.btn_KeVach.Name = "btn_KeVach";
+            this.btn_KeVach.Size = new System.Drawing.Size(18, 18);
+            this.btn_KeVach.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btn_KeVach.TabIndex = 42;
+            this.btn_KeVach.TabStop = false;
+            this.toolTipController1.SetTitle(this.btn_KeVach, "Kẻ đường radar");
+            this.btn_KeVach.Click += new System.EventHandler(this.btn_KeVach_Click);
+            // 
+            // btn_NhieuVong
+            // 
+            this.btn_NhieuVong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btn_NhieuVong.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_NhieuVong.Image = ((System.Drawing.Image)(resources.GetObject("btn_NhieuVong.Image")));
+            this.btn_NhieuVong.Location = new System.Drawing.Point(186, 3);
+            this.btn_NhieuVong.Name = "btn_NhieuVong";
+            this.btn_NhieuVong.Size = new System.Drawing.Size(18, 18);
+            this.btn_NhieuVong.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btn_NhieuVong.TabIndex = 43;
+            this.btn_NhieuVong.TabStop = false;
+            this.toolTipController1.SetTitle(this.btn_NhieuVong, "Kẻ vòng tròn radar");
+            this.btn_NhieuVong.Click += new System.EventHandler(this.btn_NhieuVong_Click);
             // 
             // textEdit1
             // 
@@ -669,20 +712,6 @@
             this.pictureBox12.TabIndex = 39;
             this.pictureBox12.TabStop = false;
             // 
-            // btn_ChiaOBanDo
-            // 
-            this.btn_ChiaOBanDo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.btn_ChiaOBanDo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ChiaOBanDo.Image = ((System.Drawing.Image)(resources.GetObject("btn_ChiaOBanDo.Image")));
-            this.btn_ChiaOBanDo.Location = new System.Drawing.Point(258, 3);
-            this.btn_ChiaOBanDo.Name = "btn_ChiaOBanDo";
-            this.btn_ChiaOBanDo.Size = new System.Drawing.Size(18, 18);
-            this.btn_ChiaOBanDo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btn_ChiaOBanDo.TabIndex = 40;
-            this.btn_ChiaOBanDo.TabStop = false;
-            this.toolTipController1.SetTitle(this.btn_ChiaOBanDo, "Chia ô bản đồ");
-            this.btn_ChiaOBanDo.Click += new System.EventHandler(this.btn_ChiaOBanDo_Click);
-            // 
             // pictureBox10
             // 
             this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -694,20 +723,6 @@
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox10.TabIndex = 41;
             this.pictureBox10.TabStop = false;
-            // 
-            // btn_KeVach
-            // 
-            this.btn_KeVach.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.btn_KeVach.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_KeVach.Image = ((System.Drawing.Image)(resources.GetObject("btn_KeVach.Image")));
-            this.btn_KeVach.Location = new System.Drawing.Point(210, 3);
-            this.btn_KeVach.Name = "btn_KeVach";
-            this.btn_KeVach.Size = new System.Drawing.Size(18, 18);
-            this.btn_KeVach.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btn_KeVach.TabIndex = 42;
-            this.btn_KeVach.TabStop = false;
-            this.toolTipController1.SetTitle(this.btn_KeVach, "Kẻ đường radar");
-            this.btn_KeVach.Click += new System.EventHandler(this.btn_KeVach_Click);
             // 
             // panelControl1
             // 
@@ -818,19 +833,11 @@
             this.pictureBox7.TabIndex = 44;
             this.pictureBox7.TabStop = false;
             // 
-            // btn_NhieuVong
+            // timer2
             // 
-            this.btn_NhieuVong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.btn_NhieuVong.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_NhieuVong.Image = ((System.Drawing.Image)(resources.GetObject("btn_NhieuVong.Image")));
-            this.btn_NhieuVong.Location = new System.Drawing.Point(186, 3);
-            this.btn_NhieuVong.Name = "btn_NhieuVong";
-            this.btn_NhieuVong.Size = new System.Drawing.Size(18, 18);
-            this.btn_NhieuVong.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btn_NhieuVong.TabIndex = 43;
-            this.btn_NhieuVong.TabStop = false;
-            this.toolTipController1.SetTitle(this.btn_NhieuVong, "Kẻ vòng tròn radar");
-            this.btn_NhieuVong.Click += new System.EventHandler(this.btn_NhieuVong_Click);
+            this.timer2.Enabled = true;
+            this.timer2.Interval = 2000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // frm_rada5
             // 
@@ -849,6 +856,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.RadarLineChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_xemViTriSoTrungTam)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_DoKhoanCachGiuaHaiDiem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_ChiaOBanDo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_KeVach)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_NhieuVong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -856,9 +866,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_ChiaOBanDo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_KeVach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
@@ -869,7 +877,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_NhieuVong)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -956,5 +963,6 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox btn_NhieuVong;
+        private System.Windows.Forms.Timer timer2;
     }
 }

@@ -145,11 +145,12 @@ namespace TestRada1
 
         private void btnUserInformation_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form frm = kiemtraform(typeof(frm_UserInfo));
+            Form frm = kiemtraform(typeof(frm_UpdateUser));
             if ( frm == null )
             {
-                frm_UserInfo forms = new frm_UserInfo( );
+                frm_UpdateUser forms = new frm_UpdateUser( );
                 forms.MdiParent = this;
+                forms.userId = frm_Main.Vitual_id;
                 forms.Show( );
             }
             else
@@ -175,11 +176,10 @@ namespace TestRada1
 
         private void btnRegistered_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form frm = kiemtraform(typeof(frm_UserInfo));
+            Form frm = kiemtraform(typeof(frm_NewUser));
             if ( frm == null )
             {
-                frm_UserInfo forms = new frm_UserInfo( );
-                forms.checkNew = false;
+                frm_NewUser forms = new frm_NewUser( );
                 forms.MdiParent = this;
                 forms.Show( );
             }
@@ -259,5 +259,21 @@ namespace TestRada1
                 frm.Activate( );
             }
         }
+
+        private void barBtn_VatThe_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraform(typeof(frm_VatThes));
+            if ( frm == null )
+            {
+                frm_VatThes forms = new frm_VatThes( );
+                forms.MdiParent = this;
+                forms.Show( );
+            }
+            else
+            {
+                frm.Activate( );
+            }
+        }
+
     }
 }

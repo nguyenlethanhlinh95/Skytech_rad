@@ -223,6 +223,7 @@
             toolTipTitleItem3.Text = "Ctrl + Delete\r\n";
             superToolTip3.Items.Add(toolTipTitleItem3);
             this.btn_Delete.SuperTip = superToolTip3;
+            this.btn_Delete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_Delete_ItemClick);
             // 
             // barStaticItem5
             // 

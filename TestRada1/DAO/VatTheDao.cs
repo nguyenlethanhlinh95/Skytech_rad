@@ -78,5 +78,21 @@ namespace TestRada1.DAO
                 return null;
             }
         }
+
+        public bool delete(Int64 id)
+        {
+            try
+            {
+                var delete = db.ST_VatThes.Where(p => p.vatThe_id.Equals(id)).SingleOrDefault( );
+
+                db.ST_VatThes.DeleteOnSubmit(delete);
+                db.SubmitChanges( );
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

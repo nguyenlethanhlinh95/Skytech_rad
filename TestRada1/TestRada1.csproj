@@ -66,13 +66,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\DeparmentBus.cs" />
+    <Compile Include="BUS\HoatDongBus.cs" />
     <Compile Include="BUS\UserBus.cs" />
     <Compile Include="DAO\DepartmentDao.cs" />
+    <Compile Include="DAO\HoatDongDao.cs" />
     <Compile Include="DAO\UserDao.cs" />
-    <Compile Include="frm_ChucVu.cs">
+    <Compile Include="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_ChucVu.Designer.cs">
+    <Compile Include="Form2.designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HeThong\ChucVu\frm_ChucVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\HeThong\ChucVu\frm_ChucVu.Designer.cs">
       <DependentUpon>frm_ChucVu.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_DangNhap.cs">
@@ -87,10 +95,10 @@
     <Compile Include="frm_Main.Designer.cs">
       <DependentUpon>frm_Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_User.cs">
+    <Compile Include="GUI\HeThong\User\frm_User.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_User.Designer.cs">
+    <Compile Include="GUI\HeThong\User\frm_User.Designer.cs">
       <DependentUpon>frm_User.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\HeThong\ChucVu\frm_NewDepartment.cs">
@@ -99,11 +107,23 @@
     <Compile Include="GUI\HeThong\ChucVu\frm_NewDepartment.Designer.cs">
       <DependentUpon>frm_NewDepartment.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\HeThong\User\frm_NewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\HeThong\User\frm_NewUser.designer.cs">
+      <DependentUpon>frm_NewUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\HeThong\User\frm_RePassword.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\HeThong\User\frm_RePassword.Designer.cs">
       <DependentUpon>frm_RePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HeThong\User\frm_UpdateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\HeThong\User\frm_UpdateUser.designer.cs">
+      <DependentUpon>frm_UpdateUser.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\HeThong\User\frm_UserInfo.cs">
       <SubType>Form</SubType>
@@ -131,12 +151,6 @@
     <Compile Include="GUI\VatThe\frm_AddNewVatThe.Designer.cs">
       <DependentUpon>frm_AddNewVatThe.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Form2.designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\frm_rada5.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,7 +163,10 @@
     <None Include="DTO\DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
-    <EmbeddedResource Include="frm_ChucVu.resx">
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HeThong\ChucVu\frm_ChucVu.resx">
       <DependentUpon>frm_ChucVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_DangNhap.resx">
@@ -158,14 +175,20 @@
     <EmbeddedResource Include="frm_Main.resx">
       <DependentUpon>frm_Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_User.resx">
+    <EmbeddedResource Include="GUI\HeThong\User\frm_User.resx">
       <DependentUpon>frm_User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\HeThong\ChucVu\frm_NewDepartment.resx">
       <DependentUpon>frm_NewDepartment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HeThong\User\frm_NewUser.resx">
+      <DependentUpon>frm_NewUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\HeThong\User\frm_RePassword.resx">
       <DependentUpon>frm_RePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HeThong\User\frm_UpdateUser.resx">
+      <DependentUpon>frm_UpdateUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\HeThong\User\frm_UserInfo.resx">
       <DependentUpon>frm_UserInfo.cs</DependentUpon>
@@ -175,9 +198,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\VatThe\frm_AddNewVatThe.resx">
       <DependentUpon>frm_AddNewVatThe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frm_rada5.resx">
       <DependentUpon>frm_rada5.cs</DependentUpon>
