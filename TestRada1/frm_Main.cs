@@ -246,20 +246,29 @@ namespace TestRada1
             forms.ShowDialog( );
         }
 
+
+        Pref formPref;
         private void barBtnCaiDat_ItemClick(object sender, ItemClickEventArgs e)
         {
             Form frm = kiemtraform(typeof(Pref));
             if ( frm == null )
             {
-                Pref forms = new Pref( );
-                forms.MdiParent = this;
-                forms.Show( );
+                formPref = new Pref( );
+                formPref.FormClosed += new FormClosedEventHandler(dongform);
+                formPref.MdiParent = this;
+                formPref.Show( );
             }
             else
             {
-                frm.Activate( );
+
+                formPref.Activate( );
             }
         }
+        private void dongform(object sender, EventArgs e)
+        {
+            formPref.Controls.Clear( );
+        }
+
 
         private void barBtn_VatThe_ItemClick(object sender, ItemClickEventArgs e)
         {

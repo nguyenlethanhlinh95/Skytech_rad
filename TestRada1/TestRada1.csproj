@@ -155,11 +155,23 @@
     <Compile Include="GUI\HoatDong\frm_UpdateAction.Designer.cs">
       <DependentUpon>frm_UpdateAction.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pref.cs">
+    <Compile Include="GUI\Layout\UC\Preferences\Radar Image\UC_Markers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Layout\UC\Preferences\Radar Image\UC_Markers.Designer.cs">
+      <DependentUpon>UC_Markers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Layout\UC\Preferences\Pref.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pref.Designer.cs">
+    <Compile Include="GUI\Layout\UC\Preferences\Pref.Designer.cs">
       <DependentUpon>Pref.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Layout\UC\Preferences\Radar Image\UC_Sectors.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Layout\UC\Preferences\Radar Image\UC_Sectors.Designer.cs">
+      <DependentUpon>UC_Sectors.cs</DependentUpon>
     </Compile>
     <Compile Include="StyleDevxpressGridControl.cs" />
     <Compile Include="BUS\VatTheBus.cs" />
@@ -214,6 +226,30 @@
     <Compile Include="GUI\Layout\UC\Preferences\Map\UC_General_map.Designer.cs">
       <DependentUpon>UC_General_map.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Layout\UC\Preferences\Radar Image\UC_Volumes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Layout\UC\Preferences\Radar Image\UC_Volumes.Designer.cs">
+      <DependentUpon>UC_Volumes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Layout\UC\Preferences\Tracks\UC_Symbol_Basic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Layout\UC\Preferences\Tracks\UC_Symbol_Basic.Designer.cs">
+      <DependentUpon>UC_Symbol_Basic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Layout\UC\Preferences\Tracks\UC_Label_basic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Layout\UC\Preferences\Tracks\UC_Label_basic.Designer.cs">
+      <DependentUpon>UC_Label_basic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraUserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="XtraUserControl1.Designer.cs">
+      <DependentUpon>XtraUserControl1.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="GUI\Layout\UC\Preferences\Map\UC_General_map.resx">
       <DependentUpon>UC_General_map.cs</DependentUpon>
     </EmbeddedResource>
@@ -225,6 +261,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Layout\UC\Preferences\Map\UC_Luciad_map.resx">
       <DependentUpon>UC_Luciad_map.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Layout\UC\Preferences\Tracks\UC_Symbol_Basic.resx">
+      <DependentUpon>UC_Symbol_Basic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Layout\UC\Preferences\Tracks\UC_Label_basic.resx">
+      <DependentUpon>UC_Label_basic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraUserControl1.resx">
+      <DependentUpon>XtraUserControl1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DTO\DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
@@ -271,6 +316,12 @@
     <EmbeddedResource Include="GUI\HoatDong\frm_UpdateAction.resx">
       <DependentUpon>frm_UpdateAction.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Layout\UC\Preferences\Radar Image\UC_Sectors.resx">
+      <DependentUpon>UC_Sectors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Layout\UC\Preferences\Radar Image\UC_Volumes.resx">
+      <DependentUpon>UC_Volumes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\VatThe\frm_VatThes.resx">
       <DependentUpon>frm_VatThes.cs</DependentUpon>
     </EmbeddedResource>
@@ -280,7 +331,10 @@
     <EmbeddedResource Include="GUI\frm_rada5.resx">
       <DependentUpon>frm_rada5.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pref.resx">
+    <EmbeddedResource Include="GUI\Layout\UC\Preferences\Radar Image\UC_Markers.resx">
+      <DependentUpon>UC_Markers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Layout\UC\Preferences\Pref.resx">
       <DependentUpon>Pref.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -311,7 +365,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="GUI\Layout\UC\Preferences\Radar Image\" />
     <Folder Include="GUI\LCD\LCD2\" />
   </ItemGroup>
   <ItemGroup>

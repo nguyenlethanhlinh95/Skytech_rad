@@ -272,13 +272,32 @@ namespace TestRada1
         private void timer1_Tick(object sender, EventArgs e)
         {
             // 30s 1 vong => 1ms 12do
-            if ( xKimQuay < 359 && xKimQuay > 0 )
+            //if ( xKimQuay < 359 && xKimQuay > 0 )
+            //{
+            //    xKimQuay = xKimQuay + 2;
+            //}
+            //else
+            //{
+            //    if ( xKimQuay == 359 )
+            //    {
+            //        xKimQuay = 0;
+            //    }
+            //    else
+            //    {
+            //        if ( xKimQuay == 0 )
+            //        {
+            //            xKimQuay = xKimQuay + 1;
+            //        }
+            //    }
+            //}
+
+            if ( xKimQuay < 348 && xKimQuay >= 0 )
             {
-                xKimQuay = xKimQuay + 2;
+                xKimQuay = xKimQuay + 12;
             }
             else
             {
-                if ( xKimQuay == 359 )
+                if ( xKimQuay == 348 )
                 {
                     xKimQuay = 0;
                 }
@@ -286,29 +305,10 @@ namespace TestRada1
                 {
                     if ( xKimQuay == 0 )
                     {
-                        xKimQuay = xKimQuay + 1;
+                        xKimQuay = xKimQuay + 12;
                     }
                 }
             }
-
-            //if ( xKimQuay < 348 && xKimQuay >= 0 )
-            //{
-            //    xKimQuay = xKimQuay + 12;
-            //}
-            //else
-            //{
-            //    if ( xKimQuay == 348 )
-            //    {
-            //        xKimQuay = 0;
-            //    }
-            //    //else
-            //    //{
-            //    //    if ( xKimQuay == 0 )
-            //    //    {
-            //    //        xKimQuay = xKimQuay + 12;
-            //    //    }
-            //    //}
-            //}
 
             //RadarLineChart.Paint += new System.Windows.Forms.PaintEventHandler(this.RadarLineChart_Paint);
             loadRada( );

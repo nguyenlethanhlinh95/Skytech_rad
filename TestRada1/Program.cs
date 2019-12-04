@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace TestRada1
@@ -13,6 +16,10 @@ namespace TestRada1
         [STAThread]
         static void Main( )
         {
+            //Application.EnableVisualStyles( );
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new frm_Main( ));
+
             Application.EnableVisualStyles( );
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frm_Main( ));

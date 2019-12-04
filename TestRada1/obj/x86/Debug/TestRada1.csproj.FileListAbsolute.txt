@@ -61,3 +61,9 @@ D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\D
 D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.UC_Luciad_map.resources
 D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.UC_General_map.resources
 D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.UC_Navigation_map.resources
+D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.UC_Markers.resources
+D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.UC_Volumes.resources
+D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.UC_Sectors.resources
+D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.XtraUserControl1.resources
+D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.UC_Symbol_Basic.resources
+D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.UC_Label_basic.resources
