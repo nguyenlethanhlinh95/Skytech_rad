@@ -974,7 +974,7 @@
             // 
             // barBtnCaiDat
             // 
-            this.barBtnCaiDat.Caption = "Cài đặt Radar";
+            this.barBtnCaiDat.Caption = "Preferences";
             this.barBtnCaiDat.Id = 89;
             this.barBtnCaiDat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barBtnCaiDat.ImageOptions.Image")));
             this.barBtnCaiDat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barBtnCaiDat.ImageOptions.LargeImage")));

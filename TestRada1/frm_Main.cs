@@ -74,6 +74,7 @@ namespace TestRada1
             ribbonPage1.Visible = false;
             ribbonPage9.Visible = false;
             ribbonPage8.Visible = false;
+            ribbonPage2.Visible = false;
             ribbonPageGroup25.Visible = false;
             LoginEvent( );
         }
@@ -121,7 +122,7 @@ namespace TestRada1
             ribbonPage1.Visible = true;
             ribbonPage9.Visible = true;
             ribbonPage8.Visible = true;
-
+            ribbonPage2.Visible = true;
         }
 
         void Menu_HocVien_true()
@@ -242,15 +243,15 @@ namespace TestRada1
             //}
 
             frm_rada5 forms = new frm_rada5( );
-            forms.Show( );
+            forms.ShowDialog( );
         }
 
         private void barBtnCaiDat_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form frm = kiemtraform(typeof(Form2));
+            Form frm = kiemtraform(typeof(Pref));
             if ( frm == null )
             {
-                Form2 forms = new Form2( );
+                Pref forms = new Pref( );
                 forms.MdiParent = this;
                 forms.Show( );
             }

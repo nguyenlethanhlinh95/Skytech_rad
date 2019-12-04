@@ -52,3 +52,12 @@ D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\D
 D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.frm_RePassword.resources
 D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.frm_NewUser.resources
 D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.frm_UpdateUser.resources
+D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.frm_AddLocation.resources
+D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.frm_ListAction.resources
+D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.frm_NewAction.resources
+D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.frm_UpdateAction.resources
+D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.Pref.resources
+D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.UC_Geographical_map.resources
+D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.UC_Luciad_map.resources
+D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.UC_General_map.resources
+D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.UC_Navigation_map.resources

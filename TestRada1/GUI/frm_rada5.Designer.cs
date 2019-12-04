@@ -142,6 +142,7 @@
             this.RadarLineChart.BackImage.Stretch = true;
             this.RadarLineChart.BorderOptions.Color = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(73)))), ((int)(((byte)(125)))));
             this.RadarLineChart.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            this.RadarLineChart.CacheToMemory = true;
             this.RadarLineChart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RadarLineChart.IndicatorsPaletteName = "Yellow Orange";
             this.RadarLineChart.Legend.Name = "Default Legend";
@@ -151,6 +152,7 @@
             this.RadarLineChart.Name = "RadarLineChart";
             this.RadarLineChart.PaletteBaseColorNumber = 3;
             this.RadarLineChart.PaletteName = "Concourse";
+            this.RadarLineChart.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RadarLineChart.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
             this.RadarLineChart.Size = new System.Drawing.Size(700, 652);
             this.RadarLineChart.TabIndex = 0;
@@ -849,7 +851,9 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.textEdit1);
             this.Name = "frm_rada5";
-            this.Text = "frm_rada5";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "RADAR SCORE 3000 MP";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frm_rada5_Load);
             this.MouseHover += new System.EventHandler(this.frm_rada5_MouseHover);

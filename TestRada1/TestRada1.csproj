@@ -131,6 +131,36 @@
     <Compile Include="GUI\HeThong\User\frm_UserInfo.Designer.cs">
       <DependentUpon>frm_UserInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\HoatDong\frm_AddLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\HoatDong\frm_AddLocation.Designer.cs">
+      <DependentUpon>frm_AddLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HoatDong\frm_ListAction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\HoatDong\frm_ListAction.Designer.cs">
+      <DependentUpon>frm_ListAction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HoatDong\frm_NewAction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\HoatDong\frm_NewAction.designer.cs">
+      <DependentUpon>frm_NewAction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HoatDong\frm_UpdateAction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\HoatDong\frm_UpdateAction.Designer.cs">
+      <DependentUpon>frm_UpdateAction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pref.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pref.Designer.cs">
+      <DependentUpon>Pref.cs</DependentUpon>
+    </Compile>
     <Compile Include="StyleDevxpressGridControl.cs" />
     <Compile Include="BUS\VatTheBus.cs" />
     <Compile Include="DAO\VatTheDao.cs" />
@@ -160,6 +190,42 @@
     <Compile Include="Messeage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GUI\Layout\UC\Preferences\Map\UC_Geographical_map.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Layout\UC\Preferences\Map\UC_Geographical_map.Designer.cs">
+      <DependentUpon>UC_Geographical_map.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Layout\UC\Preferences\Map\UC_Luciad_map.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Layout\UC\Preferences\Map\UC_Luciad_map.Designer.cs">
+      <DependentUpon>UC_Luciad_map.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Layout\UC\Preferences\Map\UC_Navigation_map.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Layout\UC\Preferences\Map\UC_Navigation_map.Designer.cs">
+      <DependentUpon>UC_Navigation_map.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Layout\UC\Preferences\Map\UC_General_map.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Layout\UC\Preferences\Map\UC_General_map.Designer.cs">
+      <DependentUpon>UC_General_map.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="GUI\Layout\UC\Preferences\Map\UC_General_map.resx">
+      <DependentUpon>UC_General_map.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Layout\UC\Preferences\Map\UC_Geographical_map.resx">
+      <DependentUpon>UC_Geographical_map.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Layout\UC\Preferences\Map\UC_Navigation_map.resx">
+      <DependentUpon>UC_Navigation_map.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Layout\UC\Preferences\Map\UC_Luciad_map.resx">
+      <DependentUpon>UC_Luciad_map.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="DTO\DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
@@ -193,6 +259,18 @@
     <EmbeddedResource Include="GUI\HeThong\User\frm_UserInfo.resx">
       <DependentUpon>frm_UserInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HoatDong\frm_AddLocation.resx">
+      <DependentUpon>frm_AddLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HoatDong\frm_ListAction.resx">
+      <DependentUpon>frm_ListAction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HoatDong\frm_NewAction.resx">
+      <DependentUpon>frm_NewAction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HoatDong\frm_UpdateAction.resx">
+      <DependentUpon>frm_UpdateAction.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\VatThe\frm_VatThes.resx">
       <DependentUpon>frm_VatThes.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frm_rada5.resx">
       <DependentUpon>frm_rada5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pref.resx">
+      <DependentUpon>Pref.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -229,9 +310,741 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="GUI\Layout\UC\Preferences\Radar Image\" />
+    <Folder Include="GUI\LCD\LCD2\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\14.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\antenna.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\as11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\as12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\as21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\as22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\as23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\as24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\as31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\as32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\as33.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\as34.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\as41.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\as42.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\at.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\at2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ba.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BACK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bang nguon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blueblurqt7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bresker.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bresker1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cabin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cabin12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cabin2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cabinnet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb1 copy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb13.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb14.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb14 copy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb22 copy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb23.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb23 copy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb24.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb24 copy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb3 copy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb33.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb34.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb4 copy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb4 copy1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb43.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb433.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb44.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb44 copy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb444.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb444 copy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CBIN1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CBIN2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comman.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\commands.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CPU.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CPU .jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\data.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\den OFF.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EIC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EIC1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\elc1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\elc2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\elc3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\elc4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f122.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ge1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\general.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\General C1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\General C2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\General C3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\General C4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\General CS1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Header.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HELP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HINHNEN3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HT.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HUNG1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\huongdan11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Inter Report1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jamming analysis1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\link1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LIVE Failure1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lrc.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LRC1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LRC2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\m.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\m1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\m10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\m1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\m2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\m2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\m21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\m3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\m3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\m4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\m4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\m5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\m6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\m7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\m8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\m9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main pr4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main pr11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main pr21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main pr31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maintenance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\map1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\map2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\map4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mau.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mn1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mn2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mn3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mn4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mn5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mn6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\modul1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n21.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n32.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\no recorder.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nut3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nut4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OFF.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OFF11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PDU1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PDU2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PDU3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PDU4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pl1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pl2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pl3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pl4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pl5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pl6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pl7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plot1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plot2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plot3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plot4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plot5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plot6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plot7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pr1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pr2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pre3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rd1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rd122.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rd2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rd222.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rd3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rd322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RI M.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RI S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RI V.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\S1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\S2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\S3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\selected plots1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\selected strobes1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sesor1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sesor11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sesor2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sesor3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\song.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\song1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\state1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\state2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TEIM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thailan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thoat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tr fl1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tr1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tr10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tr11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tr2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tr3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tr4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tr5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tr6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tr7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tr8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tr9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TRACK1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TRACK11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TRACK2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TRACK4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TRACK5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TRACK6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TRACK7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TRACK8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TRACK9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\troubles hotting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VD11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vien12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vien131.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
