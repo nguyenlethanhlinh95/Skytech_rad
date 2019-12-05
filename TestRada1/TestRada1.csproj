@@ -65,12 +65,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\BanDoBus.cs" />
     <Compile Include="BUS\DeparmentBus.cs" />
     <Compile Include="BUS\HoatDongBus.cs" />
+    <Compile Include="BUS\RadaBus.cs" />
     <Compile Include="BUS\UserBus.cs" />
+    <Compile Include="BUS\VungNguyHiemBus.cs" />
+    <Compile Include="DAO\BanDoDao.cs" />
     <Compile Include="DAO\DepartmentDao.cs" />
     <Compile Include="DAO\HoatDongDao.cs" />
+    <Compile Include="DAO\RadaDao.cs" />
     <Compile Include="DAO\UserDao.cs" />
+    <Compile Include="DAO\VungNguyHiemDao.cs" />
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +179,30 @@
     <Compile Include="GUI\Layout\UC\Preferences\Radar Image\UC_Sectors.Designer.cs">
       <DependentUpon>UC_Sectors.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\VatThe\frm_Target.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\VatThe\frm_Target.designer.cs">
+      <DependentUpon>frm_Target.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\VungNguyHiem\frm_ListVungNguyHiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\VungNguyHiem\frm_ListVungNguyHiem.Designer.cs">
+      <DependentUpon>frm_ListVungNguyHiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\VungNguyHiem\frm_updateVungNguyHiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\VungNguyHiem\frm_updateVungNguyHiem.Designer.cs">
+      <DependentUpon>frm_updateVungNguyHiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\VungNguyHiem\frm_VungNguyHiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\VungNguyHiem\frm_VungNguyHiem.Designer.cs">
+      <DependentUpon>frm_VungNguyHiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="StyleDevxpressGridControl.cs" />
     <Compile Include="BUS\VatTheBus.cs" />
     <Compile Include="DAO\VatTheDao.cs" />
@@ -267,6 +297,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Layout\UC\Preferences\Tracks\UC_Label_basic.resx">
       <DependentUpon>UC_Label_basic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\VatThe\frm_Target.resx">
+      <DependentUpon>frm_Target.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\VungNguyHiem\frm_ListVungNguyHiem.resx">
+      <DependentUpon>frm_ListVungNguyHiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\VungNguyHiem\frm_updateVungNguyHiem.resx">
+      <DependentUpon>frm_updateVungNguyHiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\VungNguyHiem\frm_VungNguyHiem.resx">
+      <DependentUpon>frm_VungNguyHiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XtraUserControl1.resx">
       <DependentUpon>XtraUserControl1.cs</DependentUpon>

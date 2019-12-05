@@ -134,6 +134,8 @@
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.taskbarAssistant1 = new DevExpress.Utils.Taskbar.TaskbarAssistant();
             this.toastNotificationsManager1 = new DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager(this.components);
+            this.bar_btn_VungNguyHiem = new DevExpress.XtraBars.BarButtonItem();
+            this.bar_btn_HoatDong = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toastNotificationsManager1)).BeginInit();
@@ -228,9 +230,11 @@
             this.btnBar_ChucVu,
             this.barBtn_rada,
             this.barBtnCaiDat,
-            this.barBtn_VatThe});
+            this.barBtn_VatThe,
+            this.bar_btn_VungNguyHiem,
+            this.bar_btn_HoatDong});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 91;
+            this.ribbon.MaxItemId = 93;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage4,
@@ -1051,6 +1055,7 @@
             // ribbonPageGroup4
             // 
             this.ribbonPageGroup4.ItemLinks.Add(this.barBtn_VatThe);
+            this.ribbonPageGroup4.ItemLinks.Add(this.bar_btn_VungNguyHiem);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "Radar Score";
             // 
@@ -1084,6 +1089,7 @@
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.barBtn_rada);
             this.ribbonPageGroup1.ItemLinks.Add(this.barBtnCaiDat);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bar_btn_HoatDong);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Radar Score 3000 MP";
             // 
@@ -1136,6 +1142,26 @@
             // 
             this.toastNotificationsManager1.ApplicationId = "33aef39b-9a86-43aa-b65b-d9c1d34fdfec";
             this.toastNotificationsManager1.ApplicationName = "PhanMemQuanLyCongTrinh";
+            // 
+            // bar_btn_VungNguyHiem
+            // 
+            this.bar_btn_VungNguyHiem.Caption = "Vùng nguy hiểm";
+            this.bar_btn_VungNguyHiem.Id = 91;
+            this.bar_btn_VungNguyHiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
+            this.bar_btn_VungNguyHiem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
+            this.bar_btn_VungNguyHiem.LargeWidth = 100;
+            this.bar_btn_VungNguyHiem.Name = "bar_btn_VungNguyHiem";
+            this.bar_btn_VungNguyHiem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_btn_VungNguyHiem_ItemClick);
+            // 
+            // bar_btn_HoatDong
+            // 
+            this.bar_btn_HoatDong.Caption = "Hoạt động";
+            this.bar_btn_HoatDong.Id = 92;
+            this.bar_btn_HoatDong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image1")));
+            this.bar_btn_HoatDong.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage1")));
+            this.bar_btn_HoatDong.LargeWidth = 100;
+            this.bar_btn_HoatDong.Name = "bar_btn_HoatDong";
+            this.bar_btn_HoatDong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_btn_HoatDong_ItemClick);
             // 
             // frm_Main
             // 
@@ -1266,5 +1292,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.BarButtonItem barBtn_VatThe;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+        private DevExpress.XtraBars.BarButtonItem bar_btn_VungNguyHiem;
+        private DevExpress.XtraBars.BarButtonItem bar_btn_HoatDong;
     }
 }

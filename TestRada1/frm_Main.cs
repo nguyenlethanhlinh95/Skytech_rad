@@ -12,7 +12,7 @@ using DevExpress.Skins;
 using DevExpress.UserSkins;
 using DevExpress.Utils.Taskbar.Core;
 using System.Data.SqlClient;
-using DevExpress.UserSkins;
+//using DevExpress.UserSkins;
 using System.IO;
 using System.Threading.Tasks;
 using DevExpress.XtraBars.ToastNotifications;
@@ -276,6 +276,36 @@ namespace TestRada1
             if ( frm == null )
             {
                 frm_VatThes forms = new frm_VatThes( );
+                forms.MdiParent = this;
+                forms.Show( );
+            }
+            else
+            {
+                frm.Activate( );
+            }
+        }
+
+        private void bar_btn_VungNguyHiem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraform(typeof(frm_ListVungNguyHiem));
+            if ( frm == null )
+            {
+                frm_ListVungNguyHiem forms = new frm_ListVungNguyHiem( );
+                forms.MdiParent = this;
+                forms.Show( );
+            }
+            else
+            {
+                frm.Activate( );
+            }
+        }
+
+        private void bar_btn_HoatDong_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraform(typeof(frm_ListAction));
+            if ( frm == null )
+            {
+                frm_ListAction forms = new frm_ListAction( );
                 forms.MdiParent = this;
                 forms.Show( );
             }

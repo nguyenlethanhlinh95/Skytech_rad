@@ -51,6 +51,10 @@ namespace TestRada1
         int count;
 
         DateTime TimeStart;
+        VungNguyHiemBus _vungNHBus = new VungNguyHiemBus( );
+        bool hienThiVungNguyHiem = false;
+        bool veDuongDiChuyen = false;
+
         /**
          * Khai bao truc toa do O, va toa do con chuot, dung de tinh khoang cach khi hover
          * 
@@ -91,6 +95,9 @@ namespace TestRada1
 
         private void frm_rada5_Load(object sender, EventArgs e)
         {
+            this.Width = 1024;
+            this.Height = 768;
+
             TimeStart = DateTime.Now;
             dt = hoatDongBus.getAll(TimeStart);
             
@@ -486,10 +493,10 @@ namespace TestRada1
                     phuongTienTim = new string[count];
                     foreach ( var item in dt )
                     {
-                        if ( (pointt[i].X - 30 < Cursor.Position.X && pointt[i].X > Cursor.Position.X - 30) && (pointt[i].Y - 6 < Cursor.Position.Y && pointt[i].Y + 56 > Cursor.Position.Y) )
+                        if ( (pointt[i].X - 30 < Cursor.Position.X && pointt[i].X > Cursor.Position.X - 30) && (pointt[i].Y - 50 < Cursor.Position.Y && pointt[i].Y + 90 > Cursor.Position.Y) )
                         {
                             soLuongVatThe++;
-                            phuongTienTim[j] = item.GetType( ).GetProperty("vatThe_name").GetValue(item, null).ToString( );
+                            phuongTienTim[j] = item.GetType( ).GetProperty("HoatDong_id").GetValue(item, null).ToString( );
                             j++;
                         }
                         i++;
@@ -499,6 +506,16 @@ namespace TestRada1
                         tt.RemoveAll( );
                         IWin32Window win = this;
                         tt.Show("Phương Tiện: " + phuongTienTim[0] + ", Tọa Độ X: " + Cursor.Position.X + ", Tọa Độ Y: " + Cursor.Position.Y, win, Cursor.Position);
+
+                        frm_Target frm = new frm_Target( );
+                        frm.X1 = Cursor.Position.X;
+                        frm.Y1 = Cursor.Position.Y;
+                        frm.OX = RadarLineChart.Width / 2;
+                        frm.OY = RadarLineChart.Height / 2;
+                        frm.Text = "Track #" + phuongTienTim[0];
+                        frm.id = Convert.ToInt32(phuongTienTim[0]);
+                        frm.ShowDialog( );
+
                     }
                     else if ( soLuongVatThe > 1 )
                     {
@@ -543,112 +560,197 @@ namespace TestRada1
                 g.Clear(Color.Transparent);
                 g.DrawImage(imgs, 0, 0, bmp.Width, bmp.Height);
                 int j = 0;
-                if (dt != null)
-                    foreach (var item in dt)
+                if ( dt != null )
+                    foreach ( var item in dt )
                     {
-                        DateTime time = Convert.ToDateTime(item.GetType().GetProperty("HoatDong_thoiGianBatDauChay").GetValue(item, null));
+                        DateTime time = Convert.ToDateTime(item.GetType( ).GetProperty("HoatDong_thoiGianBatDauChay").GetValue(item, null));
                         DateTime now = DateTime.Now;
-                        if (time <= now)
+                        if ( time <= now )
                         {
                             Color newColor;
-                            int buocNhay1 = Convert.ToInt16(item.GetType().GetProperty("HoatDong_soBuocNhay").GetValue(item, null));
-                            xStart = Convert.ToInt16(item.GetType().GetProperty("HoatDong_xBatDau").GetValue(item, null));
-                            yStart = Convert.ToInt16(item.GetType().GetProperty("HoatDong_yBatDau").GetValue(item, null));
-                            xEnd = Convert.ToInt16(item.GetType().GetProperty("HoatDong_xKetThuc").GetValue(item, null));
-                            yEnd = Convert.ToInt16(item.GetType().GetProperty("HoatDong_yKetThuc").GetValue(item, null));
-                            int khoangCachX = (xEnd - xStart) / buocNhay1;
-                            int khoangCachY = (yEnd - yStart) / buocNhay1;
-                            int locationX = xStart + khoangCachX * (numberRun[j] + 1);
-                            int locationY = yStart + khoangCachY * (numberRun[j] + 1);
-                            phuongTien = item.GetType().GetProperty("vatThe_name").GetValue(item, null).ToString();
-                            var brimary = item.GetType().GetProperty("vatThe_hinhAnh").GetValue(item, null);
-                            byte[] array = (brimary as System.Data.Linq.Binary).ToArray();
+                            int buocNhay1 = Convert.ToInt16(item.GetType( ).GetProperty("HoatDong_soBuocNhay").GetValue(item, null));
+                            xStart = Convert.ToInt16(item.GetType( ).GetProperty("HoatDong_xBatDau").GetValue(item, null));
+                            yStart = Convert.ToInt16(item.GetType( ).GetProperty("HoatDong_yBatDau").GetValue(item, null));
+                            xEnd = Convert.ToInt16(item.GetType( ).GetProperty("HoatDong_xKetThuc").GetValue(item, null));
+                            yEnd = Convert.ToInt16(item.GetType( ).GetProperty("HoatDong_yKetThuc").GetValue(item, null));
+                            float khoangCachX = (xEnd - xStart) / buocNhay1;
+                            float khoangCachY = (yEnd - yStart) / buocNhay1;
+                            float locationX = xStart + khoangCachX * (numberRun[j] + 1) - 12;
+                            float locationY = yStart + khoangCachY * (numberRun[j] + 1) - 12;
+                            phuongTien = item.GetType( ).GetProperty("vatThe_name").GetValue(item, null).ToString( );
+                            var brimary = item.GetType( ).GetProperty("vatThe_hinhAnh").GetValue(item, null);
+                            byte[] array = (brimary as System.Data.Linq.Binary).ToArray( );
                             MemoryStream ms = new MemoryStream(array);
                             img = Image.FromStream(ms);
                             //newColor = Color.FromArgb(Convert.ToInt32(dtRow["vatThe_mau"].ToString()));
-                            newColor = System.Drawing.ColorTranslator.FromHtml(item.GetType().GetProperty("vatThe_mau").GetValue(item, null).ToString());
-                            if (numberRun[j] < buocNhay1 - 1)
+                            newColor = System.Drawing.ColorTranslator.FromHtml(item.GetType( ).GetProperty("vatThe_mau").GetValue(item, null).ToString( ));
+                            if ( numberRun[j] < buocNhay1 )
                             {
-                                g.DrawImage(paint(img, newColor, locationX, locationY), locationX, locationY);
+                                g.DrawImage(paint(img, newColor, Convert.ToInt32(locationX), Convert.ToInt32(locationY)), Convert.ToInt32(locationX), Convert.ToInt32(locationY));
+                                pointt[j] = new Point(Convert.ToInt32(locationX), Convert.ToInt32(locationY));
+                                if ( veDuongDiChuyen == true )
+                                {
+                                    for ( int c = 0; c <= numberRun[j]; c++ )
+                                    {
+                                        g.DrawRectangle(new Pen(Color.Red, 1), Convert.ToInt32(xStart + khoangCachX * c) + 12, Convert.ToInt32(yStart + khoangCachY * c) + 12, 1, 1);
+                                    }
+                                }
                                 numberRun[j] = numberRun[j] + 1;
-                                pointt[j] = new Point((xStart + khoangCachX * (numberRun[j] + 1)), (yStart + khoangCachY * (numberRun[j] + 1)));
                             }
                             else
                             {
-                                g.DrawImage(paint(img, newColor, xEnd, yEnd), xEnd, yEnd);
+                                g.DrawImage(paint(img, newColor, xEnd - 12, yEnd - 12), xEnd - 12, yEnd - 12);
                                 pointt[j] = new Point(xEnd, yEnd);
+                                if ( veDuongDiChuyen == true )
+                                {
+                                    for ( int c = 0; c <= numberRun[j]; c++ )
+                                    {
+                                        g.DrawRectangle(new Pen(Color.Red, 1), Convert.ToInt32(xStart + khoangCachX * c) + 12, Convert.ToInt32(yStart + khoangCachY * c) + 12, 1, 1);
+                                    }
+                                }
                             }
                         }
                         j = j + 1;
                     }
-                if (keVuong == true)
+                if ( keVuong == true )
                 {
-                    for (int i = 0; i < 3; i++)
+                    for ( int i = 0; i < 3; i++ )
                     {
                         g.DrawLine(new Pen(Color.WhiteSmoke, 2), 0, (RadarLineChart.Height / 4) * (i + 1), RadarLineChart.Width, (RadarLineChart.Height / 4) * (i + 1));
                     }
-                    for (int i = 0; i < RadarLineChart.Width / 300; i++)
+                    for ( int i = 0; i < RadarLineChart.Width / 300; i++ )
                     {
                         g.DrawLine(new Pen(Color.WhiteSmoke, 2), 300 * (i + 1), 0, 300 * (i + 1), RadarLineChart.Height);
                     }
                 }
+                if ( hienThiVungNguyHiem == true )
+                {
+                    var data = _vungNHBus.getAllVungNH( );
+                    foreach ( var item in data )
+                    {
+                        string type = item.GetType( ).GetProperty("vungNguyHiem_loai").GetValue(item, null).ToString( );
+                        int X1 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_1_X").GetValue(item, null).ToString( ));
+                        int Y1 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_1_Y").GetValue(item, null).ToString( ));
+                        if ( type == "Hình Tròn" )
+                        {
+                            int banKinh = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_ban_kinh").GetValue(item, null).ToString( ));
+                            g.DrawEllipse(new Pen(Color.Red, 2), X1 - banKinh, Y1 - banKinh, banKinh * 2, banKinh * 2);
+
+                        }
+                        else if ( type == "Tam Giác" )
+                        {
+                            int X2 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_2_X").GetValue(item, null).ToString( ));
+                            int Y2 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_2_Y").GetValue(item, null).ToString( ));
+                            int X3 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_3_X").GetValue(item, null).ToString( ));
+                            int Y3 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_3_Y").GetValue(item, null).ToString( ));
+                            g.DrawLine(new Pen(Color.Red, 2), X1, Y1, X2, Y2);
+                            g.DrawLine(new Pen(Color.Red, 2), X2, Y2, X3, Y3);
+                            g.DrawLine(new Pen(Color.Red, 2), X3, Y3, X1, Y1);
+                        }
+                        else
+                        {
+                            int X2 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_2_X").GetValue(item, null).ToString( ));
+                            int Y2 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_2_Y").GetValue(item, null).ToString( ));
+                            int X3 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_3_X").GetValue(item, null).ToString( ));
+                            int Y3 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_3_Y").GetValue(item, null).ToString( ));
+                            int X4 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_4_X").GetValue(item, null).ToString( ));
+                            int Y4 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_4_Y").GetValue(item, null).ToString( ));
+                            g.DrawLine(new Pen(Color.Red, 2), X1, Y1, X2, Y2);
+                            g.DrawLine(new Pen(Color.Red, 2), X2, Y2, X3, Y3);
+                            g.DrawLine(new Pen(Color.Red, 2), X3, Y3, X4, Y4);
+                            g.DrawLine(new Pen(Color.Red, 2), X4, Y4, X1, Y1);
+                        }
+                    }
+                }
                 return bmp;
             }
-            catch (Exception)
+            catch ( Exception )
             {
                 return null;
             }
-           
         }
-
-
-
-
-
         // ve doi tuong
-         private Bitmap paint(Image img, Color newColor, int x1, int y1)
+        private Bitmap paint(Image img, Color newColor, int x1, int y1)
         {
-            Bitmap bmp1 = new Bitmap(24, 24);
-            Graphics g1 = Graphics.FromImage(bmp1);
-            Color color1 = System.Drawing.ColorTranslator.FromHtml("#000000"); ;
-            ColorMap[] colorMap = new ColorMap[1];
-            colorMap[0] = new ColorMap( );
-            colorMap[0].OldColor = color1;
-            colorMap[0].NewColor = newColor;
-            ImageAttributes attr = new ImageAttributes( );
-            attr.SetRemapTable(colorMap);
-            Rectangle rect = new Rectangle(0, 0, bmp1.Width, bmp1.Height);
-            g1.DrawImage(img, 4, 4, 16, 16);
-            g1.DrawImage(bmp1, rect, 0, 0, rect.Width, rect.Height, GraphicsUnit.Pixel, attr);
-            int kc = (RadarLineChart.Height -170)/2;
-            
-                        
-            int khoangCachOM = (x1+10 - RadarLineChart.Width / 2) * (x1+10 - RadarLineChart.Width / 2) +
-            (y1+35 - (kc + 120)) * (y1+35 - (kc + 120));
-            // tính bình phương bán kính
-            
-            int banKinh = kc * kc;
-            int banKinh1 = kc * 2 / 3 * kc * 2 / 3;
-            int banKinh2 = kc * 1 / 3 * kc * 1 / 3;
-            
-            if ( khoangCachOM > banKinh )
+            try
             {
-                g1.DrawEllipse(new Pen(Color.Transparent, 2), rect);
+                Bitmap bmp1 = new Bitmap(24, 24);
+                Graphics g1 = Graphics.FromImage(bmp1);
+                Color color1 = System.Drawing.ColorTranslator.FromHtml("#000000"); ;
+                ColorMap[] colorMap = new ColorMap[1];
+                colorMap[0] = new ColorMap( );
+                colorMap[0].OldColor = color1;
+                colorMap[0].NewColor = newColor;
+                ImageAttributes attr = new ImageAttributes( );
+                attr.SetRemapTable(colorMap);
+                Rectangle rect = new Rectangle(0, 0, bmp1.Width, bmp1.Height);
+                g1.DrawImage(img, 4, 4, 16, 16);
+                g1.DrawImage(bmp1, rect, 0, 0, rect.Width, rect.Height, GraphicsUnit.Pixel, attr);
+                var data = _vungNHBus.getAllVungNH( );
+                foreach ( var item in data )
+                {
+                    string type = item.GetType( ).GetProperty("vungNguyHiem_loai").GetValue(item, null).ToString( );
+                    int oX1 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_1_X").GetValue(item, null).ToString( ));
+                    int oY1 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_1_Y").GetValue(item, null).ToString( ));
+                    if ( type == "Hình Tròn" )
+                    {
+                        int banKinh = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_ban_kinh").GetValue(item, null).ToString( ));
+                        int khoangCachOM = (x1 + 12 - oX1) * (x1 + 12 - oX1) +
+                              (y1 + 12 - oY1) * (y1 + 12 - oY1);
+                        if ( khoangCachOM < banKinh * banKinh )
+                        {
+                            g1.DrawEllipse(new Pen(Color.Red, 2), rect);
+                        }
+                    }
+                    else if ( type == "Tam Giác" )
+                    {
+                        int toadoX2 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_2_X").GetValue(item, null).ToString( ));
+                        int toadoY2 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_2_Y").GetValue(item, null).ToString( ));
+                        int toadoX3 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_3_X").GetValue(item, null).ToString( ));
+                        int toadoY3 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_3_Y").GetValue(item, null).ToString( ));
+                        double c1TamGiac = dientich(new Point(x1, y1), new Point(oX1, oY1), new Point(toadoX2, toadoY2));
+                        double c2TamGiac = dientich(new Point(x1, y1), new Point(toadoX2, toadoY2), new Point(toadoX3, toadoY3));
+                        double c3TamGiac = dientich(new Point(x1, y1), new Point(toadoX3, toadoY3), new Point(oX1, oY1));
+                        double tichTamGiacP = c1TamGiac + c2TamGiac + c3TamGiac;
+                        double tichTamGiac123 = dientich(new Point(oX1, oY1), new Point(toadoX2, toadoY2), new Point(toadoX3, toadoY3));
+                        if ( tichTamGiacP <= tichTamGiac123 )
+                        {
+                            g1.DrawEllipse(new Pen(Color.Red, 2), rect);
+                        }
+                    }
+                    else
+                    {
+                        int toadoX2 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_2_X").GetValue(item, null).ToString( ));
+                        int toadoY2 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_2_Y").GetValue(item, null).ToString( ));
+                        int toadoX3 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_3_X").GetValue(item, null).ToString( ));
+                        int toadoY3 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_3_Y").GetValue(item, null).ToString( ));
+                        int toadoX4 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_4_X").GetValue(item, null).ToString( ));
+                        int toadoY4 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_4_Y").GetValue(item, null).ToString( ));
+                        double c1TamGiac = dientich(new Point(x1, y1), new Point(oX1, oY1), new Point(toadoX2, toadoY2));
+                        double c2TamGiac = dientich(new Point(x1, y1), new Point(toadoX2, toadoY2), new Point(toadoX3, toadoY3));
+                        double c3TamGiac = dientich(new Point(x1, y1), new Point(toadoX3, toadoY3), new Point(oX1, oY1));
+                        double c4TamGiac = dientich(new Point(x1, y1), new Point(oX1, oY1), new Point(toadoX3, toadoY3));
+                        double c5TamGiac = dientich(new Point(x1, y1), new Point(toadoX3, toadoY3), new Point(toadoX4, toadoY4));
+                        double c6TamGiac = dientich(new Point(x1, y1), new Point(toadoX4, toadoY4), new Point(oX1, oY1));
+
+                        double tichTamGiacP1 = c1TamGiac + c2TamGiac + c3TamGiac;
+                        double tichTamGiacP2 = c4TamGiac + c5TamGiac + c6TamGiac;
+                        double tichTamGiac123 = dientich(new Point(oX1, oY1), new Point(toadoX2, toadoY2), new Point(toadoX3, toadoY3));
+                        double tichTamGiac134 = dientich(new Point(oX1, oY1), new Point(toadoX3, toadoY3), new Point(toadoX4, toadoY4));
+                        if ( tichTamGiacP1 <= tichTamGiac123 || tichTamGiacP2 <= tichTamGiac134 )
+                        {
+                            g1.DrawEllipse(new Pen(Color.Red, 2), rect);
+                        }
+
+                    }
+                }
+                return bmp1;
             }
-            else if ( khoangCachOM >= banKinh1 && khoangCachOM <= banKinh )
+            catch ( Exception )
             {
-                g1.DrawEllipse(new Pen(Color.Green, 2), rect);
+                return null;
             }
-            else if ( khoangCachOM >= banKinh2 && khoangCachOM < banKinh1 )
-            {
-                g1.DrawEllipse(new Pen(Color.Blue, 2), rect);
-            }
-            else
-                g1.DrawEllipse(new Pen(Color.Red, 2), rect);
-            return bmp1;
         }
-
-
          public void ChildClick(object sender, System.EventArgs e)
          {
              MessageBox.Show(string.Concat("You have Clicked '", sender.ToString( ), "' Menu"), "Menu Items Event",
@@ -691,7 +793,40 @@ namespace TestRada1
              }
          }
 
-          
+         private void pictureBox13_Click(object sender, EventArgs e)
+         {
+             if ( hienThiVungNguyHiem == false )
+             {
+                 hienThiVungNguyHiem = true;
+             }
+             else
+             {
+                 hienThiVungNguyHiem = false;
+             }
+         }
+
+         int Mien(Point a, Point b, Point c)
+         //Xac dinh diem c nam o ben nao cua duong thang ab
+         {
+             int gt = (c.X - a.X) * (b.Y - a.Y) - (c.Y - a.Y) * (b.X - a.X);
+             return gt < 0 ? -1 : 1;
+         }
+         float dientich(Point a, Point b, Point c)
+         {
+             float d1 = b.X - a.X,
+             d2 = b.Y - a.Y,
+             d3 = c.X - a.X,
+             d4 = c.Y - a.Y;
+             return Math.Abs(d1 * d4 - d2 * d3) / 2;
+         }
+
+         private void pictureBox17_Click(object sender, EventArgs e)
+         {
+             if ( veDuongDiChuyen == false )
+                 veDuongDiChuyen = true;
+             else
+                 veDuongDiChuyen = false;
+         } 
     }
 
 }

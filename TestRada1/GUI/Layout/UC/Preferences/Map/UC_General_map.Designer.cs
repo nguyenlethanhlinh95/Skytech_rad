@@ -61,11 +61,21 @@
             this.btn_openFile = new System.Windows.Forms.Button();
             this.txt_link_path = new System.Windows.Forms.TextBox();
             this.label46 = new System.Windows.Forms.Label();
+            this.pic_Logo = new DevExpress.XtraEditors.PictureEdit();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txt_Ox = new System.Windows.Forms.TextBox();
+            this.txt_Oy = new System.Windows.Forms.TextBox();
+            this.txt_Oz = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             this.tabControl7.SuspendLayout();
             this.tabPage35.SuspendLayout();
             this.tabPage39.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Logo.Properties)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -270,7 +280,6 @@
             this.txt_y.Name = "txt_y";
             this.txt_y.Size = new System.Drawing.Size(107, 21);
             this.txt_y.TabIndex = 6;
-            this.txt_y.Text = "11.42";
             this.txt_y.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_x
@@ -279,7 +288,6 @@
             this.txt_x.Name = "txt_x";
             this.txt_x.Size = new System.Drawing.Size(107, 21);
             this.txt_x.TabIndex = 7;
-            this.txt_x.Text = "0.00";
             this.txt_x.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
@@ -402,18 +410,98 @@
             this.label46.TabIndex = 0;
             this.label46.Text = "File:";
             // 
+            // pic_Logo
+            // 
+            this.pic_Logo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pic_Logo.Location = new System.Drawing.Point(965, 158);
+            this.pic_Logo.Name = "pic_Logo";
+            this.pic_Logo.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pic_Logo.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.pic_Logo.Size = new System.Drawing.Size(176, 169);
+            this.pic_Logo.TabIndex = 251;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txt_Oz);
+            this.groupBox1.Controls.Add(this.txt_Ox);
+            this.groupBox1.Controls.Add(this.txt_Oy);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Location = new System.Drawing.Point(426, 126);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(377, 284);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Radar";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(21, 85);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(24, 15);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "OX";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(21, 122);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(23, 15);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "OY";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(22, 157);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(23, 15);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "OZ";
+            // 
+            // txt_Ox
+            // 
+            this.txt_Ox.Location = new System.Drawing.Point(91, 77);
+            this.txt_Ox.Name = "txt_Ox";
+            this.txt_Ox.Size = new System.Drawing.Size(107, 21);
+            this.txt_Ox.TabIndex = 7;
+            this.txt_Ox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txt_Oy
+            // 
+            this.txt_Oy.Location = new System.Drawing.Point(91, 114);
+            this.txt_Oy.Name = "txt_Oy";
+            this.txt_Oy.Size = new System.Drawing.Size(107, 21);
+            this.txt_Oy.TabIndex = 6;
+            this.txt_Oy.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txt_Oz
+            // 
+            this.txt_Oz.Location = new System.Drawing.Point(91, 149);
+            this.txt_Oz.Name = "txt_Oz";
+            this.txt_Oz.Size = new System.Drawing.Size(107, 21);
+            this.txt_Oz.TabIndex = 5;
+            this.txt_Oz.Text = "0";
+            this.txt_Oz.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // UC_General_map
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pic_Logo);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btn_apply);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UC_General_map";
             this.Size = new System.Drawing.Size(1210, 654);
+            this.Load += new System.EventHandler(this.UC_General_map_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.tabControl7.ResumeLayout(false);
@@ -423,6 +511,9 @@
             this.tabPage39.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Logo.Properties)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -462,5 +553,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private DevExpress.XtraEditors.PictureEdit pic_Logo;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txt_Oz;
+        private System.Windows.Forms.TextBox txt_Ox;
+        private System.Windows.Forms.TextBox txt_Oy;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
