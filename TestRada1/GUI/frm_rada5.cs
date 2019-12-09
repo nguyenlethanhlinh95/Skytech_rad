@@ -11,6 +11,7 @@ using DevExpress.XtraCharts;
 using System.Drawing.Imaging;
 using TestRada1.BUS;
 using System.IO;
+using System.Threading;
 
 namespace TestRada1
 {
@@ -54,7 +55,9 @@ namespace TestRada1
         VungNguyHiemBus _vungNHBus = new VungNguyHiemBus( );
         bool hienThiVungNguyHiem = false;
         bool veDuongDiChuyen = false;
+        bool hienThiZoom = false;
 
+        PictureBox pc = new PictureBox();
         /**
          * Khai bao truc toa do O, va toa do con chuot, dung de tinh khoang cach khi hover
          * 
@@ -85,6 +88,9 @@ namespace TestRada1
         Point toaDo1 = new Point(0, 0);// toa do diem 1 do khoan cach 2 diem
         Point toaDo2 = new Point(0, 0); // toa do diem 2 do khoan cach 2 diem
         bool isVeToaDoHaiDiem = false; // check toa do 2 diem xong
+
+        RadaBus _rada = new RadaBus();
+        BanDoBus _banDo = new BanDoBus();
         /**
          * Setup toa do diem, va truc
          * */
@@ -95,23 +101,65 @@ namespace TestRada1
 
         private void frm_rada5_Load(object sender, EventArgs e)
         {
-            this.Width = 1024;
-            this.Height = 768;
+            try
+            {
+                this.Width = 1024;
+                this.Height = 768;
+                
+                setup();
+                loadRada();
+            }
+            catch(Exception)
+            {
+                Messeage.error("Không thể tải Radar !");
+            }           
+        }
+
+        // setup rada
+        private void setup()
+        {
+    
+
+            // reduce flickering
+            this.DoubleBuffered = true;
+            //float doi1PixelKhoangCachX = 0;
+            //float doi1PixelKhoangCachY = 0;
+
+            //int widthManHinhRada = RadarLineChart.Width;
+            //int heightManHinhRada = RadarLineChart.Height;
+
+            //var banDo = _banDo.getBanDo();
+            //var raDa = _rada.getRaDa();
+
+            ////var widthBanDo = banDo.
+            //var x = float.Parse(banDo.GetType( ).GetProperty("bando_x").GetValue(banDo, null).ToString());
+            //var y =  float.Parse(banDo.GetType( ).GetProperty("bando_y").GetValue(banDo, null).ToString());
+
+            //var xTrucO = float.Parse(raDa.GetType( ).GetProperty("rada_x").GetValue(raDa, null).ToString( ));
+            //var yTrucO = float.Parse(raDa.GetType( ).GetProperty("rada_y").GetValue(raDa, null).ToString( ));
+
+            //
+
+            //doi1PixelKhoangCachX = x / widthManHinhRada;
+            //doi1PixelKhoangCachY = y / heightManHinhRada;
+            
+            //var xTrucOHienThi = Math.Round(doi1PixelKhoangCachX * xTrucO, 0);
+            //var yTrucOHienThi = Math.Round(doi1PixelKhoangCachY * yTrucO, 0);
 
             TimeStart = DateTime.Now;
             dt = hoatDongBus.getAll(TimeStart);
-            
+
             // context menu
             MnuStrip = new MenuStrip( );
             MnuStrip.Dock = DockStyle.None;
             // set truc toa do so voi man hinh
-            xO = (int)this.Width/2;
+            xO = (int) this.Width / 2;
             yO = (int) this.Height / 2;
 
-            PictureBox pb = new PictureBox() { Image  = Image.FromFile(Application.StartupPath + "/img/add.png")};
-            this.Cursor = new Cursor(((Bitmap)pb.Image).GetHicon());
+            PictureBox pb = new PictureBox( ) { Image = Image.FromFile(Application.StartupPath + "/img/add.png") };
+            this.Cursor = new Cursor(((Bitmap) pb.Image).GetHicon( ));
 
-            thamSoX=(RadarLineChart.Width / 2) / (350 * 1.0);
+            thamSoX = (RadarLineChart.Width / 2) / (350 * 1.0);
             thamSoY = (RadarLineChart.Height / 2) / (350 * 1.0);
             bmp = new Bitmap(RadarLineChart.Width, RadarLineChart.Height);
 
@@ -132,21 +180,24 @@ namespace TestRada1
             }
             //RadarLineChart.BackColor = Color.;
             RadarLineChart.LookAndFeel.UseDefaultLookAndFeel = false;
-                      
+
             //RadarLineChart
 
             toolTip( );
 
             //Toa do mat dinh cua 
+
             _seri_default.Points.Add(new SeriesPoint(350, 350));
+
             // toa do truc kim dong ho
             series1.Points.Add(new SeriesPoint(0, 0));
             series1.Points.Add(new SeriesPoint(xKimQuay, yKimQuay));
+            //series1.Points.
             series1.ArgumentScaleType = ScaleType.Numerical;
 
             // them diem
             //SeriesPoint p1 = new SeriesPoint(50, 90);
-           
+
             //series2.
 
             // Add the series to the chart. 
@@ -156,32 +207,33 @@ namespace TestRada1
             //RadarLineChart.Series[2]. = false;
 
             // Flip the diagram (if necessary). 
+            
             ((RadarDiagram) RadarLineChart.Diagram).StartAngleInDegrees = 360;
             ((RadarDiagram) RadarLineChart.Diagram).RotationDirection =
                 RadarDiagramRotationDirection.Clockwise;
             ((RadarDiagram) RadarLineChart.Diagram).BackColor = Color.Transparent;
             // chỉnh số vòng 
-            NumericScaleOptions yAxisOptions = ((RadarDiagram)RadarLineChart.Diagram).AxisY.NumericScaleOptions;
+            NumericScaleOptions yAxisOptions = ((RadarDiagram) RadarLineChart.Diagram).AxisY.NumericScaleOptions;
             // số càng nhỏ càng nhiều vòng
             //yAxisOptions.GridSpacing = 100;
             yAxisOptions.GridSpacing = 1000;
 
-            NumericScaleOptions xAxisOptions1 = ((RadarDiagram)RadarLineChart.Diagram).AxisX.NumericScaleOptions;
+            NumericScaleOptions xAxisOptions1 = ((RadarDiagram) RadarLineChart.Diagram).AxisX.NumericScaleOptions;
             // số càng nhỏ càng nhiều vòng
             xAxisOptions1.GridSpacing = 90;
 
 
             // Vòng Trong
-            ((RadarDiagram)RadarLineChart.Diagram).AxisY.MinorCount = 3;
-            ((RadarDiagram)RadarLineChart.Diagram).AxisY.GridLines.Color = System.Drawing.Color.Green;
-            ((RadarDiagram)RadarLineChart.Diagram).AxisY.Color = System.Drawing.Color.Blue;
-           
+            ((RadarDiagram) RadarLineChart.Diagram).AxisY.MinorCount = 3;
+            ((RadarDiagram) RadarLineChart.Diagram).AxisY.GridLines.Color = System.Drawing.Color.Green;
+            ((RadarDiagram) RadarLineChart.Diagram).AxisY.Color = System.Drawing.Color.Blue;
 
-            ((RadarDiagram)RadarLineChart.Diagram).AxisY.GridLines.MinorColor = System.Drawing.Color.Red;
+
+            ((RadarDiagram) RadarLineChart.Diagram).AxisY.GridLines.MinorColor = System.Drawing.Color.Red;
 
             // đường đọa độ
             ((RadarDiagram) RadarLineChart.Diagram).AxisX.GridLines.Color = System.Drawing.Color.Blue;
-            ((RadarDiagram)RadarLineChart.Diagram).BorderColor = System.Drawing.Color.Red;
+            ((RadarDiagram) RadarLineChart.Diagram).BorderColor = System.Drawing.Color.Red;
 
             ((RadarDiagram) RadarLineChart.Diagram).AxisX.Label.TextColor = Color.Black;
             ((RadarDiagram) RadarLineChart.Diagram).AxisY.Label.TextColor = Color.Black;
@@ -189,8 +241,11 @@ namespace TestRada1
             ((RadarDiagram) RadarLineChart.Diagram).AxisX.Label.Font = new Font("Tahoma", 10, FontStyle.Bold);
             ((RadarDiagram) RadarLineChart.Diagram).AxisY.Label.Font = new Font("Tahoma", 10, FontStyle.Bold);
 
-            
+
             ((RadarDiagram) RadarLineChart.Diagram).AxisX.Logarithmic = checkLine;
+
+            //((RadarDiagram) RadarLineChart.Diagram).Margins.Right = 50;
+            //((RadarDiagram) RadarLineChart.Diagram).Margins.Top= 140;
 
             // Add a title to the chart and hide the legend. 
             ChartTitle chartTitle1 = new ChartTitle( );
@@ -201,7 +256,6 @@ namespace TestRada1
             // Add the chart to the form. 
             RadarLineChart.Dock = DockStyle.Fill;
             this.Controls.Add(RadarLineChart);
-
         }
 
         // ke vach cua rada
@@ -227,7 +281,6 @@ namespace TestRada1
         private void btn_NhieuVong_Click(object sender, EventArgs e)
         {
             
-
             if ( checkVongTron == false )
             {
                 checkVongTron = true;
@@ -278,26 +331,23 @@ namespace TestRada1
         //Cap nhat lai toa do tay truc quay
         private void timer1_Tick(object sender, EventArgs e)
         {
-            // 30s 1 vong => 1ms 12do
-            //if ( xKimQuay < 359 && xKimQuay > 0 )
-            //{
-            //    xKimQuay = xKimQuay + 2;
-            //}
-            //else
-            //{
-            //    if ( xKimQuay == 359 )
-            //    {
-            //        xKimQuay = 0;
-            //    }
-            //    else
-            //    {
-            //        if ( xKimQuay == 0 )
-            //        {
-            //            xKimQuay = xKimQuay + 1;
-            //        }
-            //    }
-            //}
+            Thread thr1 = new Thread(capNhatKimQuay);
+            thr1.Start( );
 
+            //capNhatKimQuay();
+
+            Thread thr2 = new Thread(loadRada);
+            thr2.Start( );
+
+            //Thread thr3 = new Thread(checkImage);
+            //thr3.Start();
+            checkImage();
+            
+        }
+        Image imgs;
+        
+        private void capNhatKimQuay()
+        {
             if ( xKimQuay < 348 && xKimQuay >= 0 )
             {
                 xKimQuay = xKimQuay + 12;
@@ -316,15 +366,8 @@ namespace TestRada1
                     }
                 }
             }
-
-            //RadarLineChart.Paint += new System.Windows.Forms.PaintEventHandler(this.RadarLineChart_Paint);
-            loadRada( );
-            RadarLineChart.BackImage.Image = checkImage();
-            
         }
-        Image imgs;
-      
-     
+        
         private void RadarLineChart_Paint(object sender, PaintEventArgs e)
         {
             if ( isVeToaDoTrungTam )
@@ -335,13 +378,13 @@ namespace TestRada1
 
                 int khoangCachOM = (xToaDoDiemSoSoVoiO - x) * (xToaDoDiemSoSoVoiO - x) +
             (yToaDoDiemSoVoiO - y) * (yToaDoDiemSoVoiO - y);
-                var doDai = Math.Sqrt(Double.Parse(khoangCachOM.ToString()));
+                var doDai = Math.Sqrt(Double.Parse(khoangCachOM.ToString( )));
                 tt.RemoveAll( );
                 tt.Show("Khoảng cách đến trục O: " + doDai, this, xToaDoDiemSoSoVoiO + 25, yChuot + 25);
-            }      
+            }
             else
             {
-                
+
             }
 
             if ( isDoKhoanCachGiuaHaiDiem )
@@ -380,7 +423,23 @@ namespace TestRada1
             textEdit1.Text = "x: " + Cursor.Position.X + " y: " + Cursor.Position.Y;
 
             xChuot = e.X;
-            yChuot = e.Y;           
+            yChuot = e.Y;
+
+            if ( hienThiZoom == true )
+            {
+                Bitmap bitmap = new Bitmap(50, 50);
+                {
+                    Point pointOfOrigin = new Point(Cursor.Position.X , Cursor.Position.Y);
+                    using ( Graphics graphics = Graphics.FromImage(bitmap) )
+                    {
+                        graphics.CopyFromScreen(pointOfOrigin, new Point(0, 0), new Size(50, 50));
+
+                    }
+                    pc.Image = bitmap;
+                    pc.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+
+            }  
         }
 
 
@@ -551,46 +610,46 @@ namespace TestRada1
          /**
           * Lay Hinh Anh
           * */
-        public Bitmap checkImage( )
+        public  void checkImage( )
         {
+            imgs = Image.FromFile(Application.StartupPath + "/img/map.png");
             try
-            {
-                imgs = Image.FromFile(Application.StartupPath + "/img/map.png");
+            {               
                 g = Graphics.FromImage(bmp);
                 g.Clear(Color.Transparent);
                 g.DrawImage(imgs, 0, 0, bmp.Width, bmp.Height);
                 int j = 0;
-                if ( dt != null )
-                    foreach ( var item in dt )
+                if (dt != null)
+                    foreach (var item in dt)
                     {
-                        DateTime time = Convert.ToDateTime(item.GetType( ).GetProperty("HoatDong_thoiGianBatDauChay").GetValue(item, null));
+                        DateTime time = Convert.ToDateTime(item.GetType().GetProperty("HoatDong_thoiGianBatDauChay").GetValue(item, null));
                         DateTime now = DateTime.Now;
-                        if ( time <= now )
+                        if (time <= now)
                         {
                             Color newColor;
-                            int buocNhay1 = Convert.ToInt16(item.GetType( ).GetProperty("HoatDong_soBuocNhay").GetValue(item, null));
-                            xStart = Convert.ToInt16(item.GetType( ).GetProperty("HoatDong_xBatDau").GetValue(item, null));
-                            yStart = Convert.ToInt16(item.GetType( ).GetProperty("HoatDong_yBatDau").GetValue(item, null));
-                            xEnd = Convert.ToInt16(item.GetType( ).GetProperty("HoatDong_xKetThuc").GetValue(item, null));
-                            yEnd = Convert.ToInt16(item.GetType( ).GetProperty("HoatDong_yKetThuc").GetValue(item, null));
+                            int buocNhay1 = Convert.ToInt16(item.GetType().GetProperty("HoatDong_soBuocNhay").GetValue(item, null));
+                            xStart = Convert.ToInt16(item.GetType().GetProperty("HoatDong_xBatDau").GetValue(item, null));
+                            yStart = Convert.ToInt16(item.GetType().GetProperty("HoatDong_yBatDau").GetValue(item, null));
+                            xEnd = Convert.ToInt16(item.GetType().GetProperty("HoatDong_xKetThuc").GetValue(item, null));
+                            yEnd = Convert.ToInt16(item.GetType().GetProperty("HoatDong_yKetThuc").GetValue(item, null));
                             float khoangCachX = (xEnd - xStart) / buocNhay1;
                             float khoangCachY = (yEnd - yStart) / buocNhay1;
                             float locationX = xStart + khoangCachX * (numberRun[j] + 1) - 12;
                             float locationY = yStart + khoangCachY * (numberRun[j] + 1) - 12;
-                            phuongTien = item.GetType( ).GetProperty("vatThe_name").GetValue(item, null).ToString( );
-                            var brimary = item.GetType( ).GetProperty("vatThe_hinhAnh").GetValue(item, null);
-                            byte[] array = (brimary as System.Data.Linq.Binary).ToArray( );
+                            phuongTien = item.GetType().GetProperty("vatThe_name").GetValue(item, null).ToString();
+                            var brimary = item.GetType().GetProperty("image_img").GetValue(item, null);
+                            byte[] array = (brimary as System.Data.Linq.Binary).ToArray();
                             MemoryStream ms = new MemoryStream(array);
                             img = Image.FromStream(ms);
                             //newColor = Color.FromArgb(Convert.ToInt32(dtRow["vatThe_mau"].ToString()));
-                            newColor = System.Drawing.ColorTranslator.FromHtml(item.GetType( ).GetProperty("vatThe_mau").GetValue(item, null).ToString( ));
-                            if ( numberRun[j] < buocNhay1 )
+                            newColor = System.Drawing.ColorTranslator.FromHtml(item.GetType().GetProperty("vatThe_mau").GetValue(item, null).ToString());
+                            if (numberRun[j] < buocNhay1)
                             {
                                 g.DrawImage(paint(img, newColor, Convert.ToInt32(locationX), Convert.ToInt32(locationY)), Convert.ToInt32(locationX), Convert.ToInt32(locationY));
                                 pointt[j] = new Point(Convert.ToInt32(locationX), Convert.ToInt32(locationY));
-                                if ( veDuongDiChuyen == true )
+                                if (veDuongDiChuyen == true)
                                 {
-                                    for ( int c = 0; c <= numberRun[j]; c++ )
+                                    for (int c = 0; c <= numberRun[j]; c++)
                                     {
                                         g.DrawRectangle(new Pen(Color.Red, 1), Convert.ToInt32(xStart + khoangCachX * c) + 12, Convert.ToInt32(yStart + khoangCachY * c) + 12, 1, 1);
                                     }
@@ -601,9 +660,9 @@ namespace TestRada1
                             {
                                 g.DrawImage(paint(img, newColor, xEnd - 12, yEnd - 12), xEnd - 12, yEnd - 12);
                                 pointt[j] = new Point(xEnd, yEnd);
-                                if ( veDuongDiChuyen == true )
+                                if (veDuongDiChuyen == true)
                                 {
-                                    for ( int c = 0; c <= numberRun[j]; c++ )
+                                    for (int c = 0; c <= numberRun[j]; c++)
                                     {
                                         g.DrawRectangle(new Pen(Color.Red, 1), Convert.ToInt32(xStart + khoangCachX * c) + 12, Convert.ToInt32(yStart + khoangCachY * c) + 12, 1, 1);
                                     }
@@ -612,61 +671,102 @@ namespace TestRada1
                         }
                         j = j + 1;
                     }
-                if ( keVuong == true )
-                {
-                    for ( int i = 0; i < 3; i++ )
-                    {
-                        g.DrawLine(new Pen(Color.WhiteSmoke, 2), 0, (RadarLineChart.Height / 4) * (i + 1), RadarLineChart.Width, (RadarLineChart.Height / 4) * (i + 1));
-                    }
-                    for ( int i = 0; i < RadarLineChart.Width / 300; i++ )
-                    {
-                        g.DrawLine(new Pen(Color.WhiteSmoke, 2), 300 * (i + 1), 0, 300 * (i + 1), RadarLineChart.Height);
-                    }
-                }
-                if ( hienThiVungNguyHiem == true )
-                {
-                    var data = _vungNHBus.getAllVungNH( );
-                    foreach ( var item in data )
-                    {
-                        string type = item.GetType( ).GetProperty("vungNguyHiem_loai").GetValue(item, null).ToString( );
-                        int X1 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_1_X").GetValue(item, null).ToString( ));
-                        int Y1 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_1_Y").GetValue(item, null).ToString( ));
-                        if ( type == "Hình Tròn" )
-                        {
-                            int banKinh = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_ban_kinh").GetValue(item, null).ToString( ));
-                            g.DrawEllipse(new Pen(Color.Red, 2), X1 - banKinh, Y1 - banKinh, banKinh * 2, banKinh * 2);
-
-                        }
-                        else if ( type == "Tam Giác" )
-                        {
-                            int X2 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_2_X").GetValue(item, null).ToString( ));
-                            int Y2 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_2_Y").GetValue(item, null).ToString( ));
-                            int X3 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_3_X").GetValue(item, null).ToString( ));
-                            int Y3 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_3_Y").GetValue(item, null).ToString( ));
-                            g.DrawLine(new Pen(Color.Red, 2), X1, Y1, X2, Y2);
-                            g.DrawLine(new Pen(Color.Red, 2), X2, Y2, X3, Y3);
-                            g.DrawLine(new Pen(Color.Red, 2), X3, Y3, X1, Y1);
-                        }
-                        else
-                        {
-                            int X2 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_2_X").GetValue(item, null).ToString( ));
-                            int Y2 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_2_Y").GetValue(item, null).ToString( ));
-                            int X3 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_3_X").GetValue(item, null).ToString( ));
-                            int Y3 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_3_Y").GetValue(item, null).ToString( ));
-                            int X4 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_4_X").GetValue(item, null).ToString( ));
-                            int Y4 = Convert.ToInt32(item.GetType( ).GetProperty("vungNguyHiem_4_Y").GetValue(item, null).ToString( ));
-                            g.DrawLine(new Pen(Color.Red, 2), X1, Y1, X2, Y2);
-                            g.DrawLine(new Pen(Color.Red, 2), X2, Y2, X3, Y3);
-                            g.DrawLine(new Pen(Color.Red, 2), X3, Y3, X4, Y4);
-                            g.DrawLine(new Pen(Color.Red, 2), X4, Y4, X1, Y1);
-                        }
-                    }
-                }
-                return bmp;
+              
+                ThreadStart ts2 = new ThreadStart(keKinhDoViDo);
+                ThreadStart ts3 = new ThreadStart(keVungNguyHiem);
+               
+               
+                Thread t2 = new Thread(ts2);
+               
+                Thread t3 = new Thread(ts3);
+              
+                t2.Start();
+                t3.Start();
+             
+                t2.Join();
+                t3.Join();
+                //VeAnh();
+                //keKinhDoViDo();
+                //keVungNguyHiem();
+                RadarLineChart.BackImage.Image = bmp;
+               
             }
             catch ( Exception )
             {
-                return null;
+                RadarLineChart.BackImage.Image = imgs;
+            }
+        }
+        void keKinhDoViDo()
+        {
+            if (keVuong == true)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    g.DrawLine(new Pen(Color.WhiteSmoke, 2), 0, (RadarLineChart.Height / 4) * (i + 1), RadarLineChart.Width, (RadarLineChart.Height / 4) * (i + 1));
+                }
+                for (int i = 0; i < RadarLineChart.Width / 300; i++)
+                {
+                    g.DrawLine(new Pen(Color.WhiteSmoke, 2), 300 * (i + 1), 0, 300 * (i + 1), RadarLineChart.Height);
+                }
+            }
+        }
+        void keVungNguyHiem()
+        {
+            if (hienThiVungNguyHiem == true)
+            {
+                var data = _vungNHBus.getAllVungNH();
+                foreach (var item in data)
+                {
+                    string type = item.GetType().GetProperty("vungNguyHiem_loai").GetValue(item, null).ToString();
+                    int X1 = Convert.ToInt32(item.GetType().GetProperty("vungNguyHiem_1_X").GetValue(item, null).ToString());
+                    int Y1 = Convert.ToInt32(item.GetType().GetProperty("vungNguyHiem_1_Y").GetValue(item, null).ToString());
+                    if (type == "Hình Tròn")
+                    {
+                        int banKinh = Convert.ToInt32(item.GetType().GetProperty("vungNguyHiem_ban_kinh").GetValue(item, null).ToString());
+                        g.FillEllipse(new SolidBrush(Color.FromArgb(30, Color.Red)), X1 - banKinh, Y1 - banKinh, banKinh * 2, banKinh * 2);
+                    }
+                    else if (type == "Tam Giác")
+                    {
+                        int X2 = Convert.ToInt32(item.GetType().GetProperty("vungNguyHiem_2_X").GetValue(item, null).ToString());
+                        int Y2 = Convert.ToInt32(item.GetType().GetProperty("vungNguyHiem_2_Y").GetValue(item, null).ToString());
+                        int X3 = Convert.ToInt32(item.GetType().GetProperty("vungNguyHiem_3_X").GetValue(item, null).ToString());
+                        int Y3 = Convert.ToInt32(item.GetType().GetProperty("vungNguyHiem_3_Y").GetValue(item, null).ToString());
+                        //g.DrawLine(new Pen(Color.Red, 2), X1, Y1, X2, Y2);
+                        //g.DrawLine(new Pen(Color.Red, 2), X2, Y2, X3, Y3);
+                        //g.DrawLine(new Pen(Color.Red, 2), X3, Y3, X1, Y1);
+                        Point[] pnt = new Point[3];
+                        pnt[0].X = X1;
+                        pnt[0].Y = Y1;
+                        pnt[1].X = X2;
+                        pnt[1].Y = Y2;
+                        pnt[2].X = X3;
+                        pnt[2].Y = Y3;
+                        g.FillPolygon(new SolidBrush(Color.FromArgb(30, Color.Red)), pnt);
+                    }
+                    else
+                    {
+                        int X2 = Convert.ToInt32(item.GetType().GetProperty("vungNguyHiem_2_X").GetValue(item, null).ToString());
+                        int Y2 = Convert.ToInt32(item.GetType().GetProperty("vungNguyHiem_2_Y").GetValue(item, null).ToString());
+                        int X3 = Convert.ToInt32(item.GetType().GetProperty("vungNguyHiem_3_X").GetValue(item, null).ToString());
+                        int Y3 = Convert.ToInt32(item.GetType().GetProperty("vungNguyHiem_3_Y").GetValue(item, null).ToString());
+                        int X4 = Convert.ToInt32(item.GetType().GetProperty("vungNguyHiem_4_X").GetValue(item, null).ToString());
+                        int Y4 = Convert.ToInt32(item.GetType().GetProperty("vungNguyHiem_4_Y").GetValue(item, null).ToString());
+                        //g.DrawLine(new Pen(Color.Red, 2), X1, Y1, X2, Y2);
+                        //g.DrawLine(new Pen(Color.Red, 2), X2, Y2, X3, Y3);
+                        //g.DrawLine(new Pen(Color.Red, 2), X3, Y3, X4, Y4);
+                        //g.DrawLine(new Pen(Color.Red, 2), X4, Y4, X1, Y1);
+                        Point[] pnt = new Point[4];
+                        pnt[0].X = X1;
+                        pnt[0].Y = Y1;
+                        pnt[1].X = X2;
+                        pnt[1].Y = Y2;
+                        pnt[2].X = X3;
+                        pnt[2].Y = Y3;
+                        pnt[3].X = X4;
+                        pnt[3].Y = Y4;
+                        g.FillPolygon(new SolidBrush(Color.FromArgb(30, Color.Red)), pnt);
+                    }
+                }
             }
         }
         // ve doi tuong
@@ -775,6 +875,12 @@ namespace TestRada1
 
          private void timer2_Tick(object sender, EventArgs e)
          {
+             Thread thr3 = new Thread(hd3);
+             thr3.Start( );            
+         }
+
+         private void hd3()
+         {
              dt = hoatDongBus.getAll(TimeStart);
              int countNow = 0;
              foreach ( var item in dt )
@@ -826,7 +932,31 @@ namespace TestRada1
                  veDuongDiChuyen = true;
              else
                  veDuongDiChuyen = false;
-         } 
+         }
+
+
+         // 
+         bool isVe = false;
+         private void pictureBox5_Click(object sender, EventArgs e)
+         {
+             if (hienThiZoom == false)
+             {
+                 hienThiZoom = true;
+                 pc.Location = new Point(RadarLineChart.Width - 200, RadarLineChart.Height - 200);
+                 pc.Width = 200;
+                 pc.Height = 200;
+                 pc.BringToFront();                
+                 RadarLineChart.Controls.Add(pc);
+             }
+             else
+             {
+                 hienThiZoom = false;
+                 RadarLineChart.Controls.Remove(pc);
+             }
+         }
+
+         private Image imgOriginal;
+
     }
 
 }

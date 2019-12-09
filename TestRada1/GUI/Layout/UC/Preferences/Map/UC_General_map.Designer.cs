@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent( )
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_General_map));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label45 = new System.Windows.Forms.Label();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
@@ -63,12 +64,11 @@
             this.label46 = new System.Windows.Forms.Label();
             this.pic_Logo = new DevExpress.XtraEditors.PictureEdit();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.txt_Ox = new System.Windows.Forms.TextBox();
             this.txt_Oy = new System.Windows.Forms.TextBox();
-            this.txt_Oz = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btn_find = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox3.SuspendLayout();
             this.tabControl7.SuspendLayout();
             this.tabPage35.SuspendLayout();
@@ -422,18 +422,33 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txt_Oz);
+            this.groupBox1.Controls.Add(this.btn_find);
             this.groupBox1.Controls.Add(this.txt_Ox);
             this.groupBox1.Controls.Add(this.txt_Oy);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Location = new System.Drawing.Point(426, 126);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(377, 284);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Radar";
+            // 
+            // txt_Ox
+            // 
+            this.txt_Ox.Location = new System.Drawing.Point(91, 77);
+            this.txt_Ox.Name = "txt_Ox";
+            this.txt_Ox.Size = new System.Drawing.Size(107, 21);
+            this.txt_Ox.TabIndex = 7;
+            this.txt_Ox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txt_Oy
+            // 
+            this.txt_Oy.Location = new System.Drawing.Point(91, 114);
+            this.txt_Oy.Name = "txt_Oy";
+            this.txt_Oy.Size = new System.Drawing.Size(107, 21);
+            this.txt_Oy.TabIndex = 6;
+            this.txt_Oy.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
@@ -453,39 +468,23 @@
             this.label7.TabIndex = 2;
             this.label7.Text = "OY";
             // 
-            // label8
+            // btn_find
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(22, 157);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(23, 15);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "OZ";
-            // 
-            // txt_Ox
-            // 
-            this.txt_Ox.Location = new System.Drawing.Point(91, 77);
-            this.txt_Ox.Name = "txt_Ox";
-            this.txt_Ox.Size = new System.Drawing.Size(107, 21);
-            this.txt_Ox.TabIndex = 7;
-            this.txt_Ox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txt_Oy
-            // 
-            this.txt_Oy.Location = new System.Drawing.Point(91, 114);
-            this.txt_Oy.Name = "txt_Oy";
-            this.txt_Oy.Size = new System.Drawing.Size(107, 21);
-            this.txt_Oy.TabIndex = 6;
-            this.txt_Oy.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txt_Oz
-            // 
-            this.txt_Oz.Location = new System.Drawing.Point(91, 149);
-            this.txt_Oz.Name = "txt_Oz";
-            this.txt_Oz.Size = new System.Drawing.Size(107, 21);
-            this.txt_Oz.TabIndex = 5;
-            this.txt_Oz.Text = "0";
-            this.txt_Oz.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_find.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btn_find.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btn_find.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Bold);
+            this.btn_find.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.btn_find.Appearance.Options.UseBackColor = true;
+            this.btn_find.Appearance.Options.UseFont = true;
+            this.btn_find.Appearance.Options.UseForeColor = true;
+            this.btn_find.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.btn_find.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_image.ImageOptions.Image")));
+            this.btn_find.Location = new System.Drawing.Point(24, 160);
+            this.btn_find.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_find.Name = "btn_find";
+            this.btn_find.Size = new System.Drawing.Size(132, 23);
+            this.btn_find.TabIndex = 8;
+            this.btn_find.Text = "Chọn nhanh";
             // 
             // UC_General_map
             // 
@@ -555,11 +554,10 @@
         private System.Windows.Forms.Label label4;
         private DevExpress.XtraEditors.PictureEdit pic_Logo;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txt_Oz;
         private System.Windows.Forms.TextBox txt_Ox;
         private System.Windows.Forms.TextBox txt_Oy;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private DevExpress.XtraEditors.SimpleButton btn_find;
     }
 }

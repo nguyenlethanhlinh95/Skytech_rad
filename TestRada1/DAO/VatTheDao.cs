@@ -50,7 +50,7 @@ namespace TestRada1.DAO
 
                 updateVT.vatThe_name = vt.vatThe_name;
                 updateVT.vatThe_mau = vt.vatThe_mau;
-                updateVT.vatThe_hinhAnh = vt.vatThe_hinhAnh;
+                updateVT.image_id = vt.image_id;
                 db.SubmitChanges( );
                 return true;
             }

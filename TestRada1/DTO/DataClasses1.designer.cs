@@ -42,9 +42,15 @@ namespace TestRada1.DTO
     partial void InsertST_HoatDong(ST_HoatDong instance);
     partial void UpdateST_HoatDong(ST_HoatDong instance);
     partial void DeleteST_HoatDong(ST_HoatDong instance);
+    partial void InsertST_Image(ST_Image instance);
+    partial void UpdateST_Image(ST_Image instance);
+    partial void DeleteST_Image(ST_Image instance);
     partial void InsertST_RaDa(ST_RaDa instance);
     partial void UpdateST_RaDa(ST_RaDa instance);
     partial void DeleteST_RaDa(ST_RaDa instance);
+    partial void InsertST_target(ST_target instance);
+    partial void UpdateST_target(ST_target instance);
+    partial void DeleteST_target(ST_target instance);
     partial void InsertST_User(ST_User instance);
     partial void UpdateST_User(ST_User instance);
     partial void DeleteST_User(ST_User instance);
@@ -115,11 +121,27 @@ namespace TestRada1.DTO
 			}
 		}
 		
+		public System.Data.Linq.Table<ST_Image> ST_Images
+		{
+			get
+			{
+				return this.GetTable<ST_Image>();
+			}
+		}
+		
 		public System.Data.Linq.Table<ST_RaDa> ST_RaDas
 		{
 			get
 			{
 				return this.GetTable<ST_RaDa>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ST_target> ST_targets
+		{
+			get
+			{
+				return this.GetTable<ST_target>();
 			}
 		}
 		
@@ -156,6 +178,8 @@ namespace TestRada1.DTO
 		
 		private System.Data.Linq.Binary _bando_image;
 		
+		private System.Nullable<bool> _bando_tinhTrang;
+		
 		private System.Nullable<long> _user_created;
 		
     #region Extensibility Method Definitions
@@ -172,6 +196,8 @@ namespace TestRada1.DTO
     partial void Onbando_yChanged();
     partial void Onbando_imageChanging(System.Data.Linq.Binary value);
     partial void Onbando_imageChanged();
+    partial void Onbando_tinhTrangChanging(System.Nullable<bool> value);
+    partial void Onbando_tinhTrangChanged();
     partial void Onuser_createdChanging(System.Nullable<long> value);
     partial void Onuser_createdChanged();
     #endregion
@@ -277,6 +303,26 @@ namespace TestRada1.DTO
 					this._bando_image = value;
 					this.SendPropertyChanged("bando_image");
 					this.Onbando_imageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bando_tinhTrang", DbType="Bit")]
+		public System.Nullable<bool> bando_tinhTrang
+		{
+			get
+			{
+				return this._bando_tinhTrang;
+			}
+			set
+			{
+				if ((this._bando_tinhTrang != value))
+				{
+					this.Onbando_tinhTrangChanging(value);
+					this.SendPropertyChanging();
+					this._bando_tinhTrang = value;
+					this.SendPropertyChanged("bando_tinhTrang");
+					this.Onbando_tinhTrangChanged();
 				}
 			}
 		}
@@ -964,6 +1010,116 @@ namespace TestRada1.DTO
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ST_Images")]
+	public partial class ST_Image : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _image_id;
+		
+		private string _image_name;
+		
+		private System.Data.Linq.Binary _image_img;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onimage_idChanging(int value);
+    partial void Onimage_idChanged();
+    partial void Onimage_nameChanging(string value);
+    partial void Onimage_nameChanged();
+    partial void Onimage_imgChanging(System.Data.Linq.Binary value);
+    partial void Onimage_imgChanged();
+    #endregion
+		
+		public ST_Image()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int image_id
+		{
+			get
+			{
+				return this._image_id;
+			}
+			set
+			{
+				if ((this._image_id != value))
+				{
+					this.Onimage_idChanging(value);
+					this.SendPropertyChanging();
+					this._image_id = value;
+					this.SendPropertyChanged("image_id");
+					this.Onimage_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image_name", DbType="NVarChar(50)")]
+		public string image_name
+		{
+			get
+			{
+				return this._image_name;
+			}
+			set
+			{
+				if ((this._image_name != value))
+				{
+					this.Onimage_nameChanging(value);
+					this.SendPropertyChanging();
+					this._image_name = value;
+					this.SendPropertyChanged("image_name");
+					this.Onimage_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image_img", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary image_img
+		{
+			get
+			{
+				return this._image_img;
+			}
+			set
+			{
+				if ((this._image_img != value))
+				{
+					this.Onimage_imgChanging(value);
+					this.SendPropertyChanging();
+					this._image_img = value;
+					this.SendPropertyChanged("image_img");
+					this.Onimage_imgChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ST_RaDa")]
 	public partial class ST_RaDa : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -977,6 +1133,8 @@ namespace TestRada1.DTO
 		private double _rada_x;
 		
 		private double _rada_y;
+		
+		private System.Nullable<long> _bando_id;
 		
 		private System.Nullable<long> _user_created;
 		
@@ -992,6 +1150,8 @@ namespace TestRada1.DTO
     partial void Onrada_xChanged();
     partial void Onrada_yChanging(double value);
     partial void Onrada_yChanged();
+    partial void Onbando_idChanging(System.Nullable<long> value);
+    partial void Onbando_idChanged();
     partial void Onuser_createdChanging(System.Nullable<long> value);
     partial void Onuser_createdChanged();
     #endregion
@@ -1081,6 +1241,26 @@ namespace TestRada1.DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bando_id", DbType="BigInt")]
+		public System.Nullable<long> bando_id
+		{
+			get
+			{
+				return this._bando_id;
+			}
+			set
+			{
+				if ((this._bando_id != value))
+				{
+					this.Onbando_idChanging(value);
+					this.SendPropertyChanging();
+					this._bando_id = value;
+					this.SendPropertyChanged("bando_id");
+					this.Onbando_idChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_created", DbType="BigInt")]
 		public System.Nullable<long> user_created
 		{
@@ -1097,6 +1277,644 @@ namespace TestRada1.DTO
 					this._user_created = value;
 					this.SendPropertyChanged("user_created");
 					this.Onuser_createdChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ST_target")]
+	public partial class ST_target : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _target_id;
+		
+		private string _target_name;
+		
+		private string _target_true_heading;
+		
+		private string _target_true_heading_unit;
+		
+		private string _target_course_over_ground;
+		
+		private string _target_course_over_ground_unit;
+		
+		private string _target_speed_over_ground;
+		
+		private string _target_speed_over_ground_unit;
+		
+		private string _target_rate_of_turn;
+		
+		private string _target_rate_of_turn_unit;
+		
+		private string _target_call_sign;
+		
+		private string _target_MMSI;
+		
+		private string _target_navigation_status;
+		
+		private string _target_type_of_ship;
+		
+		private string _target_draught;
+		
+		private string _target_draught_unit;
+		
+		private string _target_lenght;
+		
+		private string _target_lenght_unit;
+		
+		private string _target_width;
+		
+		private string _target_width_unit;
+		
+		private string _target_Destination;
+		
+		private string _target_speed;
+		
+		private string _target_speed_unit;
+		
+		private string _target_height;
+		
+		private string _target_height_unit;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Ontarget_idChanging(int value);
+    partial void Ontarget_idChanged();
+    partial void Ontarget_nameChanging(string value);
+    partial void Ontarget_nameChanged();
+    partial void Ontarget_true_headingChanging(string value);
+    partial void Ontarget_true_headingChanged();
+    partial void Ontarget_true_heading_unitChanging(string value);
+    partial void Ontarget_true_heading_unitChanged();
+    partial void Ontarget_course_over_groundChanging(string value);
+    partial void Ontarget_course_over_groundChanged();
+    partial void Ontarget_course_over_ground_unitChanging(string value);
+    partial void Ontarget_course_over_ground_unitChanged();
+    partial void Ontarget_speed_over_groundChanging(string value);
+    partial void Ontarget_speed_over_groundChanged();
+    partial void Ontarget_speed_over_ground_unitChanging(string value);
+    partial void Ontarget_speed_over_ground_unitChanged();
+    partial void Ontarget_rate_of_turnChanging(string value);
+    partial void Ontarget_rate_of_turnChanged();
+    partial void Ontarget_rate_of_turn_unitChanging(string value);
+    partial void Ontarget_rate_of_turn_unitChanged();
+    partial void Ontarget_call_signChanging(string value);
+    partial void Ontarget_call_signChanged();
+    partial void Ontarget_MMSIChanging(string value);
+    partial void Ontarget_MMSIChanged();
+    partial void Ontarget_navigation_statusChanging(string value);
+    partial void Ontarget_navigation_statusChanged();
+    partial void Ontarget_type_of_shipChanging(string value);
+    partial void Ontarget_type_of_shipChanged();
+    partial void Ontarget_draughtChanging(string value);
+    partial void Ontarget_draughtChanged();
+    partial void Ontarget_draught_unitChanging(string value);
+    partial void Ontarget_draught_unitChanged();
+    partial void Ontarget_lenghtChanging(string value);
+    partial void Ontarget_lenghtChanged();
+    partial void Ontarget_lenght_unitChanging(string value);
+    partial void Ontarget_lenght_unitChanged();
+    partial void Ontarget_widthChanging(string value);
+    partial void Ontarget_widthChanged();
+    partial void Ontarget_width_unitChanging(string value);
+    partial void Ontarget_width_unitChanged();
+    partial void Ontarget_DestinationChanging(string value);
+    partial void Ontarget_DestinationChanged();
+    partial void Ontarget_speedChanging(string value);
+    partial void Ontarget_speedChanged();
+    partial void Ontarget_speed_unitChanging(string value);
+    partial void Ontarget_speed_unitChanged();
+    partial void Ontarget_heightChanging(string value);
+    partial void Ontarget_heightChanged();
+    partial void Ontarget_height_unitChanging(string value);
+    partial void Ontarget_height_unitChanged();
+    #endregion
+		
+		public ST_target()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int target_id
+		{
+			get
+			{
+				return this._target_id;
+			}
+			set
+			{
+				if ((this._target_id != value))
+				{
+					this.Ontarget_idChanging(value);
+					this.SendPropertyChanging();
+					this._target_id = value;
+					this.SendPropertyChanged("target_id");
+					this.Ontarget_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_name", DbType="NVarChar(50)")]
+		public string target_name
+		{
+			get
+			{
+				return this._target_name;
+			}
+			set
+			{
+				if ((this._target_name != value))
+				{
+					this.Ontarget_nameChanging(value);
+					this.SendPropertyChanging();
+					this._target_name = value;
+					this.SendPropertyChanged("target_name");
+					this.Ontarget_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_true_heading", DbType="NVarChar(50)")]
+		public string target_true_heading
+		{
+			get
+			{
+				return this._target_true_heading;
+			}
+			set
+			{
+				if ((this._target_true_heading != value))
+				{
+					this.Ontarget_true_headingChanging(value);
+					this.SendPropertyChanging();
+					this._target_true_heading = value;
+					this.SendPropertyChanged("target_true_heading");
+					this.Ontarget_true_headingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_true_heading_unit", DbType="NVarChar(50)")]
+		public string target_true_heading_unit
+		{
+			get
+			{
+				return this._target_true_heading_unit;
+			}
+			set
+			{
+				if ((this._target_true_heading_unit != value))
+				{
+					this.Ontarget_true_heading_unitChanging(value);
+					this.SendPropertyChanging();
+					this._target_true_heading_unit = value;
+					this.SendPropertyChanged("target_true_heading_unit");
+					this.Ontarget_true_heading_unitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_course_over_ground", DbType="NVarChar(50)")]
+		public string target_course_over_ground
+		{
+			get
+			{
+				return this._target_course_over_ground;
+			}
+			set
+			{
+				if ((this._target_course_over_ground != value))
+				{
+					this.Ontarget_course_over_groundChanging(value);
+					this.SendPropertyChanging();
+					this._target_course_over_ground = value;
+					this.SendPropertyChanged("target_course_over_ground");
+					this.Ontarget_course_over_groundChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_course_over_ground_unit", DbType="NVarChar(50)")]
+		public string target_course_over_ground_unit
+		{
+			get
+			{
+				return this._target_course_over_ground_unit;
+			}
+			set
+			{
+				if ((this._target_course_over_ground_unit != value))
+				{
+					this.Ontarget_course_over_ground_unitChanging(value);
+					this.SendPropertyChanging();
+					this._target_course_over_ground_unit = value;
+					this.SendPropertyChanged("target_course_over_ground_unit");
+					this.Ontarget_course_over_ground_unitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_speed_over_ground", DbType="NVarChar(50)")]
+		public string target_speed_over_ground
+		{
+			get
+			{
+				return this._target_speed_over_ground;
+			}
+			set
+			{
+				if ((this._target_speed_over_ground != value))
+				{
+					this.Ontarget_speed_over_groundChanging(value);
+					this.SendPropertyChanging();
+					this._target_speed_over_ground = value;
+					this.SendPropertyChanged("target_speed_over_ground");
+					this.Ontarget_speed_over_groundChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_speed_over_ground_unit", DbType="NVarChar(50)")]
+		public string target_speed_over_ground_unit
+		{
+			get
+			{
+				return this._target_speed_over_ground_unit;
+			}
+			set
+			{
+				if ((this._target_speed_over_ground_unit != value))
+				{
+					this.Ontarget_speed_over_ground_unitChanging(value);
+					this.SendPropertyChanging();
+					this._target_speed_over_ground_unit = value;
+					this.SendPropertyChanged("target_speed_over_ground_unit");
+					this.Ontarget_speed_over_ground_unitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_rate_of_turn", DbType="NVarChar(50)")]
+		public string target_rate_of_turn
+		{
+			get
+			{
+				return this._target_rate_of_turn;
+			}
+			set
+			{
+				if ((this._target_rate_of_turn != value))
+				{
+					this.Ontarget_rate_of_turnChanging(value);
+					this.SendPropertyChanging();
+					this._target_rate_of_turn = value;
+					this.SendPropertyChanged("target_rate_of_turn");
+					this.Ontarget_rate_of_turnChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_rate_of_turn_unit", DbType="NVarChar(50)")]
+		public string target_rate_of_turn_unit
+		{
+			get
+			{
+				return this._target_rate_of_turn_unit;
+			}
+			set
+			{
+				if ((this._target_rate_of_turn_unit != value))
+				{
+					this.Ontarget_rate_of_turn_unitChanging(value);
+					this.SendPropertyChanging();
+					this._target_rate_of_turn_unit = value;
+					this.SendPropertyChanged("target_rate_of_turn_unit");
+					this.Ontarget_rate_of_turn_unitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_call_sign", DbType="NVarChar(50)")]
+		public string target_call_sign
+		{
+			get
+			{
+				return this._target_call_sign;
+			}
+			set
+			{
+				if ((this._target_call_sign != value))
+				{
+					this.Ontarget_call_signChanging(value);
+					this.SendPropertyChanging();
+					this._target_call_sign = value;
+					this.SendPropertyChanged("target_call_sign");
+					this.Ontarget_call_signChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_MMSI", DbType="NVarChar(50)")]
+		public string target_MMSI
+		{
+			get
+			{
+				return this._target_MMSI;
+			}
+			set
+			{
+				if ((this._target_MMSI != value))
+				{
+					this.Ontarget_MMSIChanging(value);
+					this.SendPropertyChanging();
+					this._target_MMSI = value;
+					this.SendPropertyChanged("target_MMSI");
+					this.Ontarget_MMSIChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_navigation_status", DbType="NVarChar(50)")]
+		public string target_navigation_status
+		{
+			get
+			{
+				return this._target_navigation_status;
+			}
+			set
+			{
+				if ((this._target_navigation_status != value))
+				{
+					this.Ontarget_navigation_statusChanging(value);
+					this.SendPropertyChanging();
+					this._target_navigation_status = value;
+					this.SendPropertyChanged("target_navigation_status");
+					this.Ontarget_navigation_statusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_type_of_ship", DbType="NVarChar(50)")]
+		public string target_type_of_ship
+		{
+			get
+			{
+				return this._target_type_of_ship;
+			}
+			set
+			{
+				if ((this._target_type_of_ship != value))
+				{
+					this.Ontarget_type_of_shipChanging(value);
+					this.SendPropertyChanging();
+					this._target_type_of_ship = value;
+					this.SendPropertyChanged("target_type_of_ship");
+					this.Ontarget_type_of_shipChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_draught", DbType="NVarChar(50)")]
+		public string target_draught
+		{
+			get
+			{
+				return this._target_draught;
+			}
+			set
+			{
+				if ((this._target_draught != value))
+				{
+					this.Ontarget_draughtChanging(value);
+					this.SendPropertyChanging();
+					this._target_draught = value;
+					this.SendPropertyChanged("target_draught");
+					this.Ontarget_draughtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_draught_unit", DbType="NVarChar(50)")]
+		public string target_draught_unit
+		{
+			get
+			{
+				return this._target_draught_unit;
+			}
+			set
+			{
+				if ((this._target_draught_unit != value))
+				{
+					this.Ontarget_draught_unitChanging(value);
+					this.SendPropertyChanging();
+					this._target_draught_unit = value;
+					this.SendPropertyChanged("target_draught_unit");
+					this.Ontarget_draught_unitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_lenght", DbType="NVarChar(50)")]
+		public string target_lenght
+		{
+			get
+			{
+				return this._target_lenght;
+			}
+			set
+			{
+				if ((this._target_lenght != value))
+				{
+					this.Ontarget_lenghtChanging(value);
+					this.SendPropertyChanging();
+					this._target_lenght = value;
+					this.SendPropertyChanged("target_lenght");
+					this.Ontarget_lenghtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_lenght_unit", DbType="NVarChar(50)")]
+		public string target_lenght_unit
+		{
+			get
+			{
+				return this._target_lenght_unit;
+			}
+			set
+			{
+				if ((this._target_lenght_unit != value))
+				{
+					this.Ontarget_lenght_unitChanging(value);
+					this.SendPropertyChanging();
+					this._target_lenght_unit = value;
+					this.SendPropertyChanged("target_lenght_unit");
+					this.Ontarget_lenght_unitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_width", DbType="NVarChar(50)")]
+		public string target_width
+		{
+			get
+			{
+				return this._target_width;
+			}
+			set
+			{
+				if ((this._target_width != value))
+				{
+					this.Ontarget_widthChanging(value);
+					this.SendPropertyChanging();
+					this._target_width = value;
+					this.SendPropertyChanged("target_width");
+					this.Ontarget_widthChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_width_unit", DbType="NVarChar(50)")]
+		public string target_width_unit
+		{
+			get
+			{
+				return this._target_width_unit;
+			}
+			set
+			{
+				if ((this._target_width_unit != value))
+				{
+					this.Ontarget_width_unitChanging(value);
+					this.SendPropertyChanging();
+					this._target_width_unit = value;
+					this.SendPropertyChanged("target_width_unit");
+					this.Ontarget_width_unitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_Destination", DbType="NVarChar(50)")]
+		public string target_Destination
+		{
+			get
+			{
+				return this._target_Destination;
+			}
+			set
+			{
+				if ((this._target_Destination != value))
+				{
+					this.Ontarget_DestinationChanging(value);
+					this.SendPropertyChanging();
+					this._target_Destination = value;
+					this.SendPropertyChanged("target_Destination");
+					this.Ontarget_DestinationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_speed", DbType="NVarChar(50)")]
+		public string target_speed
+		{
+			get
+			{
+				return this._target_speed;
+			}
+			set
+			{
+				if ((this._target_speed != value))
+				{
+					this.Ontarget_speedChanging(value);
+					this.SendPropertyChanging();
+					this._target_speed = value;
+					this.SendPropertyChanged("target_speed");
+					this.Ontarget_speedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_speed_unit", DbType="NVarChar(50)")]
+		public string target_speed_unit
+		{
+			get
+			{
+				return this._target_speed_unit;
+			}
+			set
+			{
+				if ((this._target_speed_unit != value))
+				{
+					this.Ontarget_speed_unitChanging(value);
+					this.SendPropertyChanging();
+					this._target_speed_unit = value;
+					this.SendPropertyChanged("target_speed_unit");
+					this.Ontarget_speed_unitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_height", DbType="NVarChar(50)")]
+		public string target_height
+		{
+			get
+			{
+				return this._target_height;
+			}
+			set
+			{
+				if ((this._target_height != value))
+				{
+					this.Ontarget_heightChanging(value);
+					this.SendPropertyChanging();
+					this._target_height = value;
+					this.SendPropertyChanged("target_height");
+					this.Ontarget_heightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_target_height_unit", DbType="NVarChar(50)")]
+		public string target_height_unit
+		{
+			get
+			{
+				return this._target_height_unit;
+			}
+			set
+			{
+				if ((this._target_height_unit != value))
+				{
+					this.Ontarget_height_unitChanging(value);
+					this.SendPropertyChanging();
+					this._target_height_unit = value;
+					this.SendPropertyChanged("target_height_unit");
+					this.Ontarget_height_unitChanged();
 				}
 			}
 		}
@@ -1530,7 +2348,7 @@ namespace TestRada1.DTO
 		
 		private string _vatThe_name;
 		
-		private System.Data.Linq.Binary _vatThe_hinhAnh;
+		private System.Nullable<int> _image_id;
 		
 		private string _vatThe_mau;
 		
@@ -1542,8 +2360,8 @@ namespace TestRada1.DTO
     partial void OnvatThe_idChanged();
     partial void OnvatThe_nameChanging(string value);
     partial void OnvatThe_nameChanged();
-    partial void OnvatThe_hinhAnhChanging(System.Data.Linq.Binary value);
-    partial void OnvatThe_hinhAnhChanged();
+    partial void Onimage_idChanging(System.Nullable<int> value);
+    partial void Onimage_idChanged();
     partial void OnvatThe_mauChanging(string value);
     partial void OnvatThe_mauChanged();
     #endregion
@@ -1593,22 +2411,22 @@ namespace TestRada1.DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vatThe_hinhAnh", DbType="Image", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary vatThe_hinhAnh
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image_id", DbType="Int")]
+		public System.Nullable<int> image_id
 		{
 			get
 			{
-				return this._vatThe_hinhAnh;
+				return this._image_id;
 			}
 			set
 			{
-				if ((this._vatThe_hinhAnh != value))
+				if ((this._image_id != value))
 				{
-					this.OnvatThe_hinhAnhChanging(value);
+					this.Onimage_idChanging(value);
 					this.SendPropertyChanging();
-					this._vatThe_hinhAnh = value;
-					this.SendPropertyChanged("vatThe_hinhAnh");
-					this.OnvatThe_hinhAnhChanged();
+					this._image_id = value;
+					this.SendPropertyChanged("image_id");
+					this.Onimage_idChanged();
 				}
 			}
 		}

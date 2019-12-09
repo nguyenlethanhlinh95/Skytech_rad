@@ -33,14 +33,14 @@
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label46 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button35 = new System.Windows.Forms.Button();
-            this.button36 = new System.Windows.Forms.Button();
-            this.button37 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.checkBox11 = new System.Windows.Forms.CheckBox();
             this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.button35 = new System.Windows.Forms.Button();
+            this.button36 = new System.Windows.Forms.Button();
+            this.button37 = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -101,36 +101,6 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Layers Selection";
             // 
-            // button35
-            // 
-            this.button35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button35.Location = new System.Drawing.Point(1130, 604);
-            this.button35.Name = "button35";
-            this.button35.Size = new System.Drawing.Size(62, 28);
-            this.button35.TabIndex = 11;
-            this.button35.Text = "Close";
-            this.button35.UseVisualStyleBackColor = true;
-            // 
-            // button36
-            // 
-            this.button36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button36.Location = new System.Drawing.Point(1062, 604);
-            this.button36.Name = "button36";
-            this.button36.Size = new System.Drawing.Size(62, 28);
-            this.button36.TabIndex = 10;
-            this.button36.Text = "Revert";
-            this.button36.UseVisualStyleBackColor = true;
-            // 
-            // button37
-            // 
-            this.button37.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button37.Location = new System.Drawing.Point(995, 604);
-            this.button37.Name = "button37";
-            this.button37.Size = new System.Drawing.Size(62, 28);
-            this.button37.TabIndex = 9;
-            this.button37.Text = "Apply";
-            this.button37.UseVisualStyleBackColor = true;
-            // 
             // groupBox6
             // 
             this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -186,6 +156,37 @@
             this.checkBox9.TabIndex = 1;
             this.checkBox9.Text = "Airport layer";
             this.checkBox9.UseVisualStyleBackColor = true;
+            // 
+            // button35
+            // 
+            this.button35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button35.Location = new System.Drawing.Point(1130, 604);
+            this.button35.Name = "button35";
+            this.button35.Size = new System.Drawing.Size(62, 28);
+            this.button35.TabIndex = 11;
+            this.button35.Text = "Close";
+            this.button35.UseVisualStyleBackColor = true;
+            this.button35.Click += new System.EventHandler(this.button35_Click);
+            // 
+            // button36
+            // 
+            this.button36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button36.Location = new System.Drawing.Point(1062, 604);
+            this.button36.Name = "button36";
+            this.button36.Size = new System.Drawing.Size(62, 28);
+            this.button36.TabIndex = 10;
+            this.button36.Text = "Revert";
+            this.button36.UseVisualStyleBackColor = true;
+            // 
+            // button37
+            // 
+            this.button37.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button37.Location = new System.Drawing.Point(995, 604);
+            this.button37.Name = "button37";
+            this.button37.Size = new System.Drawing.Size(62, 28);
+            this.button37.TabIndex = 9;
+            this.button37.Text = "Apply";
+            this.button37.UseVisualStyleBackColor = true;
             // 
             // UC_Navigation_map
             // 

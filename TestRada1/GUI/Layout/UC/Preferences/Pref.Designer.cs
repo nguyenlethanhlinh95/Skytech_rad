@@ -46,19 +46,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.tabControl3 = new System.Windows.Forms.TabControl();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.tabPage12 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabControl6 = new System.Windows.Forms.TabControl();
             this.tabPage31 = new System.Windows.Forms.TabPage();
@@ -68,6 +55,38 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabControl5 = new System.Windows.Forms.TabControl();
             this.tabPage20 = new System.Windows.Forms.TabPage();
+            this.tabPage21 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabControl4 = new System.Windows.Forms.TabControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.tabPage15 = new System.Windows.Forms.TabPage();
+            this.tabPage16 = new System.Windows.Forms.TabPage();
+            this.tabPage17 = new System.Windows.Forms.TabPage();
+            this.tabPage18 = new System.Windows.Forms.TabPage();
+            this.tabPage19 = new System.Windows.Forms.TabPage();
             this.tabPage22 = new System.Windows.Forms.TabPage();
             this.tabPage23 = new System.Windows.Forms.TabPage();
             this.tabPage24 = new System.Windows.Forms.TabPage();
@@ -77,38 +96,19 @@
             this.tabPage28 = new System.Windows.Forms.TabPage();
             this.tabPage29 = new System.Windows.Forms.TabPage();
             this.tabPage30 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabControl4 = new System.Windows.Forms.TabControl();
-            this.tabPage13 = new System.Windows.Forms.TabPage();
-            this.tabPage14 = new System.Windows.Forms.TabPage();
-            this.tabPage15 = new System.Windows.Forms.TabPage();
-            this.tabPage16 = new System.Windows.Forms.TabPage();
-            this.tabPage17 = new System.Windows.Forms.TabPage();
-            this.tabPage18 = new System.Windows.Forms.TabPage();
-            this.tabPage19 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage21 = new System.Windows.Forms.TabPage();
-            this.tabControl3.SuspendLayout();
-            this.tabPage10.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabControl6.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabControl5.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabControl4.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabControl2.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabControl3.SuspendLayout();
+            this.tabPage10.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
@@ -141,127 +141,6 @@
             this.groupBox2.Size = new System.Drawing.Size(753, 10);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            // 
-            // tabControl3
-            // 
-            this.tabControl3.Controls.Add(this.tabPage10);
-            this.tabControl3.Controls.Add(this.tabPage11);
-            this.tabControl3.Controls.Add(this.tabPage12);
-            this.tabControl3.Location = new System.Drawing.Point(0, 71);
-            this.tabControl3.Name = "tabControl3";
-            this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(749, 375);
-            this.tabControl3.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.tabControl3, "Cài đặt tham số riêng");
-            // 
-            // tabPage10
-            // 
-            this.tabPage10.BackgroundImage = global::TestRada1.Properties.Resources.sesor11;
-            this.tabPage10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage10.Controls.Add(this.label32);
-            this.tabPage10.Controls.Add(this.label31);
-            this.tabPage10.Location = new System.Drawing.Point(4, 22);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(741, 349);
-            this.tabPage10.TabIndex = 0;
-            this.tabPage10.Text = "Characteristics";
-            this.tabPage10.UseVisualStyleBackColor = true;
-            // 
-            // label32
-            // 
-            this.label32.Location = new System.Drawing.Point(241, 78);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(47, 23);
-            this.label32.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.label32, "Cự li cực đại");
-            // 
-            // label31
-            // 
-            this.label31.Location = new System.Drawing.Point(6, 16);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(47, 23);
-            this.label31.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.label31, "Tên đài");
-            // 
-            // tabPage11
-            // 
-            this.tabPage11.BackgroundImage = global::TestRada1.Properties.Resources.sesor2;
-            this.tabPage11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage11.Location = new System.Drawing.Point(4, 22);
-            this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(741, 349);
-            this.tabPage11.TabIndex = 1;
-            this.tabPage11.Text = "Network";
-            this.tabPage11.UseVisualStyleBackColor = true;
-            // 
-            // tabPage12
-            // 
-            this.tabPage12.BackgroundImage = global::TestRada1.Properties.Resources.sesor3;
-            this.tabPage12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage12.Location = new System.Drawing.Point(4, 22);
-            this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Size = new System.Drawing.Size(741, 349);
-            this.tabPage12.TabIndex = 2;
-            this.tabPage12.Text = "CMD";
-            this.tabPage12.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(6, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 19);
-            this.label1.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.label1, "Cự li");
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(6, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 19);
-            this.label2.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.label2, "Độ cao");
-            // 
-            // label5
-            // 
-            this.label5.Location = new System.Drawing.Point(6, 83);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 19);
-            this.label5.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.label5, "Vận tốc");
-            // 
-            // label6
-            // 
-            this.label6.Location = new System.Drawing.Point(9, 106);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 19);
-            this.label6.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.label6, "Góc, phương vị");
-            // 
-            // label7
-            // 
-            this.label7.Location = new System.Drawing.Point(6, 134);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 19);
-            this.label7.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.label7, "Tần số");
-            // 
-            // label9
-            // 
-            this.label9.Location = new System.Drawing.Point(234, 152);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(92, 19);
-            this.label9.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.label9, "Đường dẫn lưu file ghi dữ liệu");
-            // 
-            // label10
-            // 
-            this.label10.Location = new System.Drawing.Point(447, 213);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(130, 19);
-            this.label10.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.label10, "Thay đổi mật khẩu thường");
             // 
             // tabPage6
             // 
@@ -361,16 +240,353 @@
             this.tabPage20.TabIndex = 11;
             this.tabPage20.Text = "Symbol Basic";
             // 
+            // tabPage21
+            // 
+            this.tabPage21.Location = new System.Drawing.Point(4, 22);
+            this.tabPage21.Name = "tabPage21";
+            this.tabPage21.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage21.Size = new System.Drawing.Size(737, 460);
+            this.tabPage21.TabIndex = 12;
+            this.tabPage21.Text = "Label Basic";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.tabControl4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(745, 486);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Plots";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tabControl4
+            // 
+            this.tabControl4.Controls.Add(this.tabPage13);
+            this.tabControl4.Controls.Add(this.tabPage14);
+            this.tabControl4.Controls.Add(this.tabPage15);
+            this.tabControl4.Controls.Add(this.tabPage16);
+            this.tabControl4.Controls.Add(this.tabPage17);
+            this.tabControl4.Controls.Add(this.tabPage18);
+            this.tabControl4.Controls.Add(this.tabPage19);
+            this.tabControl4.Location = new System.Drawing.Point(0, 0);
+            this.tabControl4.Name = "tabControl4";
+            this.tabControl4.SelectedIndex = 0;
+            this.tabControl4.Size = new System.Drawing.Size(745, 446);
+            this.tabControl4.TabIndex = 0;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.tabControl2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(745, 486);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Radar Image";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.tabPage7);
+            this.tabControl2.Controls.Add(this.tabPage8);
+            this.tabControl2.Controls.Add(this.tabPage9);
+            this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl2.Location = new System.Drawing.Point(3, 3);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(739, 480);
+            this.tabControl2.TabIndex = 0;
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(731, 454);
+            this.tabPage7.TabIndex = 3;
+            this.tabPage7.Text = "Makers";
+            this.tabPage7.Click += new System.EventHandler(this.tabPage7_Click);
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(731, 454);
+            this.tabPage8.TabIndex = 4;
+            this.tabPage8.Text = "Volumes";
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(731, 454);
+            this.tabPage9.TabIndex = 5;
+            this.tabPage9.Text = "Sectors";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(753, 512);
+            this.tabControl1.TabIndex = 3;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackgroundImage = global::TestRada1.Properties.Resources.ge1;
+            this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage1.Controls.Add(this.label10);
+            this.tabPage1.Controls.Add(this.label9);
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.label7);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.ImageKey = "(none)";
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(745, 486);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "General";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.Location = new System.Drawing.Point(447, 213);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(130, 19);
+            this.label10.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.label10, "Thay đổi mật khẩu thường");
+            // 
+            // label9
+            // 
+            this.label9.Location = new System.Drawing.Point(234, 152);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(92, 19);
+            this.label9.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.label9, "Đường dẫn lưu file ghi dữ liệu");
+            // 
+            // label8
+            // 
+            this.label8.Location = new System.Drawing.Point(6, 156);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(72, 19);
+            this.label8.TabIndex = 0;
+            // 
+            // label7
+            // 
+            this.label7.Location = new System.Drawing.Point(6, 134);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(72, 19);
+            this.label7.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.label7, "Tần số");
+            // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(9, 106);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 19);
+            this.label6.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.label6, "Góc, phương vị");
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(6, 83);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 19);
+            this.label5.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.label5, "Vận tốc");
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(6, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 19);
+            this.label2.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.label2, "Độ cao");
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(6, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 19);
+            this.label1.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.label1, "Cự li");
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackgroundImage = global::TestRada1.Properties.Resources.sesor1;
+            this.tabPage3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage3.Controls.Add(this.tabControl3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(745, 486);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Sensor";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabControl3
+            // 
+            this.tabControl3.Controls.Add(this.tabPage10);
+            this.tabControl3.Controls.Add(this.tabPage11);
+            this.tabControl3.Controls.Add(this.tabPage12);
+            this.tabControl3.Location = new System.Drawing.Point(0, 71);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(749, 375);
+            this.tabControl3.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.tabControl3, "Cài đặt tham số riêng");
+            // 
+            // tabPage10
+            // 
+            this.tabPage10.BackgroundImage = global::TestRada1.Properties.Resources.sesor11;
+            this.tabPage10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage10.Controls.Add(this.label32);
+            this.tabPage10.Controls.Add(this.label31);
+            this.tabPage10.Location = new System.Drawing.Point(4, 22);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage10.Size = new System.Drawing.Size(741, 349);
+            this.tabPage10.TabIndex = 0;
+            this.tabPage10.Text = "Characteristics";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // label32
+            // 
+            this.label32.Location = new System.Drawing.Point(241, 78);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(47, 23);
+            this.label32.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.label32, "Cự li cực đại");
+            // 
+            // label31
+            // 
+            this.label31.Location = new System.Drawing.Point(6, 16);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(47, 23);
+            this.label31.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.label31, "Tên đài");
+            // 
+            // tabPage11
+            // 
+            this.tabPage11.BackgroundImage = global::TestRada1.Properties.Resources.sesor2;
+            this.tabPage11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage11.Location = new System.Drawing.Point(4, 22);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage11.Size = new System.Drawing.Size(741, 349);
+            this.tabPage11.TabIndex = 1;
+            this.tabPage11.Text = "Network";
+            this.tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // tabPage12
+            // 
+            this.tabPage12.BackgroundImage = global::TestRada1.Properties.Resources.sesor3;
+            this.tabPage12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage12.Location = new System.Drawing.Point(4, 22);
+            this.tabPage12.Name = "tabPage12";
+            this.tabPage12.Size = new System.Drawing.Size(741, 349);
+            this.tabPage12.TabIndex = 2;
+            this.tabPage12.Text = "CMD";
+            this.tabPage12.UseVisualStyleBackColor = true;
+            // 
+            // tabPage13
+            // 
+            this.tabPage13.BackgroundImage = global::TestRada1.Properties.Resources.pl1;
+            this.tabPage13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage13.Location = new System.Drawing.Point(4, 22);
+            this.tabPage13.Name = "tabPage13";
+            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage13.Size = new System.Drawing.Size(737, 420);
+            this.tabPage13.TabIndex = 0;
+            this.tabPage13.Text = "Symbol Basic";
+            this.tabPage13.UseVisualStyleBackColor = true;
+            // 
+            // tabPage14
+            // 
+            this.tabPage14.BackgroundImage = global::TestRada1.Properties.Resources.pl2;
+            this.tabPage14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage14.Location = new System.Drawing.Point(4, 22);
+            this.tabPage14.Name = "tabPage14";
+            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage14.Size = new System.Drawing.Size(737, 420);
+            this.tabPage14.TabIndex = 1;
+            this.tabPage14.Text = "Symbol CAT010";
+            this.tabPage14.UseVisualStyleBackColor = true;
+            // 
+            // tabPage15
+            // 
+            this.tabPage15.BackgroundImage = global::TestRada1.Properties.Resources.pl3;
+            this.tabPage15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage15.Location = new System.Drawing.Point(4, 22);
+            this.tabPage15.Name = "tabPage15";
+            this.tabPage15.Size = new System.Drawing.Size(737, 420);
+            this.tabPage15.TabIndex = 2;
+            this.tabPage15.Text = "Symbol CAT048";
+            this.tabPage15.UseVisualStyleBackColor = true;
+            // 
+            // tabPage16
+            // 
+            this.tabPage16.BackgroundImage = global::TestRada1.Properties.Resources.pl4;
+            this.tabPage16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage16.Location = new System.Drawing.Point(4, 22);
+            this.tabPage16.Name = "tabPage16";
+            this.tabPage16.Size = new System.Drawing.Size(737, 420);
+            this.tabPage16.TabIndex = 3;
+            this.tabPage16.Text = "Label CAT010";
+            this.tabPage16.UseVisualStyleBackColor = true;
+            // 
+            // tabPage17
+            // 
+            this.tabPage17.BackgroundImage = global::TestRada1.Properties.Resources.pl5;
+            this.tabPage17.Location = new System.Drawing.Point(4, 22);
+            this.tabPage17.Name = "tabPage17";
+            this.tabPage17.Size = new System.Drawing.Size(737, 420);
+            this.tabPage17.TabIndex = 4;
+            this.tabPage17.Text = "Label CAT048";
+            this.tabPage17.UseVisualStyleBackColor = true;
+            // 
+            // tabPage18
+            // 
+            this.tabPage18.BackgroundImage = global::TestRada1.Properties.Resources.pl6;
+            this.tabPage18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage18.Location = new System.Drawing.Point(4, 22);
+            this.tabPage18.Name = "tabPage18";
+            this.tabPage18.Size = new System.Drawing.Size(737, 420);
+            this.tabPage18.TabIndex = 5;
+            this.tabPage18.Text = "Filter CAT010";
+            this.tabPage18.UseVisualStyleBackColor = true;
+            // 
+            // tabPage19
+            // 
+            this.tabPage19.BackgroundImage = global::TestRada1.Properties.Resources.pl7;
+            this.tabPage19.Location = new System.Drawing.Point(4, 22);
+            this.tabPage19.Name = "tabPage19";
+            this.tabPage19.Size = new System.Drawing.Size(737, 420);
+            this.tabPage19.TabIndex = 6;
+            this.tabPage19.Text = "Filter CAT048";
+            this.tabPage19.UseVisualStyleBackColor = true;
+            // 
             // tabPage22
             // 
-            this.tabPage22.BackgroundImage = global::TestRada1.Properties.Resources.tr3;
+            this.tabPage22.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPage22.Location = new System.Drawing.Point(4, 22);
             this.tabPage22.Name = "tabPage22";
             this.tabPage22.Size = new System.Drawing.Size(737, 460);
             this.tabPage22.TabIndex = 2;
             this.tabPage22.Text = "Symbol CAT010";
-            this.tabPage22.UseVisualStyleBackColor = true;
             // 
             // tabPage23
             // 
@@ -460,223 +676,6 @@
             this.tabPage30.Text = "Filter CAT048";
             this.tabPage30.UseVisualStyleBackColor = true;
             // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.tabControl4);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(745, 486);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Plots";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabControl4
-            // 
-            this.tabControl4.Controls.Add(this.tabPage13);
-            this.tabControl4.Controls.Add(this.tabPage14);
-            this.tabControl4.Controls.Add(this.tabPage15);
-            this.tabControl4.Controls.Add(this.tabPage16);
-            this.tabControl4.Controls.Add(this.tabPage17);
-            this.tabControl4.Controls.Add(this.tabPage18);
-            this.tabControl4.Controls.Add(this.tabPage19);
-            this.tabControl4.Location = new System.Drawing.Point(0, 0);
-            this.tabControl4.Name = "tabControl4";
-            this.tabControl4.SelectedIndex = 0;
-            this.tabControl4.Size = new System.Drawing.Size(745, 446);
-            this.tabControl4.TabIndex = 0;
-            // 
-            // tabPage13
-            // 
-            this.tabPage13.BackgroundImage = global::TestRada1.Properties.Resources.pl1;
-            this.tabPage13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage13.Location = new System.Drawing.Point(4, 22);
-            this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(737, 420);
-            this.tabPage13.TabIndex = 0;
-            this.tabPage13.Text = "Symbol Basic";
-            this.tabPage13.UseVisualStyleBackColor = true;
-            // 
-            // tabPage14
-            // 
-            this.tabPage14.BackgroundImage = global::TestRada1.Properties.Resources.pl2;
-            this.tabPage14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage14.Location = new System.Drawing.Point(4, 22);
-            this.tabPage14.Name = "tabPage14";
-            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage14.Size = new System.Drawing.Size(737, 420);
-            this.tabPage14.TabIndex = 1;
-            this.tabPage14.Text = "Symbol CAT010";
-            this.tabPage14.UseVisualStyleBackColor = true;
-            // 
-            // tabPage15
-            // 
-            this.tabPage15.BackgroundImage = global::TestRada1.Properties.Resources.pl3;
-            this.tabPage15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage15.Location = new System.Drawing.Point(4, 22);
-            this.tabPage15.Name = "tabPage15";
-            this.tabPage15.Size = new System.Drawing.Size(737, 420);
-            this.tabPage15.TabIndex = 2;
-            this.tabPage15.Text = "Symbol CAT048";
-            this.tabPage15.UseVisualStyleBackColor = true;
-            // 
-            // tabPage16
-            // 
-            this.tabPage16.BackgroundImage = global::TestRada1.Properties.Resources.pl4;
-            this.tabPage16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage16.Location = new System.Drawing.Point(4, 22);
-            this.tabPage16.Name = "tabPage16";
-            this.tabPage16.Size = new System.Drawing.Size(737, 420);
-            this.tabPage16.TabIndex = 3;
-            this.tabPage16.Text = "Label CAT010";
-            this.tabPage16.UseVisualStyleBackColor = true;
-            // 
-            // tabPage17
-            // 
-            this.tabPage17.BackgroundImage = global::TestRada1.Properties.Resources.pl5;
-            this.tabPage17.Location = new System.Drawing.Point(4, 22);
-            this.tabPage17.Name = "tabPage17";
-            this.tabPage17.Size = new System.Drawing.Size(737, 420);
-            this.tabPage17.TabIndex = 4;
-            this.tabPage17.Text = "Label CAT048";
-            this.tabPage17.UseVisualStyleBackColor = true;
-            // 
-            // tabPage18
-            // 
-            this.tabPage18.BackgroundImage = global::TestRada1.Properties.Resources.pl6;
-            this.tabPage18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage18.Location = new System.Drawing.Point(4, 22);
-            this.tabPage18.Name = "tabPage18";
-            this.tabPage18.Size = new System.Drawing.Size(737, 420);
-            this.tabPage18.TabIndex = 5;
-            this.tabPage18.Text = "Filter CAT010";
-            this.tabPage18.UseVisualStyleBackColor = true;
-            // 
-            // tabPage19
-            // 
-            this.tabPage19.BackgroundImage = global::TestRada1.Properties.Resources.pl7;
-            this.tabPage19.Location = new System.Drawing.Point(4, 22);
-            this.tabPage19.Name = "tabPage19";
-            this.tabPage19.Size = new System.Drawing.Size(737, 420);
-            this.tabPage19.TabIndex = 6;
-            this.tabPage19.Text = "Filter CAT048";
-            this.tabPage19.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.BackgroundImage = global::TestRada1.Properties.Resources.sesor1;
-            this.tabPage3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage3.Controls.Add(this.tabControl3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(745, 486);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Sensor";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.tabControl2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(745, 486);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Radar Image";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabControl2
-            // 
-            this.tabControl2.Controls.Add(this.tabPage7);
-            this.tabControl2.Controls.Add(this.tabPage8);
-            this.tabControl2.Controls.Add(this.tabPage9);
-            this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl2.Location = new System.Drawing.Point(3, 3);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(739, 480);
-            this.tabControl2.TabIndex = 0;
-            // 
-            // tabPage7
-            // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(731, 454);
-            this.tabPage7.TabIndex = 3;
-            this.tabPage7.Text = "Makers";
-            this.tabPage7.Click += new System.EventHandler(this.tabPage7_Click);
-            // 
-            // tabPage8
-            // 
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(731, 454);
-            this.tabPage8.TabIndex = 4;
-            this.tabPage8.Text = "Volumes";
-            // 
-            // tabPage9
-            // 
-            this.tabPage9.Location = new System.Drawing.Point(4, 22);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(731, 454);
-            this.tabPage9.TabIndex = 5;
-            this.tabPage9.Text = "Sectors";
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackgroundImage = global::TestRada1.Properties.Resources.ge1;
-            this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.ImageKey = "(none)";
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(745, 486);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "General";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.Location = new System.Drawing.Point(6, 156);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 19);
-            this.label8.TabIndex = 0;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(753, 512);
-            this.tabControl1.TabIndex = 3;
-            // 
-            // tabPage21
-            // 
-            this.tabPage21.Location = new System.Drawing.Point(4, 22);
-            this.tabPage21.Name = "tabPage21";
-            this.tabPage21.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage21.Size = new System.Drawing.Size(737, 460);
-            this.tabPage21.TabIndex = 12;
-            this.tabPage21.Text = "Label Basic";
-            // 
             // Pref
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -695,19 +694,19 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Preferences";
             this.Load += new System.EventHandler(this.Pref_Load);
-            this.tabControl3.ResumeLayout(false);
-            this.tabPage10.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.tabControl6.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabControl5.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabControl4.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabControl3.ResumeLayout(false);
+            this.tabPage10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

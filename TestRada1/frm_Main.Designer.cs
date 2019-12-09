@@ -116,6 +116,10 @@
             this.barBtn_rada = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnCaiDat = new DevExpress.XtraBars.BarButtonItem();
             this.barBtn_VatThe = new DevExpress.XtraBars.BarButtonItem();
+            this.bar_btn_VungNguyHiem = new DevExpress.XtraBars.BarButtonItem();
+            this.bar_btn_HoatDong = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_bar_BanDo = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_bar_Rada = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -123,6 +127,7 @@
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage9 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup24 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -134,8 +139,6 @@
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.taskbarAssistant1 = new DevExpress.Utils.Taskbar.TaskbarAssistant();
             this.toastNotificationsManager1 = new DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager(this.components);
-            this.bar_btn_VungNguyHiem = new DevExpress.XtraBars.BarButtonItem();
-            this.bar_btn_HoatDong = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toastNotificationsManager1)).BeginInit();
@@ -232,9 +235,11 @@
             this.barBtnCaiDat,
             this.barBtn_VatThe,
             this.bar_btn_VungNguyHiem,
-            this.bar_btn_HoatDong});
+            this.bar_btn_HoatDong,
+            this.btn_bar_BanDo,
+            this.btn_bar_Rada});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 93;
+            this.ribbon.MaxItemId = 95;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage4,
@@ -996,6 +1001,45 @@
             this.barBtn_VatThe.Name = "barBtn_VatThe";
             this.barBtn_VatThe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtn_VatThe_ItemClick);
             // 
+            // bar_btn_VungNguyHiem
+            // 
+            this.bar_btn_VungNguyHiem.Caption = "Vùng nguy hiểm";
+            this.bar_btn_VungNguyHiem.Id = 91;
+            this.bar_btn_VungNguyHiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_btn_VungNguyHiem.ImageOptions.Image")));
+            this.bar_btn_VungNguyHiem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_btn_VungNguyHiem.ImageOptions.LargeImage")));
+            this.bar_btn_VungNguyHiem.LargeWidth = 100;
+            this.bar_btn_VungNguyHiem.Name = "bar_btn_VungNguyHiem";
+            this.bar_btn_VungNguyHiem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_btn_VungNguyHiem_ItemClick);
+            // 
+            // bar_btn_HoatDong
+            // 
+            this.bar_btn_HoatDong.Caption = "Hoạt động";
+            this.bar_btn_HoatDong.Id = 92;
+            this.bar_btn_HoatDong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_btn_HoatDong.ImageOptions.Image")));
+            this.bar_btn_HoatDong.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_btn_HoatDong.ImageOptions.LargeImage")));
+            this.bar_btn_HoatDong.LargeWidth = 100;
+            this.bar_btn_HoatDong.Name = "bar_btn_HoatDong";
+            this.bar_btn_HoatDong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_btn_HoatDong_ItemClick);
+            // 
+            // btn_bar_BanDo
+            // 
+            this.btn_bar_BanDo.Caption = "Bản đồ";
+            this.btn_bar_BanDo.Id = 93;
+            this.btn_bar_BanDo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_bar_BanDo.ImageOptions.Image")));
+            this.btn_bar_BanDo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_bar_BanDo.ImageOptions.LargeImage")));
+            this.btn_bar_BanDo.LargeWidth = 100;
+            this.btn_bar_BanDo.Name = "btn_bar_BanDo";
+            this.btn_bar_BanDo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_bar_BanDo_ItemClick);
+            // 
+            // btn_bar_Rada
+            // 
+            this.btn_bar_Rada.Caption = "Rada";
+            this.btn_bar_Rada.Id = 94;
+            this.btn_bar_Rada.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_bar_Rada.ImageOptions.Image")));
+            this.btn_bar_Rada.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_bar_Rada.ImageOptions.LargeImage")));
+            this.btn_bar_Rada.LargeWidth = 100;
+            this.btn_bar_Rada.Name = "btn_bar_Rada";
+            // 
             // ribbonPage4
             // 
             this.ribbonPage4.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
@@ -1040,7 +1084,8 @@
             this.ribbonPage1.Appearance.Options.UseFont = true;
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup2,
-            this.ribbonPageGroup4});
+            this.ribbonPageGroup4,
+            this.ribbonPageGroup5});
             this.ribbonPage1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage1.ImageOptions.Image")));
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Thiết Lập Ban Đầu";
@@ -1058,6 +1103,13 @@
             this.ribbonPageGroup4.ItemLinks.Add(this.bar_btn_VungNguyHiem);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "Radar Score";
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.btn_bar_BanDo);
+            this.ribbonPageGroup5.ItemLinks.Add(this.btn_bar_Rada);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "Bản Đồ";
             // 
             // ribbonPage9
             // 
@@ -1142,26 +1194,6 @@
             // 
             this.toastNotificationsManager1.ApplicationId = "33aef39b-9a86-43aa-b65b-d9c1d34fdfec";
             this.toastNotificationsManager1.ApplicationName = "PhanMemQuanLyCongTrinh";
-            // 
-            // bar_btn_VungNguyHiem
-            // 
-            this.bar_btn_VungNguyHiem.Caption = "Vùng nguy hiểm";
-            this.bar_btn_VungNguyHiem.Id = 91;
-            this.bar_btn_VungNguyHiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
-            this.bar_btn_VungNguyHiem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
-            this.bar_btn_VungNguyHiem.LargeWidth = 100;
-            this.bar_btn_VungNguyHiem.Name = "bar_btn_VungNguyHiem";
-            this.bar_btn_VungNguyHiem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_btn_VungNguyHiem_ItemClick);
-            // 
-            // bar_btn_HoatDong
-            // 
-            this.bar_btn_HoatDong.Caption = "Hoạt động";
-            this.bar_btn_HoatDong.Id = 92;
-            this.bar_btn_HoatDong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image1")));
-            this.bar_btn_HoatDong.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage1")));
-            this.bar_btn_HoatDong.LargeWidth = 100;
-            this.bar_btn_HoatDong.Name = "bar_btn_HoatDong";
-            this.bar_btn_HoatDong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_btn_HoatDong_ItemClick);
             // 
             // frm_Main
             // 
@@ -1294,5 +1326,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem bar_btn_VungNguyHiem;
         private DevExpress.XtraBars.BarButtonItem bar_btn_HoatDong;
+        private DevExpress.XtraBars.BarButtonItem btn_bar_BanDo;
+        private DevExpress.XtraBars.BarButtonItem btn_bar_Rada;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
     }
 }

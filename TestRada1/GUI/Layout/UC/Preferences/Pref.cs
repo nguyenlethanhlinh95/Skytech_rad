@@ -142,6 +142,15 @@ namespace TestRada1
              }
              else
                  UC_Label_basic.Instance.BringToFront( );
+
+             if ( !tabPage22.Controls.Contains(UC_Symbol_CAT.Instance) )
+             {
+                 tabPage22.Controls.Add(UC_Symbol_CAT.Instance);
+                 UC_Symbol_CAT.Instance.Dock = DockStyle.Fill;
+                 UC_Symbol_CAT.Instance.BringToFront( );
+             }
+             else
+                 UC_Symbol_CAT.Instance.BringToFront( );
          }
 
          private void tabPage7_Click(object sender, EventArgs e)

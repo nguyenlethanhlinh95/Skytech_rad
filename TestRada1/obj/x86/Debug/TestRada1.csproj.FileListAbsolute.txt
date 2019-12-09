@@ -71,3 +71,7 @@ D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\D
 D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.frm_ListVungNguyHiem.resources
 D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.frm_updateVungNguyHiem.resources
 D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.frm_VungNguyHiem.resources
+D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.UC_Symbol_CAT.resources
+D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.frm_DanhSachBanDo.resources
+D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.frm_AddNewBanDo.resources
+D:\UDEMY\Winform\Phan Mem Skytech\DuAn_Rada\Source\TestRada1\TestRada1\obj\x86\Debug\TestRada1.frm_ChonToaDoONhanh.resources

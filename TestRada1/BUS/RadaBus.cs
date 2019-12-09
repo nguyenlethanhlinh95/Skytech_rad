@@ -24,9 +24,14 @@ namespace TestRada1.BUS
             return _rada.isCheckRada();
         }
 
-        public Object getRaDa( )
+        public Object getRaDa(Int64 idBanDo)
         {
-            return _rada.getRaDa();
+            return _rada.getRaDa(idBanDo);
+        }
+
+        public bool delete(Int64 id, Int64 idBanDo)
+        {
+            return _rada.delete(id,idBanDo);
         }
     }
 }

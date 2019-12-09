@@ -315,5 +315,20 @@ namespace TestRada1
             }
         }
 
+        private void btn_bar_BanDo_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraform(typeof(frm_DanhSachBanDo));
+            if ( frm == null )
+            {
+                frm_DanhSachBanDo forms = new frm_DanhSachBanDo( );
+                forms.MdiParent = this;
+                forms.Show( );
+            }
+            else
+            {
+                frm.Activate( );
+            }
+        }
+
     }
 }

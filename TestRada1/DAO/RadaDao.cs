@@ -61,11 +61,12 @@ namespace TestRada1.DAO
             }
         }
 
-        public Object getRaDa( )
+        public Object getRaDa(Int64 idBanDo)
         {
             try
             {
                 var raDa = (from b in db.ST_RaDas
+                            where b.bando_id == idBanDo
                              select b
                             ).First( );
                 return raDa;
@@ -73,6 +74,25 @@ namespace TestRada1.DAO
             catch ( Exception )
             {
                 return null;
+            }
+        }
+
+
+        public bool delete(Int64 id, Int64 idBanDo)
+        {
+            try
+            {
+                var delete = (from b in db.ST_RaDas
+                            where b.bando_id == idBanDo && b.rada_id == id
+                            select b).Single();
+
+                db.ST_RaDas.DeleteOnSubmit(delete);
+                db.SubmitChanges( );
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
     }

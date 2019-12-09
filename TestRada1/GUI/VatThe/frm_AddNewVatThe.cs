@@ -40,7 +40,7 @@ namespace TestRada1
 
                     byte[] fileByte = converImageToBirany(pic_Logo.Image);
                     System.Data.Linq.Binary fileBinary = new System.Data.Linq.Binary(fileByte);
-                    vt.vatThe_hinhAnh = fileBinary;
+                    vt.image_id = 1;
 
                     bool isInsert = _vtBus.insert(vt);
 
@@ -107,7 +107,7 @@ namespace TestRada1
 
             byte[] fileByte = converImageToBirany(pic_Logo.Image);
             System.Data.Linq.Binary fileBinary = new System.Data.Linq.Binary(fileByte);
-            vatthe.vatThe_hinhAnh = fileBinary;
+            vatthe.image_id = 1;
 
             return _vtBus.update(vatthe);
         }

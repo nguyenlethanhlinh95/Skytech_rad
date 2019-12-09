@@ -629,6 +629,7 @@
             this.button35.TabIndex = 14;
             this.button35.Text = "Close";
             this.button35.UseVisualStyleBackColor = true;
+            this.button35.Click += new System.EventHandler(this.button35_Click);
             // 
             // button36
             // 

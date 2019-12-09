@@ -25,5 +25,10 @@ namespace TestRada1
         {
             InitializeComponent( );
         }
+
+        private void button35_Click(object sender, EventArgs e)
+        {
+            this.ParentForm.Close();
+        }
     }
 }

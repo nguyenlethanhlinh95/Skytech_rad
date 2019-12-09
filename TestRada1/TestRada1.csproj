@@ -68,12 +68,14 @@
     <Compile Include="BUS\BanDoBus.cs" />
     <Compile Include="BUS\DeparmentBus.cs" />
     <Compile Include="BUS\HoatDongBus.cs" />
+    <Compile Include="BUS\ImagesBus.cs" />
     <Compile Include="BUS\RadaBus.cs" />
     <Compile Include="BUS\UserBus.cs" />
     <Compile Include="BUS\VungNguyHiemBus.cs" />
     <Compile Include="DAO\BanDoDao.cs" />
     <Compile Include="DAO\DepartmentDao.cs" />
     <Compile Include="DAO\HoatDongDao.cs" />
+    <Compile Include="DAO\ImagesDao.cs" />
     <Compile Include="DAO\RadaDao.cs" />
     <Compile Include="DAO\UserDao.cs" />
     <Compile Include="DAO\VungNguyHiemDao.cs" />
@@ -82,6 +84,24 @@
     </Compile>
     <Compile Include="Form2.designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HeThong\BanDo\frm_ChonToaDoONhanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\HeThong\BanDo\frm_ChonToaDoONhanh.Designer.cs">
+      <DependentUpon>frm_ChonToaDoONhanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HeThong\BanDo\frm_AddNewBanDo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\HeThong\BanDo\frm_AddNewBanDo.Designer.cs">
+      <DependentUpon>frm_AddNewBanDo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HeThong\BanDo\frm_DanhSachBanDo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\HeThong\BanDo\frm_DanhSachBanDo.Designer.cs">
+      <DependentUpon>frm_DanhSachBanDo.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\HeThong\ChucVu\frm_ChucVu.cs">
       <SubType>Form</SubType>
@@ -178,6 +198,12 @@
     </Compile>
     <Compile Include="GUI\Layout\UC\Preferences\Radar Image\UC_Sectors.Designer.cs">
       <DependentUpon>UC_Sectors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Layout\UC\Preferences\Tracks\UC_Symbol_CAT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Layout\UC\Preferences\Tracks\UC_Symbol_CAT.designer.cs">
+      <DependentUpon>UC_Symbol_CAT.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\VatThe\frm_Target.cs">
       <SubType>Form</SubType>
@@ -280,6 +306,15 @@
     <Compile Include="XtraUserControl1.Designer.cs">
       <DependentUpon>XtraUserControl1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GUI\HeThong\BanDo\frm_AddNewBanDo.resx">
+      <DependentUpon>frm_AddNewBanDo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HeThong\BanDo\frm_ChonToaDoONhanh.resx">
+      <DependentUpon>frm_ChonToaDoONhanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HeThong\BanDo\frm_DanhSachBanDo.resx">
+      <DependentUpon>frm_DanhSachBanDo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Layout\UC\Preferences\Map\UC_General_map.resx">
       <DependentUpon>UC_General_map.cs</DependentUpon>
     </EmbeddedResource>
@@ -297,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Layout\UC\Preferences\Tracks\UC_Label_basic.resx">
       <DependentUpon>UC_Label_basic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Layout\UC\Preferences\Tracks\UC_Symbol_CAT.resx">
+      <DependentUpon>UC_Symbol_CAT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\VatThe\frm_Target.resx">
       <DependentUpon>frm_Target.cs</DependentUpon>
@@ -407,6 +445,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="GUI\HeThong\Rada\" />
     <Folder Include="GUI\LCD\LCD2\" />
   </ItemGroup>
   <ItemGroup>

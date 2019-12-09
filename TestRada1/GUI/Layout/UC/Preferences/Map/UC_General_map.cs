@@ -43,112 +43,114 @@ namespace TestRada1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Parent.Controls.Remove(this);
+            //this.Parent.Controls.Remove(this);
+            
+            this.ParentForm.Close();
         }
 
 
         private void btn_apply_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string isCheckNull = checkNull( );
+            //try
+            //{
+            //    string isCheckNull = checkNull( );
                 
 
-                if (_bd.isCheckBanDo())
-                {
-                    var banDo = _bd.getBanDo( );
-                    var raDa = _rd.getRaDa( );
-                    var id_banDo = long.Parse(banDo.GetType( ).GetProperty("bando_id").GetValue(banDo, null).ToString( ));
-                    var id_raDa = long.Parse(raDa.GetType( ).GetProperty("rada_id").GetValue(raDa, null).ToString( ));
-                    // cap nhat
-                    if ( isCheckNull == "true" )
-                    {
-                        ST_BanDo bd = new ST_BanDo( );
-                        bd.bando_x = float.Parse(txt_x.Text.ToString( ));
-                        bd.bando_y = float.Parse(txt_y.Text.ToString( ));
+            //    if (_bd.isCheckBanDo())
+            //    {
+            //        var banDo = _bd.getBanDo( );
+            //        var raDa = _rd.getRaDa( );
+            //        var id_banDo = long.Parse(banDo.GetType( ).GetProperty("bando_id").GetValue(banDo, null).ToString( ));
+            //        var id_raDa = long.Parse(raDa.GetType( ).GetProperty("rada_id").GetValue(raDa, null).ToString( ));
+            //        // cap nhat
+            //        if ( isCheckNull == "true" )
+            //        {
+            //            ST_BanDo bd = new ST_BanDo( );
+            //            bd.bando_x = float.Parse(txt_x.Text.ToString( ));
+            //            bd.bando_y = float.Parse(txt_y.Text.ToString( ));
 
-                        Image img = pic_Logo.Image;
-                        byte[] arr;
-                        ImageConverter converter = new ImageConverter( );
-                        arr = (byte[]) converter.ConvertTo(img, typeof(byte[]));
+            //            Image img = pic_Logo.Image;
+            //            byte[] arr;
+            //            ImageConverter converter = new ImageConverter( );
+            //            arr = (byte[]) converter.ConvertTo(img, typeof(byte[]));
 
-                        bd.bando_image = arr;
+            //            bd.bando_image = arr;
 
-                        bd.bando_id = id_banDo;
+            //            bd.bando_id = id_banDo;
 
-                        bool isUpdateBanDo = _bd.update(bd);
+            //            bool isUpdateBanDo = _bd.update(bd);
 
 
 
-                        ST_RaDa rd = new ST_RaDa();
-                        rd.rada_x = float.Parse(txt_Ox.Text);
-                        rd.rada_y = float.Parse(txt_Oy.Text);
-                        rd.rada_id = id_raDa;
+            //            ST_RaDa rd = new ST_RaDa();
+            //            rd.rada_x = float.Parse(txt_Ox.Text);
+            //            rd.rada_y = float.Parse(txt_Oy.Text);
+            //            rd.rada_id = id_raDa;
 
-                        bool isUpdateRada = _rd.update(rd);
+            //            bool isUpdateRada = _rd.update(rd);
 
-                        if ( isUpdateBanDo && isUpdateRada )
-                        {
-                            Messeage.capNhatThanhCong( );
-                        }
-                        else
-                        {
-                            Messeage.khongTheCapNhat( );
-                        }
-                    }
-                    else
-                    {
-                        Messeage.error(isCheckNull);
-                    }
-                }
-                else
-                {
-                    // them moi
-                    if ( isCheckNull == "true" )
-                    {
-                        // them moi ban do
-                        ST_BanDo bd = new ST_BanDo( );
-                        bd.bando_x = float.Parse(txt_x.Text.ToString( ));
-                        bd.bando_y = float.Parse(txt_y.Text.ToString( ));
+            //            if ( isUpdateBanDo && isUpdateRada )
+            //            {
+            //                Messeage.capNhatThanhCong( );
+            //            }
+            //            else
+            //            {
+            //                Messeage.khongTheCapNhat( );
+            //            }
+            //        }
+            //        else
+            //        {
+            //            Messeage.error(isCheckNull);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        // them moi
+            //        if ( isCheckNull == "true" )
+            //        {
+            //            // them moi ban do
+            //            ST_BanDo bd = new ST_BanDo( );
+            //            bd.bando_x = float.Parse(txt_x.Text.ToString( ));
+            //            bd.bando_y = float.Parse(txt_y.Text.ToString( ));
                         
-                        Image img = pic_Logo.Image;
-                        byte[] arr;
-                        ImageConverter converter = new ImageConverter( );
-                        arr = (byte[]) converter.ConvertTo(img, typeof(byte[]));
-                        bd.bando_image = arr;
+            //            Image img = pic_Logo.Image;
+            //            byte[] arr;
+            //            ImageConverter converter = new ImageConverter( );
+            //            arr = (byte[]) converter.ConvertTo(img, typeof(byte[]));
+            //            bd.bando_image = arr;
 
 
-                        bool isInsertBanDo = _bd.insert(bd);
+            //            bool isInsertBanDo = _bd.insert(bd);
 
-                        // them moi rada
-                        ST_RaDa rd = new ST_RaDa();
-                        rd.rada_x = float.Parse(txt_Ox.Text);
-                        rd.rada_y = float.Parse(txt_Oy.Text);
-
-
-                        bool insertRada = _rd.insert(rd);
+            //            // them moi rada
+            //            ST_RaDa rd = new ST_RaDa();
+            //            rd.rada_x = float.Parse(txt_Ox.Text);
+            //            rd.rada_y = float.Parse(txt_Oy.Text);
 
 
-                        if ( isInsertBanDo && insertRada )
-                        {
-                            Messeage.themMoiThanhCong( );
-                        }
-                        else
-                        {
-                            Messeage.khongTheThemMoi( );
-                        }
-                    }
-                    else
-                    {
-                        Messeage.error(isCheckNull);
-                    }
-                }
+            //            bool insertRada = _rd.insert(rd);
+
+
+            //            if ( isInsertBanDo && insertRada )
+            //            {
+            //                Messeage.themMoiThanhCong( );
+            //            }
+            //            else
+            //            {
+            //                Messeage.khongTheThemMoi( );
+            //            }
+            //        }
+            //        else
+            //        {
+            //            Messeage.error(isCheckNull);
+            //        }
+            //    }
                 
-            }
-            catch(Exception)
-            {
-                Messeage.khongTheCapNhat();
-            }
+            //}
+            //catch(Exception)
+            //{
+            //    Messeage.khongTheCapNhat();
+            //}
             
         }
 
@@ -268,5 +270,7 @@ namespace TestRada1
         {
             return pb == null || pb.Image == null;
         }
+
+     
     }
 }

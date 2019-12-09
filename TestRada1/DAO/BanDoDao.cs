@@ -10,17 +10,17 @@ namespace TestRada1.DAO
     {
         DataClasses1DataContext db = new DataClasses1DataContext( );
 
-        public bool insert(DTO.ST_BanDo bd)
+        public Int64 insert(DTO.ST_BanDo bd)
         {
             try
             {
                 db.ST_BanDos.InsertOnSubmit(bd);
                 db.SubmitChanges( );
-                return true;
+                return bd.bando_id;
             }
             catch ( Exception )
             {
-                return false;
+                return 0;
             }
         }
 
@@ -73,6 +73,64 @@ namespace TestRada1.DAO
             catch(Exception)
             {
                 return null;
+            }
+        }
+
+        public IEnumerable<object> getAll( )
+        {
+            var dlg = new DevExpress.Utils.WaitDialogForm("Đang tải dữ liệu ...", "Thông báo");
+            try
+            {
+                db.Dispose( );
+                db = new DTO.DataClasses1DataContext( );
+                db.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues);
+
+                var datasource = from t1 in db.ST_BanDos
+                                 select t1;
+                return datasource;
+            }
+            catch ( Exception )
+            {
+                return null;
+            }
+            finally
+            {
+                dlg.Close( );
+            }
+        }
+
+        public object getDetail(Int64 id)
+        {
+            try
+            {
+                db.Dispose( );
+                db = new DTO.DataClasses1DataContext( );
+                db.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues);
+
+                var unit = (from t1 in db.ST_BanDos
+                            where t1.bando_id == id
+                            select t1).First( );
+                return unit;
+            }
+            catch ( Exception )
+            {
+                return null;
+            }
+        }
+
+        public bool delete(Int64 Id)
+        {
+            try
+            {
+                var delete = db.ST_BanDos.Where(p => p.bando_id.Equals(Id)).SingleOrDefault( );
+
+                db.ST_BanDos.DeleteOnSubmit(delete);
+                db.SubmitChanges( );
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
     }
